@@ -1,0 +1,30 @@
+//
+//  UIButton+p.h
+//  PandoraBox
+//
+//  Created by gwh on 2022/1/7.
+//
+
+#import <UIKit/UIKit.h>
+#import "b.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIButton (b)
+
+@property (nonatomic, retain) NSString *b_normalTitle;
+@property (nonatomic, retain) UIColor *b_normalColor;
+@property (nonatomic, retain) UIFont *b_font;
+
++ (UIButton *)b_UIButton;
++ (UIButton *)b_blackBorderUIButton;
++ (UIButton *)b_borderUIButton;
++ (UIButton *)b_borderRadiusUIButton;
++ (UIButton *)b_roundSingelUIButton;
+
+- (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block;
+- (void)addTappedButtonOnceDelay:(float)time withBlock:(void (^)(UIButton *button))block;
+
+@end
+
+NS_ASSUME_NONNULL_END
