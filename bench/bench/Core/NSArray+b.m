@@ -9,8 +9,7 @@
 
 @implementation NSArray (b)
 
-- (NSString *)descriptionWithLocale:(id)locale
-{
+- (NSString *)descriptionWithLocale:(id)locale {
     // 遍历数组中的全部内容，将内容拼接成一个新的字符串返回
     NSMutableString *strM = [NSMutableString string];
  
@@ -27,8 +26,8 @@
     return strM;
 }
  
-- (NSArray *)sortedLocal{
-    NSArray* sortedArray = [self sortedArrayUsingComparator:^(id a, id b)
+- (NSArray *)b_sortedLocal {
+    NSArray *sortedArray = [self sortedArrayUsingComparator:^(id a, id b)
                             {
                                 NSString* s1 = (NSString*)a;
                                 NSString* s2 = (NSString*)b;
@@ -38,5 +37,13 @@
     return sortedArray;
 }
  
+- (NSMutableArray *)b_addObject:(id)obj {
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:self];
+    if (!obj) {
+        return arr;
+    }
+    [arr addObject:obj];
+    return arr;
+}
 
 @end

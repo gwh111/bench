@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (b)
 
-- (NSArray *)sortedLocal;
+- (NSArray *)b_sortedLocal;
+- (NSMutableArray *)b_addObject:(id)obj;
 
 @end
 
