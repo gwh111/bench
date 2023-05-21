@@ -6,6 +6,7 @@
 //
 
 #import "NSAttributedString+b.h"
+#import "b.h"
 
 @implementation NSAttributedString (b)
 

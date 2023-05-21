@@ -7,6 +7,7 @@
 //
 
 #import "bStrokeLabel.h"
+#import "b.h"
 
 @implementation bStrokeLabel
 

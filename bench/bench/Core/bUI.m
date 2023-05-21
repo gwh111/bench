@@ -177,6 +177,10 @@ static dispatch_once_t onceToken;
     return NO;
 }
 
+- (void)showNormalAltWithMsg:(NSString *)msg block:(void (^)(int index, NSString *name))block {
+    [self showAltOn:b.ui.currentUIViewController title:@"提示" msg:msg bts:@[@"确定"] block:block];
+}
+
 - (void)showAltOn:(UIViewController *)controller title:(NSString *)title msg:(NSString *)msg bts:(NSArray *)bts block:(void (^)(int index, NSString *name))block {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
     for (int i = 0; i < bts.count; i++) {
@@ -332,6 +336,7 @@ static dispatch_once_t onceToken;
 }
 
 - (void)showLoading:(NSString *)noticeStr atView:(UIView *)view cannotRemove:(BOOL)cannotRemove {
+//    [self stopLoading];
     if (noticeStr.length <= 0) {
         noticeStr = @"加载中";
     }
@@ -376,6 +381,9 @@ static dispatch_once_t onceToken;
 }
 
 - (void)updateLoading {
+    if (!_loadingLabel) {
+        return;
+    }
     if (_loadingLabel.alpha == 0) {
         return;
     }
@@ -394,6 +402,7 @@ static dispatch_once_t onceToken;
 - (void)stopLoading {
     _loadingLabel.alpha = 0;
     [_loadingView removeFromSuperview];
+    _loadingLabel = nil;
 }
 
 @end

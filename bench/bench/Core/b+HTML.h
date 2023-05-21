@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)replaceUnicode:(NSString *)unicodeStr;
 
 + (NSString *)html:(NSString *)html findLabelStart:(NSString *)start end:(NSString *)end except:(nullable NSArray *)excepts removeStartEnd:(BOOL)remove;
++ (NSArray *)html:(NSString *)html findLabelsStart:(NSString *)start end:(NSString *)end except:(nullable NSArray *)excepts removeStartEnd:(BOOL)remove;
+
 + (NSString *)replaceHtmlLabel:(NSString *)htmlStr labelName:(NSString *)labelName toLabelName:(NSString *)toLabelName trimSpace:(BOOL)trimSpace;
 
 @end

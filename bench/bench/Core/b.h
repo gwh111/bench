@@ -50,7 +50,7 @@
 #define WO(weakObject) __weak typeof(weakObject) weakObject##Weak = weakObject;
 #define SO(strongObject) __strong typeof(strongObject) strongObject##Weak = strongObject;
 
-#define LANGUAGE(ch,eng) [bBase.shared textChinese:ch andEnglish:eng]
+
 
 //#import "bench-Swift.h"
 

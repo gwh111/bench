@@ -60,6 +60,46 @@
     return pStr;
 }
 
++ (NSArray *)html:(NSString *)html findLabelsStart:(NSString *)start end:(NSString *)end except:(nullable NSArray *)excepts removeStartEnd:(BOOL)remove {
+    NSScanner *scanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    NSMutableArray *list = NSMutableArray.new;
+    NSString *pStr = @"";
+    while([scanner isAtEnd] == NO) {
+        [scanner scanUpToString:start intoString:nil];
+        [scanner scanUpToString:end intoString:&text];
+        
+        if (text.length > 0) {
+            int can = 1;
+            for (int i = 0; i < excepts.count; i++) {
+                NSString *key = excepts[i];
+                if ([text containsString:key]) {
+                    can = 0;
+                }
+            }
+            if ([pStr containsString:text]) {
+                can = NO;
+            }
+            if (can) {
+                pStr = [NSString stringWithFormat:@"%@%@%@",pStr,text,end];
+                
+                if (remove) {
+                    pStr = [pStr stringByReplacingOccurrencesOfString:start withString:@""];
+                    pStr = [pStr stringByReplacingOccurrencesOfString:end withString:@""];
+                }
+                
+                [list addObject:pStr];
+                pStr = @"";
+            }
+        }
+    }
+    if (list.count > 1) {
+        [list removeLastObject];
+    }
+    return list;
+}
+
 + (NSString *)replaceHtmlLabel:(NSString *)htmlStr labelName:(NSString *)labelName toLabelName:(NSString *)toLabelName trimSpace:(BOOL)trimSpace {
     NSScanner *theScanner = [NSScanner scannerWithString:htmlStr];
     NSString *text = nil;
