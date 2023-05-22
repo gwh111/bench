@@ -1,0 +1,12 @@
+#import <Foundation/Foundation.h>
+#import "LIB_NAME_Service.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MODULE_NAME_ : LIB_NAME_Service
+
+- (NSString *)module;
+
+@end
+
+NS_ASSUME_NONNULL_END

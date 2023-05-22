@@ -1,0 +1,10 @@
+#import <Foundation/Foundation.h>
+#import "ccs.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface LIB_NAME_Service : CC_Service
+
+@end
+
+NS_ASSUME_NONNULL_END

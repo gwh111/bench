@@ -1,0 +1,22 @@
+#import "LIB_NAME_.h"
+
+@implementation LIB_NAME_
+
++ (instancetype)shared {
+    return [ccs registerSharedInstance:self block:^{
+
+        [LIB_NAME_.shared start];
+    }];
+}
+
+- (void)start {
+
+    LIB_START_
+}
+
+- (void)configureMainURLs:(NSArray *)urls {
+
+    LIB_CONFIG_
+}
+
+@end

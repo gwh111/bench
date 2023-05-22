@@ -1,0 +1,37 @@
+#import "MODULE_NAME_+INTERFACE_REPLACE_NAME_.h"
+
+@implementation MODULE_NAME_ (INTERFACE_REPLACE_NAME_)
+
+/**
+* INTERFACE_COMMENT_INTERFACE_COMMENTS_
+*/
+- (void)INTERFACE_PARAMETERS_ success:(void(^)(HttpModel *result))successBlock fail:(void(^)(NSString *errorMsg, HttpModel *result))failBlock {
+    
+    [ccs maskStart];
+    
+    NSString *service = [ccs string:@"%@/%@", self.module, @"INTERFACE_NAME_"];
+    
+    HttpModel *model = ccs.httpModel;
+    model.mockExterfaceVersion = @"INTERFACE_VERSION_";
+    model.mockSourceVersion = self.sourceVersion;
+    model.mockAppCode = self.appCode;
+    model.mockRequestPath = service;
+    
+    NSMutableDictionary *parameters = ccs.mutDictionary;
+    [parameters cc_setKey:@"service" value:service];
+    PARAMETER_SET_
+    model.requestParams = parameters;
+    
+    [ccs.httpTask post:self.mainURL params:parameters model:model finishBlock:^(NSString *error, HttpModel *result) {
+        
+        [ccs maskStop];
+        if (error) {
+            failBlock(error, result);
+            return;
+        }
+        successBlock(result);
+    }];
+    
+}
+
+@end

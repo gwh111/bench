@@ -1,0 +1,14 @@
+#import <Foundation/Foundation.h>
+#import "LIB_NAME_.h"
+LIB_IMPORT_
+NS_ASSUME_NONNULL_BEGIN
+
+@interface LIB_NAME_ : NSObject
+
+LIB_PROPERTY_
++ (instancetype)shared;
+- (void)configureMainURLs:(NSArray *)urls;
+
+@end
+
+NS_ASSUME_NONNULL_END

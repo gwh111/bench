@@ -1,0 +1,25 @@
+[
+    {
+        "id": "",
+        "name": "AccountLib",
+        "description": "Featured",
+        "path": "lib/AccountLib",
+        "source": "https://apple@huored.gicp.net:8088/svn/bench_ios/trunk/",
+        "code": "svn mkdir https://apple@huored.gicp.net:8088/svn/bench_ios/trunk/lib/LoginLib/tags -m 'Making a new dir.'",
+        "versions": [
+            "1.1",
+            "1.0",
+        ],
+    },
+    {
+        "id": "",
+        "name": "BuryPointLib",
+        "description": "Featured",
+        "path": "lib/BuryPointLib",
+        "source": "https://apple@huored.gicp.net:8088/svn/bench_ios/trunk/",
+        "code": "svn rm https://apple@huored.gicp.net:8088/svn/bench_ios/trunk/lib/LoginLib/tags -m 'remove tags'",
+        "versions": [
+            "1.0",
+        ],
+    },
+]

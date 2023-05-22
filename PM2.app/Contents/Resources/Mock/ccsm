@@ -1,0 +1,9 @@
+#import "ccs+LIB_NAME_.h"
+
+@implementation ccs (LIB_NAME_)
+
++ (LIB_NAME_ *)LIB_sNAME_ {
+    return LIB_NAME_.shared;
+}
+
+@end

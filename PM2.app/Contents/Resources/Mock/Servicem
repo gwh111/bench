@@ -1,0 +1,10 @@
+#import "LIB_NAME_Service.h"
+
+@implementation LIB_NAME_Service
+
+- (void)start {
+    self.appCode = @"APP_CODE_";
+    self.sourceVersion = @"SOURCE_VERSION_";
+}
+
+@end

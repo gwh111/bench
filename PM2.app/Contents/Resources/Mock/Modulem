@@ -1,0 +1,13 @@
+#import "MODULE_NAME_.h"
+
+@interface MODULE_NAME_ ()
+
+@end
+
+@implementation MODULE_NAME_
+
+- (NSString *)module {
+    return @"MODULE_sNAME_";
+}
+
+@end

@@ -1,0 +1,12 @@
+#import "ccs.h"
+#import "LIB_NAME_.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface ccs (LIB_NAME_)
+
++ (LIB_NAME_ *)LIB_sNAME_;
+
+@end
+
+NS_ASSUME_NONNULL_END

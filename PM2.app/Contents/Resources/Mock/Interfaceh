@@ -1,0 +1,14 @@
+#import "MODULE_NAME_.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MODULE_NAME_ (INTERFACE_NAME_)
+
+/**
+* INTERFACE_COMMENT_INTERFACE_COMMENTS_
+*/
+- (void)INTERFACE_PARAMETERS_ success:(void(^)(HttpModel *result))successBlock fail:(void(^)(NSString *errorMsg, HttpModel *result))failBlock;
+
+@end
+
+NS_ASSUME_NONNULL_END
