@@ -53,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (float)width;
 - (float)height;
 - (float)safeHeight;
+
+- (float)safeTop;
 - (float)safeBottom;
 - (CGSize)screenSize;
 

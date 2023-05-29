@@ -23,14 +23,14 @@ static dispatch_once_t onceToken;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 + (void)load {
     bUI.shared.uiDemoWidth = 375;
@@ -126,14 +126,14 @@ static dispatch_once_t onceToken;
     return [self height] - [self safeBottom] - [self safeBottom];
 }
 
+- (float)safeTop {
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
+    return v;
+}
+
 - (float)safeBottom {
-    BOOL isPhoneX = NO;
-    if (@available(iOS 11.0, *)) {
-        isPhoneX = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom > 0.0;
-    } else {
-        // Fallback on earlier versions
-    }
-    return isPhoneX ? 34 : 20;
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
+    return v;
 }
 
 - (CGSize)screenSize {
