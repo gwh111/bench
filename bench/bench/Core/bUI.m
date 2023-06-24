@@ -123,7 +123,7 @@ static dispatch_once_t onceToken;
 }
 
 - (float)safeHeight {
-    return [self height] - [self safeBottom] - [self safeBottom];
+    return [self height] - [self safeTop] - [self safeBottom];
 }
 
 - (float)safeTop {

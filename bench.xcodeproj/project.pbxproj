@@ -10,6 +10,7 @@
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
+		D82B15152A32299100183B43 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = D82B15142A32299100183B43 /* readme.md */; };
 		D833224129A60309001B04BE /* MergeSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D833224029A60309001B04BE /* MergeSort.cpp */; };
 		D833225129AD8C6E001B04BE /* b+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = D833225029AD8C6E001B04BE /* b+Check.m */; };
 		D837339B28BAFB64002BAA73 /* bMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D837339728BAFB64002BAA73 /* bMD5.m */; };
@@ -105,6 +106,7 @@
 		D829E80927B35EC900D7C968 /* NSDate+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+b.h"; sourceTree = "<group>"; };
 		D829E80A27B35EC900D7C968 /* UIColor+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+b.h"; sourceTree = "<group>"; };
 		D829E80B27B35EC900D7C968 /* UIColor+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+b.m"; sourceTree = "<group>"; };
+		D82B15142A32299100183B43 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		D833224029A60309001B04BE /* MergeSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSort.cpp; sourceTree = "<group>"; };
 		D833224F29AD8C6E001B04BE /* b+Check.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+Check.h"; sourceTree = "<group>"; };
 		D833225029AD8C6E001B04BE /* b+Check.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Check.m"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		D890E1C427891CDB00079C0C = {
 			isa = PBXGroup;
 			children = (
+				D82B15142A32299100183B43 /* readme.md */,
 				D890E1CF27891CDB00079C0C /* bench */,
 				D890E1E627891CDD00079C0C /* benchTests */,
 				D890E1F127891CDD00079C0C /* benchUITests */,
@@ -536,6 +539,7 @@
 				D890E1DD27891CDC00079C0C /* LaunchScreen.storyboard in Resources */,
 				D890E24E2789207100079C0C /* bench.podspec in Resources */,
 				D890E1DA27891CDC00079C0C /* Assets.xcassets in Resources */,
+				D82B15152A32299100183B43 /* readme.md in Resources */,
 				D890E1D827891CDB00079C0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
