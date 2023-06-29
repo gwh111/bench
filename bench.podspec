@@ -15,6 +15,10 @@ Pod::Spec.new do |spec|
   spec.source_files       = 'bench/bench/*'
   spec.resources          = 'bench/bench/bench.bundle'
   
+  spec.subspec 'B' do |ss|
+    ss.source_files = 'bench/bench/B/**/*'
+  end
+  
   spec.subspec 'Core' do |ss|
     ss.source_files = 'bench/bench/Core/**/*'
   end

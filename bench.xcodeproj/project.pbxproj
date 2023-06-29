@@ -11,6 +11,7 @@
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
 		D82B15152A32299100183B43 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = D82B15142A32299100183B43 /* readme.md */; };
+		D82B15232A4726A900183B43 /* b+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = D82B15222A4726A900183B43 /* b+UI.m */; };
 		D833224129A60309001B04BE /* MergeSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D833224029A60309001B04BE /* MergeSort.cpp */; };
 		D833225129AD8C6E001B04BE /* b+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = D833225029AD8C6E001B04BE /* b+Check.m */; };
 		D837339B28BAFB64002BAA73 /* bMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D837339728BAFB64002BAA73 /* bMD5.m */; };
@@ -107,6 +108,8 @@
 		D829E80A27B35EC900D7C968 /* UIColor+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+b.h"; sourceTree = "<group>"; };
 		D829E80B27B35EC900D7C968 /* UIColor+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+b.m"; sourceTree = "<group>"; };
 		D82B15142A32299100183B43 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		D82B15212A4726A900183B43 /* b+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+UI.h"; sourceTree = "<group>"; };
+		D82B15222A4726A900183B43 /* b+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+UI.m"; sourceTree = "<group>"; };
 		D833224029A60309001B04BE /* MergeSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSort.cpp; sourceTree = "<group>"; };
 		D833224F29AD8C6E001B04BE /* b+Check.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+Check.h"; sourceTree = "<group>"; };
 		D833225029AD8C6E001B04BE /* b+Check.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Check.m"; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 		D890E21527891D4D00079C0C /* UIView+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+b.m"; sourceTree = "<group>"; };
 		D890E21627891D4D00079C0C /* bBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bBase.m; sourceTree = "<group>"; };
 		D890E22827891DD600079C0C /* b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = b.h; sourceTree = "<group>"; };
-		D890E24D2789207100079C0C /* bench.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = bench.podspec; sourceTree = SOURCE_ROOT; };
+		D890E24D2789207100079C0C /* bench.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = bench.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D89D7D182986113900B51026 /* testStr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testStr.cpp; sourceTree = "<group>"; };
 		D89D7D1A29862ADF00B51026 /* testSwap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSwap.cpp; sourceTree = "<group>"; };
 		D89D7D1C29865E8F00B51026 /* testFib.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testFib.cpp; sourceTree = "<group>"; };
@@ -248,6 +251,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D82B15202A47268100183B43 /* B */ = {
+			isa = PBXGroup;
+			children = (
+				D8F0B69A29383D1C00461D3C /* bench.h */,
+				D890E22827891DD600079C0C /* b.h */,
+				D8780B5B27892C9F007B11C2 /* b.m */,
+				D8F0B69529383C1200461D3C /* b+HTML.h */,
+				D8F0B69429383C1200461D3C /* b+HTML.m */,
+				D8F2C4BD2961B82A00D14C17 /* b+Make.h */,
+				D8F2C4BE2961B82A00D14C17 /* b+Make.m */,
+				D833224F29AD8C6E001B04BE /* b+Check.h */,
+				D833225029AD8C6E001B04BE /* b+Check.m */,
+				D85CCC2729EBC0B500769FFA /* b+Sandbox.h */,
+				D85CCC2829EBC0B500769FFA /* b+Sandbox.m */,
+				D82B15212A4726A900183B43 /* b+UI.h */,
+				D82B15222A4726A900183B43 /* b+UI.m */,
+			);
+			path = B;
+			sourceTree = "<group>";
+		};
 		D890E1C427891CDB00079C0C = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +363,7 @@
 		D890E20327891CF500079C0C /* bench */ = {
 			isa = PBXGroup;
 			children = (
+				D82B15202A47268100183B43 /* B */,
 				D890E20427891D0A00079C0C /* Core */,
 				D890E20527891D0E00079C0C /* Plug */,
 			);
@@ -350,9 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				D890E20627891D2B00079C0C /* bench-Bridging-Header.h */,
-				D8F0B69A29383D1C00461D3C /* bench.h */,
-				D890E22827891DD600079C0C /* b.h */,
-				D8780B5B27892C9F007B11C2 /* b.m */,
 				D8AE040128D2AE0B000CFC35 /* bVideo.h */,
 				D8AE040028D2AE0B000CFC35 /* bVideo.m */,
 				D83733A028BC741B002BAA73 /* bAnimationPlay.h */,
@@ -407,14 +428,6 @@
 				D88B3D782864214F0078E8B3 /* bThread.m */,
 				D83733A228BD99A1002BAA73 /* bSort.h */,
 				D83733A328BD99A1002BAA73 /* bSort.m */,
-				D8F0B69529383C1200461D3C /* b+HTML.h */,
-				D8F0B69429383C1200461D3C /* b+HTML.m */,
-				D8F2C4BD2961B82A00D14C17 /* b+Make.h */,
-				D8F2C4BE2961B82A00D14C17 /* b+Make.m */,
-				D833224F29AD8C6E001B04BE /* b+Check.h */,
-				D833225029AD8C6E001B04BE /* b+Check.m */,
-				D85CCC2729EBC0B500769FFA /* b+Sandbox.h */,
-				D85CCC2829EBC0B500769FFA /* b+Sandbox.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -578,6 +591,7 @@
 				D8A37E44288E3EFA00E0C895 /* bMusicBox.m in Sources */,
 				D83733A128BC741B002BAA73 /* bAnimationPlay.m in Sources */,
 				D88B3D76286420D40078E8B3 /* bHttpTask.m in Sources */,
+				D82B15232A4726A900183B43 /* b+UI.m in Sources */,
 				D89F9EA229F6B70E009644A6 /* test.mm in Sources */,
 				D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */,
 				D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */,
