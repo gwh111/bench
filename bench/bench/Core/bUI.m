@@ -100,6 +100,9 @@ static dispatch_once_t onceToken;
 - (float)width {
     float h = [UIScreen mainScreen].bounds.size.height;
     float w = [UIScreen mainScreen].bounds.size.width;
+    if (_fixWidthAndHeight) {
+        return w;
+    }
     if (h > w) {
         return w;
     }
@@ -111,6 +114,9 @@ static dispatch_once_t onceToken;
         return self.width*_heightRate;
     }
     float h = [UIScreen mainScreen].bounds.size.height;
+    if (_fixWidthAndHeight) {
+        return h;
+    }
     float w = [UIScreen mainScreen].bounds.size.width;
     if (h < w) {
         return w;
@@ -122,17 +128,37 @@ static dispatch_once_t onceToken;
     _heightRate = rate;
 }
 
-- (float)safeHeight {
-    return [self height] - [self safeTop] - [self safeBottom];
+- (float)safeLeft {
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.left;
+    return v;
+}
+
+- (float)safeRight {
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.right;
+    return v;
 }
 
 - (float)safeTop {
     float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
+    float v3 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
+    if (v3 > v) {
+        return v3;
+    }
     return v;
 }
 
 - (float)safeBottom {
     float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
+    return v;
+}
+
+- (float)safeWidth {
+    float v = self.width-self.safeLeft-self.safeRight;
+    return v;
+}
+
+- (float)safeHeight {
+    float v = self.height-self.safeTop-self.safeBottom;
     return v;
 }
 

@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,retain) UILabel *loadingLabel;
 
 @property (nonatomic, assign) float heightRate;
+@property (nonatomic, assign) bool fixWidthAndHeight;
 
 + (instancetype)shared;
 
@@ -56,6 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (float)safeTop;
 - (float)safeBottom;
+- (float)safeLeft;
+- (float)safeRight;
+- (float)safeWidth;
+- (float)safeHeight;
+
 - (CGSize)screenSize;
 
 - (UIWindow *)getLastWindow;

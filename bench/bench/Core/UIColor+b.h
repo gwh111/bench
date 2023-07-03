@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define HEX(COLOR) HEXA(COLOR,1.0)
 #define RGBA(r,g,b,a) [UIColor b_rgb:r green:g blue:b alpha:a]
 #define RGB(r,g,b) [UIColor b_rgb:r green:g blue:b alpha:1]
+#define BLACKA(a) [UIColor b_rgb:0 green:0 blue:0 alpha:a]
+#define WHITEA(a) [UIColor b_rgb:255 green:255 blue:255 alpha:a]
 
 @interface UIColor (b)
 

@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property CGFloat centerY;
 
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block;
-- (void)addTappedOnceWithBlock:(void (^)(UIView *))block;
+- (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
 

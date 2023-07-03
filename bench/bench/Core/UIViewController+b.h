@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (b)
 
+@property (nonatomic, retain) UIScrollView *displayView;
+
 - (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc;
 
 - (void)pushViewController:(id)vc animated:(BOOL)animated;
@@ -19,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)presentViewController:(id)vc;
 - (void)dismissViewController;
+
+- (void)adjustDisplayView:(UIScrollView *)displayView;
+- (void)adjustDisplayView;
 
 @end
 

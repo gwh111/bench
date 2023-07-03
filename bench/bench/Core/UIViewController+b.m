@@ -8,8 +8,75 @@
 #import "UIViewController+b.h"
 #import "b.h"
 #import "bUI.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (b)
+
+// MARK: - Associated -
+- (UIScrollView *)displayView {
+    UIScrollView *displayView = objc_getAssociatedObject(self, @selector(displayView));
+    if (displayView.height <= 0) {
+        [self setupDisplayView];
+        displayView = objc_getAssociatedObject(self, @selector(displayView));
+    }
+    return displayView;
+}
+
+- (void)setDisplayView:(UIScrollView *)displayView {
+    objc_setAssociatedObject(self, @selector(displayView), displayView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setupDisplayView {
+    UIScrollView *displayView = UIScrollView.new;
+    displayView.size = CGSizeMake(WIDTH(), b.ui.safeHeight);
+    displayView.top = b.ui.safeTop;
+    displayView.left = b.ui.safeLeft;
+    [self.view addSubview:displayView];
+    self.displayView = displayView;
+}
+
+- (void)adjustDisplayView:(UIScrollView *)displayView {
+    NSArray *subs = displayView.subviews;
+    float maxh = displayView.height;
+    float maxw = displayView.width;
+    for (int i = 0; i < subs.count; i++) {
+        UIView *view = subs[i];
+        if (view.bottom > maxh) {
+            maxh = view.bottom;
+        }
+        if (view.right > maxw) {
+            maxw = view.right;
+        }
+    }
+    if (maxh > displayView.height) {
+        displayView.contentSize = CGSizeMake(displayView.width, maxh);
+    }
+    if (maxw > displayView.width) {
+        displayView.contentSize = CGSizeMake(maxw, displayView.height);
+    }
+}
+
+- (void)adjustDisplayView {
+    UIScrollView *displayView = self.displayView;
+    NSArray *subs = displayView.subviews;
+    float maxh = displayView.height;
+    float maxw = displayView.width;
+    for (int i = 0; i < subs.count; i++) {
+        UIView *view = subs[i];
+        if (view.bottom > maxh) {
+            maxh = view.bottom;
+        }
+        if (view.right > maxw) {
+            maxw = view.right;
+        }
+    }
+    if (maxh > displayView.height) {
+        displayView.contentSize = CGSizeMake(displayView.width, maxh);
+    }
+    if (maxw > displayView.width) {
+        displayView.contentSize = CGSizeMake(maxw, displayView.height);
+    }
+}
 
 - (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc {
     bUI.shared.navArray = NSMutableArray.new;
