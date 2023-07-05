@@ -14,6 +14,8 @@
 #import "bUI.h"
 
 #import "UIView+b.h"
+#import "UIImage+b.h"
+#import "UIImageView+b.h"
 #import "UIButton+b.h"
 #import "NSAttributedString+b.h"
 #import "NSDictionary+b.h"
