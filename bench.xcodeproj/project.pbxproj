@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1823DC5B2A5540A100845A82 /* UIImage+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC5A2A5540A100845A82 /* UIImage+b.m */; };
+		1823DC5E2A5540EB00845A82 /* UIImageView+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC5D2A5540EB00845A82 /* UIImageView+b.m */; };
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
@@ -101,6 +103,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1823DC592A5540A100845A82 /* UIImage+b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+b.h"; sourceTree = "<group>"; };
+		1823DC5A2A5540A100845A82 /* UIImage+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+b.m"; sourceTree = "<group>"; };
+		1823DC5C2A5540EB00845A82 /* UIImageView+b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+b.h"; sourceTree = "<group>"; };
+		1823DC5D2A5540EB00845A82 /* UIImageView+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+b.m"; sourceTree = "<group>"; };
 		D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLCSKMP.cpp; sourceTree = "<group>"; };
 		D81C6A47299471BF009F5977 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		D829E80827B35EC900D7C968 /* NSDate+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+b.m"; sourceTree = "<group>"; };
@@ -396,6 +402,10 @@
 				D8C3F484295AA78200E3F2FF /* InfoView.m */,
 				D890E21127891D4D00079C0C /* UIView+b.h */,
 				D890E21527891D4D00079C0C /* UIView+b.m */,
+				1823DC592A5540A100845A82 /* UIImage+b.h */,
+				1823DC5A2A5540A100845A82 /* UIImage+b.m */,
+				1823DC5C2A5540EB00845A82 /* UIImageView+b.h */,
+				1823DC5D2A5540EB00845A82 /* UIImageView+b.m */,
 				D8FEE916278FBB67006E3A22 /* NSAttributedString+b.h */,
 				D8FEE915278FBB67006E3A22 /* NSAttributedString+b.m */,
 				D8FEE914278FBB67006E3A22 /* NSString+b.h */,
@@ -583,6 +593,7 @@
 				D8FE0CF627B5462600A141D5 /* bDatabase.m in Sources */,
 				D88B3D74286420D40078E8B3 /* bHttpModel.m in Sources */,
 				D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */,
+				1823DC5E2A5540EB00845A82 /* UIImageView+b.m in Sources */,
 				D890E21927891D4D00079C0C /* bBase.m in Sources */,
 				D88B3D75286420D40078E8B3 /* bTimer.m in Sources */,
 				D833225129AD8C6E001B04BE /* b+Check.m in Sources */,
@@ -614,6 +625,7 @@
 				D890E21727891D4D00079C0C /* bUI.m in Sources */,
 				D8780B9C27892F90007B11C2 /* UILabel+b.m in Sources */,
 				D8FE0CF727B5462600A141D5 /* bDataBaseStore.m in Sources */,
+				1823DC5B2A5540A100845A82 /* UIImage+b.m in Sources */,
 				D8FEE944278FC77F006E3A22 /* NSDictionary+b.m in Sources */,
 				D8C3F482295AA5AC00E3F2FF /* AskView.m in Sources */,
 				D8AE040228D2AE0B000CFC35 /* bVideo.m in Sources */,

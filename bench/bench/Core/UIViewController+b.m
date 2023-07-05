@@ -52,7 +52,7 @@
         displayView.contentSize = CGSizeMake(displayView.width, maxh);
     }
     if (maxw > displayView.width) {
-        displayView.contentSize = CGSizeMake(maxw, displayView.height);
+        displayView.contentSize = CGSizeMake(maxw, maxh);
     }
 }
 
