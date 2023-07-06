@@ -63,7 +63,6 @@
 //BASE
 + (bBase *)base;
 
-+ (NSString *)appID;
 + (bDataBaseStore *)database;
 
 + (id)getDefault:(NSString *)key;
@@ -83,9 +82,6 @@
 + (bMusicBox *)music;
 + (bThread *)thread;
 + (bSort *)sort;
-
-+ (void)setSharedKey:(NSString *)key object:(id)object;
-+ (id)getSharedKey:(NSString *)key;
 
 //UI
 + (bUI *)ui;

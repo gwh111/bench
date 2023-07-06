@@ -29,7 +29,7 @@ BenchPicecRectMake(int row, int totalRow, int colum, int totalColum)
 @interface UIImageView (b)
 
 - (void)setImage:(UIImage *)image withRect:(CGRect)rect;
-- (void)setImage:(UIImage *)image withBenchPicecRect:(BenchPicecRect)benchPicecRect;
+- (void)setImage:(UIImage *)image withBenchPieceRect:(BenchPicecRect)benchPicecRect;
 
 @end
 

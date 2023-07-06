@@ -15,7 +15,7 @@
     [self setImage:image1];
 }
 
-- (void)setImage:(UIImage *)image withBenchPicecRect:(BenchPicecRect)benchPicecRect {
+- (void)setImage:(UIImage *)image withBenchPieceRect:(BenchPicecRect)benchPicecRect {
     float w = image.size.width;
     float h = image.size.height;
     

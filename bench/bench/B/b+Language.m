@@ -1,0 +1,45 @@
+//
+//  b+Language.m
+//  bench
+//
+//  Created by apple on 2023/7/6.
+//
+
+#import "b+Language.h"
+#import "b+Check.h"
+#import "b+Share.h"
+#import "b+App.h"
+
+@implementation b (Language)
+
++ (NSString *)getText:(NSString *)text key:(NSString *)key {
+    if (b.isChinese) {
+        return text;
+    }
+    NSString *key1 = [NSString stringWithFormat:@"TEXT_%@",key];
+    NSString *path = [b getSharedKey:key1];
+    NSDictionary *data = [b bundlePlistWithPath:path];
+    // eng
+    NSArray *lists = data[text];
+    if (lists.count == 0) {
+        return text;
+    }
+    text = lists.firstObject;
+    // other1
+    
+    // other2
+    
+    // ...
+    return text;
+}
+
++ (void)setDefaultPath:(NSString *)path {
+    NSString *key1 = [NSString stringWithFormat:@"TEXT_%@",b.bundleID];
+    [b addSharedKey:key1 object:path];
+}
+
++ (void)setPath:(NSString *)path key:(NSString *)key {
+    [b addSharedKey:key object:path];
+}
+
+@end

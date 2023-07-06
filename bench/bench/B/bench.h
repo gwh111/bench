@@ -14,6 +14,9 @@
 #import "b+Check.h"
 #import "b+Sandbox.h"
 #import "b+UI.h"
+#import "b+Language.h"
+#import "b+Share.h"
+#import "b+App.h"
 
 #import "AskView.h"
 #import "InfoView.h"

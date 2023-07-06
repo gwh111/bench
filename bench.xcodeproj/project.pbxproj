@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1823DC5B2A5540A100845A82 /* UIImage+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC5A2A5540A100845A82 /* UIImage+b.m */; };
 		1823DC5E2A5540EB00845A82 /* UIImageView+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC5D2A5540EB00845A82 /* UIImageView+b.m */; };
+		1823DC632A56705C00845A82 /* b+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC622A56705C00845A82 /* b+Language.m */; };
+		1823DC662A5696CE00845A82 /* b+Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC652A5696CE00845A82 /* b+Share.m */; };
+		1823DC692A569A9A00845A82 /* b+App.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823DC682A569A9A00845A82 /* b+App.m */; };
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
@@ -107,6 +110,12 @@
 		1823DC5A2A5540A100845A82 /* UIImage+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+b.m"; sourceTree = "<group>"; };
 		1823DC5C2A5540EB00845A82 /* UIImageView+b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+b.h"; sourceTree = "<group>"; };
 		1823DC5D2A5540EB00845A82 /* UIImageView+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+b.m"; sourceTree = "<group>"; };
+		1823DC612A56705C00845A82 /* b+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+Language.h"; sourceTree = "<group>"; };
+		1823DC622A56705C00845A82 /* b+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Language.m"; sourceTree = "<group>"; };
+		1823DC642A5696CE00845A82 /* b+Share.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+Share.h"; sourceTree = "<group>"; };
+		1823DC652A5696CE00845A82 /* b+Share.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Share.m"; sourceTree = "<group>"; };
+		1823DC672A569A9A00845A82 /* b+App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "b+App.h"; sourceTree = "<group>"; };
+		1823DC682A569A9A00845A82 /* b+App.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+App.m"; sourceTree = "<group>"; };
 		D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLCSKMP.cpp; sourceTree = "<group>"; };
 		D81C6A47299471BF009F5977 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		D829E80827B35EC900D7C968 /* NSDate+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+b.m"; sourceTree = "<group>"; };
@@ -273,6 +282,12 @@
 				D85CCC2829EBC0B500769FFA /* b+Sandbox.m */,
 				D82B15212A4726A900183B43 /* b+UI.h */,
 				D82B15222A4726A900183B43 /* b+UI.m */,
+				1823DC612A56705C00845A82 /* b+Language.h */,
+				1823DC622A56705C00845A82 /* b+Language.m */,
+				1823DC642A5696CE00845A82 /* b+Share.h */,
+				1823DC652A5696CE00845A82 /* b+Share.m */,
+				1823DC672A569A9A00845A82 /* b+App.h */,
+				1823DC682A569A9A00845A82 /* b+App.m */,
 			);
 			path = B;
 			sourceTree = "<group>";
@@ -606,7 +621,9 @@
 				D89F9EA229F6B70E009644A6 /* test.mm in Sources */,
 				D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */,
 				D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */,
+				1823DC632A56705C00845A82 /* b+Language.m in Sources */,
 				D85CCC2929EBC0B500769FFA /* b+Sandbox.m in Sources */,
+				1823DC692A569A9A00845A82 /* b+App.m in Sources */,
 				D88B3D792864214F0078E8B3 /* bThread.m in Sources */,
 				D837339C28BAFB64002BAA73 /* bStrokeLabel.m in Sources */,
 				D8FE0CF827B5462600A141D5 /* bDatabaseTool.m in Sources */,
@@ -614,6 +631,7 @@
 				D837339B28BAFB64002BAA73 /* bMD5.m in Sources */,
 				D8FEE958278FCEB4006E3A22 /* UIViewController+b.m in Sources */,
 				D890E1D527891CDB00079C0C /* ViewController.swift in Sources */,
+				1823DC662A5696CE00845A82 /* b+Share.m in Sources */,
 				D890E1D127891CDB00079C0C /* AppDelegate.swift in Sources */,
 				D8FEE919278FBB67006E3A22 /* NSString+b.m in Sources */,
 				D890E1D327891CDB00079C0C /* SceneDelegate.swift in Sources */,

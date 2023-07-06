@@ -39,7 +39,6 @@ Profile time cost.
 - (NSString *)textChinese:(NSString *)ch andEnglish:(NSString *)eng;
 - (NSArray *)textChineseList:(NSArray *)chList andEnglishList:(NSArray *)engList;
 
-+ (NSString *)appID;
 + (NSString *)appName;
 + (id)jsonWithString:(NSString *)jsonString;
 + (NSString *)stringWithJson:(id)object;
@@ -60,8 +59,6 @@ Profile time cost.
 + (id)documentsStringWithPath:(NSString *)name;
 + (NSDictionary *)documentsPlistWithPath:(NSString *)name;
 
-- (void)addSharedKey:(NSString *)key object:(id)object;
-- (id)getSharedKey:(NSString *)key;
 
 @end
 

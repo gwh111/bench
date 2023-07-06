@@ -30,26 +30,6 @@ static dispatch_once_t onceToken;
     return self;
 }
 
-+ (NSDictionary *)appBundle {
-    return [[NSBundle mainBundle] infoDictionary];
-}
-
-+ (NSString *)appName {
-    return [self appBundle][@"CFBundleName"];
-}
-
-+ (NSString *)appID {
-    return [self appBundle][@"CFBundleIdentifier"];
-}
-
-+ (NSString *)appVersion {
-    return [self appBundle][@"CFBundleShortVersionString"];
-}
-
-+ (NSString *)appBundleVersion {
-    return [self appBundle][@"CFBundleVersion"];
-}
-
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                    type:(NSString *)type {
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:type
@@ -308,17 +288,5 @@ static dispatch_once_t onceToken;
 }
 
 
-
-
-- (void)addSharedKey:(NSString *)key object:(id)object {
-    if (!_sharedData) {
-        _sharedData = NSMutableDictionary.new;
-    }
-    [_sharedData b_setObject:object forKey:key];
-}
-
-- (id)getSharedKey:(NSString *)key {
-    return _sharedData[key];
-}
 
 @end

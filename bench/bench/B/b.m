@@ -34,10 +34,6 @@
     return [bBase.shared randomString:number];
 }
 
-+ (NSString *)appID {
-    return bBase.appID;
-}
-
 + (bDataBaseStore *)database {
     return bDataBaseStore.shared;
 }
@@ -76,13 +72,6 @@
 
 + (bSort *)sort {
     return bSort.shared;
-}
-
-+ (void)setSharedKey:(NSString *)key object:(id)object {
-    [bBase.shared addSharedKey:key object:object];
-}
-+ (id)getSharedKey:(NSString *)key {
-    return [bBase.shared getSharedKey:key];
 }
 
 //UI
