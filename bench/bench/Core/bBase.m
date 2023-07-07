@@ -18,6 +18,7 @@ static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         userManager = [[super allocWithZone:NULL]init];
         userManager.data = NSMutableDictionary.new;
+        userManager.sharedData = NSMutableDictionary.new;
     });
     return userManager;
 }

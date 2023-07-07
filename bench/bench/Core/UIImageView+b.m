@@ -6,6 +6,7 @@
 //
 
 #import "UIImageView+b.h"
+#import "b.h"
 
 @implementation UIImageView (b)
 
@@ -32,6 +33,11 @@
     
     float pieceRow = w /totalRow;
     float pieceColum = h /totalColum;
+    
+    CGPoint center = self.center;
+    float height = self.frame.size.width * pieceColum/pieceRow;
+    self.height = height;
+    self.center = center;
     
     CGRect rect = CGRectMake(pieceRow * row, pieceColum * colum, pieceRow, pieceColum);
     [self setImage:image withRect:rect];
