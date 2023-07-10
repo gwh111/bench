@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getKeychainObjectId;
 
 - (NSDate *)b_convertToDate;
+- (BOOL)containEmoji;
 
 @end
 

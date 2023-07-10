@@ -10,7 +10,6 @@
 
 #import "bPlug.h"
 
-#import "bBase.h"
 #import "bUI.h"
 
 #import "UIView+b.h"
@@ -52,16 +51,27 @@
 #define WO(weakObject) __weak typeof(weakObject) weakObject##Weak = weakObject;
 #define SO(strongObject) __strong typeof(strongObject) strongObject##Weak = strongObject;
 
-
-
+/**
+Profile time cost.
+@param block     code to benchmark
+@param complete  code time cost (millisecond)
+ //内联函数从源代码层看，有函数的结构，而在编译后，却不具备函数的性质。内联函数不是在调用时发生控制转移，而是在编译时将函数体嵌入在每一个调用处。
+ //主要是为了提高函数调用的效率。
+ */
+static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
+    extern double CACurrentMediaTime (void);
+    double begin, end, ms;
+    begin = CACurrentMediaTime();
+    block();
+    end = CACurrentMediaTime();
+    ms = (end - begin) * 1000.0;
+    complete(ms);
+}
 //#import "bench-Swift.h"
 
 @interface b : NSProxy
 
 + (void)test;
-
-//BASE
-+ (bBase *)base;
 
 + (bDataBaseStore *)database;
 

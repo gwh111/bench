@@ -7,6 +7,9 @@
 
 #import "b.h"
 
+// must private
+#import "bBase.h"
+
 @implementation b
 
 + (void)test {

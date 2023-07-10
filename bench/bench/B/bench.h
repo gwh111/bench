@@ -18,6 +18,8 @@
 #import "b+Share.h"
 #import "b+App.h"
 
+#import "bModule.h"
+
 #import "AskView.h"
 #import "InfoView.h"
 
