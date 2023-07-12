@@ -9,6 +9,10 @@
 
 @implementation b (Extension)
 
++ (void)playTalk:(NSString *)talk block:(void (^)(void))block {
+    [self playTalks:@[talk] name:@"" block:block];
+}
+
 + (void)playTalks:(NSArray *)talks block:(void (^)(void))block {
     [self playTalks:talks name:@"" block:block];
 }
@@ -21,16 +25,17 @@
 
 + (bTalkView *)playTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block {
 
-    if (!bTalkView.shared.talksCacheList) {
-        bTalkView.shared.talksCacheList = NSMutableArray.new;
-    }
-    if (bTalkView.shared.talksCacheList.count > 0) {
-        NSDictionary *cache = @{@"talks":talks,@"name":name,@"block":block};
-        [bTalkView.shared.talksCacheList addObject:cache];
-        return nil;
-    }
-    NSDictionary *cache = @{@"talks":talks,@"name":name,@"block":block};
-    [bTalkView.shared.talksCacheList addObject:cache];
+//    if (!bTalkView.shared.talksCacheList) {
+//        bTalkView.shared.talksCacheList = NSMutableArray.new;
+//    }
+//    if (bTalkView.shared.talksCacheList.count > 0) {
+//        NSDictionary *cache = @{@"talks":talks,@"name":name,@"block":block};
+//        id t = bTalkView.shared.talksCacheList;
+//        [bTalkView.shared.talksCacheList addObject:cache];
+//        return nil;
+//    }
+//    NSDictionary *cache = @{@"talks":talks,@"name":name,@"block":block};
+//    [bTalkView.shared.talksCacheList addObject:cache];
     
     bTalkView *talk = bTalkView.new;
     talk.talkArr = talks;

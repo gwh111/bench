@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface b (Extension)
 
 + (bTalkView *)playCannotTapTalks:(NSArray *)talks block:(void (^)(void))block;
+
++ (void)playTalk:(NSString *)talk block:(void (^)(void))block;
++ (void)playTalks:(NSArray *)talks block:(void (^)(void))block;
+
 + (bTalkView *)playTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block;
 + (void)playTrueTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block;
 

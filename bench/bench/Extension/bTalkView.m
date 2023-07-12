@@ -37,14 +37,14 @@
     _talkArr = nil;
     self->currentPage = 0;
     
-    if (_talksCacheList.count > 0) {
-//        NSDictionary *cache = SPData.shared.talksCacheList.firstObject;
-        [_talksCacheList removeObjectAtIndex:0];
-        if (_talksCacheList.count > 0) {
-            NSDictionary *cache = _talksCacheList.firstObject;
-            [b playTrueTalks:cache[@"talks"] name:cache[@"name"] block:cache[@"block"]];
-        }
-    }
+//    if (_talksCacheList.count > 0) {
+////        NSDictionary *cache = SPData.shared.talksCacheList.firstObject;
+//        [_talksCacheList removeObjectAtIndex:0];
+//        if (_talksCacheList.count > 0) {
+//            NSDictionary *cache = _talksCacheList.firstObject;
+//            [b playTrueTalks:cache[@"talks"] name:cache[@"name"] block:cache[@"block"]];
+//        }
+//    }
     
     [UIView animateWithDuration:.5f animations:^{
         self.alpha = 0;
