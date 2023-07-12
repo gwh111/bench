@@ -8,7 +8,6 @@
 #ifndef PandoraPlug_h
 #define PandoraPlug_h
 
-#import "UIButton+b.h"
-#import "UILabel+b.h"
+#import "b+Extension.h"
 
 #endif /* PandoraPlug_h */

@@ -1,15 +1,15 @@
 //
-//  bModule.h
+//  bUIModule.h
 //  bench
 //
-//  Created by apple on 2023/7/10.
+//  Created by apple on 2023/7/12.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface bModule : NSObject
+@interface bUIModule : UIView
 
 + (instancetype)shared;
 

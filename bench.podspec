@@ -23,8 +23,8 @@ Pod::Spec.new do |spec|
     ss.source_files = 'bench/bench/Core/**/*'
   end
 
-  spec.subspec 'Plug' do |ss|
-    ss.source_files = 'bench/bench/Plug/**/*'
+  spec.subspec 'Extension' do |ss|
+    ss.source_files = 'bench/bench/Extension/**/*'
   end
 
 end

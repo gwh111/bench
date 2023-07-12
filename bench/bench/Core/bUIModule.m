@@ -1,19 +1,19 @@
 //
-//  bModule.m
+//  bUIModule.m
 //  bench
 //
-//  Created by apple on 2023/7/10.
+//  Created by apple on 2023/7/12.
 //
 
-#import "bModule.h"
+#import "bUIModule.h"
 #import "bench.h"
 
-@implementation bModule
+@implementation bUIModule
 
 + (instancetype)shared {
     NSString *cname = NSStringFromClass(self);
-    bModule *model = NSClassFromString(cname).new;
-    NSString *key = [NSString stringWithFormat:@"module_%@",cname];
+    bUIModule *model = NSClassFromString(cname).new;
+    NSString *key = [NSString stringWithFormat:@"UImodule_%@",cname];
     if ([b getSharedKey:key]) {
         return [b getSharedKey:key];
     }
