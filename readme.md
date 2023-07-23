@@ -21,7 +21,7 @@ $ pod install
 ```
 ========  
 
-在.pch文件或需要的地方引入
+在需要的地方引入
 
 ```
 import "bench.h"
