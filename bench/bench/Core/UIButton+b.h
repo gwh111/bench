@@ -18,12 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIButton *)b_UIButton;
 + (UIButton *)b_blackBorderUIButton;
++ (UIButton *)b_whiteBorderUIButton;
 + (UIButton *)b_borderUIButton;
 + (UIButton *)b_borderRadiusUIButton;
 + (UIButton *)b_roundSingelUIButton;
 
 - (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block;
 - (void)addTappedButtonOnceDelay:(float)time withBlock:(void (^)(UIButton *button))block;
+
+- (void)setImage:(UIImage *)image withBenchPieceRect:(BenchPicecRect)benchPicecRect;
+- (void)setImage:(UIImage *)image withRect:(CGRect)rect;
 
 @end
 

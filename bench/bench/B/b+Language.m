@@ -20,7 +20,11 @@
     NSString *path = [b getSharedKey:key1];
     NSDictionary *data = [b bundlePlistWithPath:path];
     // eng
-    NSArray *lists = data[text];
+    id v = data[text];
+    if ([v isKindOfClass:NSString.class]) {
+        return v;
+    }
+    NSArray *lists = v;
     if (lists.count == 0) {
         return text;
     }

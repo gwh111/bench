@@ -248,7 +248,25 @@
     return arc4random()%value;
 }
 
-
++ (void)printFontNames {
+    NSDictionary *dic = [b getDefault:@"temp"];
+//        NSMutableDictionary *mut = NSMutableDictionary.new;
+    NSArray *arr = [UIFont familyNames];
+    for (NSString *family in arr) {
+        //打印字体族名
+        NSLog(@"%@", family);
+        NSArray *arr2 = [UIFont fontNamesForFamilyName:family];
+        for (NSString *name in arr2) {
+            NSLog(@"***%@", name);
+//                [mut setObject:@"" forKey:name];
+            if (!dic[name]) {
+                NSLog(@"find");
+            }
+        }
+    }
+    NSLog(@"familyNames=%lu",(unsigned long)arr.count);
+//        [b saveDefault:@"temp" value:mut];
+}
 
 
 @end

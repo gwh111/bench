@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface bModule : NSObject
 
 + (instancetype)shared;
+- (void)setup;
 
 @end
 

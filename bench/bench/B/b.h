@@ -80,6 +80,7 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                 type:(NSString *)type;
 + (BOOL)copyBundlePlistToSandboxToPath:(NSString *)name;
++ (BOOL)savePlistToSandbox:(id)data name:(NSString *)name;
 + (BOOL)saveDataToSandbox:(id)data name:(NSString *)name;
 + (void)removeSandboxFile:(NSString *)name;
 

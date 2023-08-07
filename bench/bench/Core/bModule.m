@@ -10,13 +10,20 @@
 
 @implementation bModule
 
+- (void)setup {
+    NSString *cname = NSStringFromClass(self.class);
+    NSString *key = [NSString stringWithFormat:@"module_%@",cname];
+    NSLog(@"【%@ shared】 setup finish",key);
+}
+
 + (instancetype)shared {
     NSString *cname = NSStringFromClass(self);
-    bModule *model = NSClassFromString(cname).new;
     NSString *key = [NSString stringWithFormat:@"module_%@",cname];
+    bModule *model = NSClassFromString(cname).new;
     if ([b getSharedKey:key]) {
         return [b getSharedKey:key];
     }
+    [model setup];
     [b setSharedKey:key object:model];
     return model;
 }

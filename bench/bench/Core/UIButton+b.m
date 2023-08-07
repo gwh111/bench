@@ -41,6 +41,20 @@
     return ui;
 }
 
++ (UIButton *)b_whiteBorderUIButton {
+    UIButton *ui = UIButton.new;
+    ui.size = CGSizeMake(RH(50), RH(50));
+    ui.layer.cornerRadius = RH(4);
+    [ui setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [ui setTitleColor:UIColor.grayColor forState:UIControlStateDisabled];
+    ui.titleLabel.font = RF(16);
+    ui.layer.borderWidth = 2;
+    ui.layer.borderColor = UIColor.whiteColor.CGColor;
+    ui.titleLabel.font = BRF(16);
+    ui.b_normalColor = UIColor.blackColor;
+    return ui;
+}
+
 + (UIButton *)b_borderRadiusUIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(80), RH(40));
@@ -87,6 +101,44 @@
     [self addTappedOnceDelay:time withBlock:^(UIView *v) {
         block((UIButton *)v);
     }];
+}
+
+- (void)setImage:(UIImage *)image withRect:(CGRect)rect {
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage],rect);
+    UIImage *image1 = [UIImage imageWithCGImage:imageRef];
+    [self setImage:image1 forState:UIControlStateNormal];
+}
+
+- (void)setImage:(UIImage *)image withBenchPieceRect:(BenchPicecRect)benchPicecRect {
+    
+    if (!image) {
+        NSLog(@"image is nill");
+        return;
+    }
+    float w = image.size.width;
+    float h = image.size.height;
+    
+    int row = benchPicecRect.row;
+    int totalRow = benchPicecRect.totalRow;
+    if (row >= totalRow) {
+        assert("row cannot total");
+    }
+    int colum = benchPicecRect.colum;
+    int totalColum = benchPicecRect.totalColum;
+    if (colum >= totalColum) {
+        assert("colum cannot total");
+    }
+    
+    float pieceRow = w /totalRow;
+    float pieceColum = h /totalColum;
+    
+    CGPoint center = self.center;
+    float height = self.frame.size.width * pieceColum/pieceRow;
+    self.height = height;
+    self.center = center;
+    
+    CGRect rect = CGRectMake(pieceRow * row, pieceColum * colum, pieceRow, pieceColum);
+    [self setImage:image withRect:rect];
 }
 
 @end

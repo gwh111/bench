@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define TEXT(text) [b getText:text key:b.bundleID]
+#define TEXT(text) [b getText:text key:@"text"]
 #define TEXT_KEY(text,key) [b getText:a key:key]
 
 @interface b (Language)

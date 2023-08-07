@@ -119,6 +119,10 @@
     return [bBase saveDataToSandbox:data name:name];
 }
 
++ (BOOL)savePlistToSandbox:(id)data name:(NSString *)name {
+    return [bBase saveDataToSandbox:data name:[NSString stringWithFormat:@"%@.plist",name]];
+}
+
 + (void)removeSandboxFile:(NSString *)name {
     [bBase removeSandboxFile:name];
 }
