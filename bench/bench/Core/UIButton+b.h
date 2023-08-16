@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIButton *)b_borderUIButton;
 + (UIButton *)b_borderRadiusUIButton;
 + (UIButton *)b_roundSingelUIButton;
++ (UIButton *)b_panUIButton;
 
 - (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block;
 - (void)addTappedButtonOnceDelay:(float)time withBlock:(void (^)(UIButton *button))block;

@@ -47,6 +47,24 @@
     return label;
 }
 
++ (bStrokeLabel *)label_white_black {
+    bStrokeLabel *label = [bStrokeLabel new];
+    label.frame = CGRectMake(160, 70, 150, 100);
+    label.text = @"Hello";
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.font = RF(16);
+    //描边
+    label.strokeColor = [UIColor blackColor];
+    label.strokeWidth = 2;
+    //发光
+    label.layer.shadowRadius = 2;
+    label.layer.shadowColor = [UIColor blackColor].CGColor;
+    label.layer.shadowOffset = CGSizeMake(0, 0);
+    label.layer.shadowOpacity = 1.0;
+    return label;
+}
+
 - (void)drawTextInRect:(CGRect)rect {
     if (self.strokeWidth > 0) {
         CGSize shadowOffset = self.shadowOffset;

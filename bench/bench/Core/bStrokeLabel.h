@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (bStrokeLabel *)label;
 + (bStrokeLabel *)label2;
++ (bStrokeLabel *)label_white_black;
 
 - (void)drawTextInRect:(CGRect)rect;
 

@@ -79,6 +79,21 @@
     return pk;
 }
 
++ (UIButton *)b_panUIButton {
+    UIButton *button = UIButton.b_UIButton;
+    [button setTitleColor:UIColor.b_lightYellow forState:UIControlStateHighlighted];
+    button.size = CGSizeMake(RH(60), RH(20));
+    button.backgroundColor = UIColor.grayColor;
+    button.titleLabel.font = RF(12);
+    button.top = RH(200);
+    button.layer.shadowOffset = CGSizeMake(1, 1);
+    button.layer.shadowColor = UIColor.whiteColor.CGColor;
+    button.layer.shadowRadius = 3;
+    button.layer.shadowOpacity = 1.0;
+    button.layer.cornerRadius = RH(10);
+    return button;
+}
+
 - (void)setB_normalTitle:(NSString *)title {
     [self setTitle:title forState:UIControlStateNormal];
 }

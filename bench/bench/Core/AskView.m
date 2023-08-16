@@ -109,7 +109,7 @@
     askView.top = RH(10);
     askView.backgroundColor = UIColor.clearColor;
     askView.textColor = UIColor.whiteColor;
-    askView.font = BRF(16);
+    askView.font = RF(16);
     askView.editable = NO;
     _askView = askView;
     
@@ -148,7 +148,7 @@
         pk.bottom = contentView.height;
         pk.backgroundColor = UIColor.blackColor;
         pk.b_normalTitle = @"确定";
-        pk.titleLabel.font = BRF(16);
+        pk.titleLabel.font = RF(16);
         [pk addTappedOnceWithBlock:^(UIView *v) {
             self.finishBlock(YES);
             [self removeFromSuperview];
