@@ -10,6 +10,8 @@
 
 @interface bUI () <UIApplicationDelegate>
 
+@property (nonatomic,retain) NSMutableDictionary *groupButtons;
+
 @end
 
 static bUI *userManager = nil;
@@ -42,6 +44,33 @@ static dispatch_once_t onceToken;
         userManager = [[bUI alloc]init];
     });
     return userManager;
+}
+
+- (void)group_addButton:(UIButton *)button key:(NSString *)key {
+    if (!_groupButtons) {
+        _groupButtons = NSMutableDictionary.new;
+    }
+    NSMutableArray *list = _groupButtons[key];
+    if (!list) {
+        list = NSMutableArray.new;
+    }
+    [list addObject:button];
+    [_groupButtons setObject:list forKey:key];
+}
+
+- (void)group_updateButton:(UIButton *)button key:(NSString *)key
+               titleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor
+ highlightTitleColor:(UIColor *)highlightTitleColor hilightBackgroundColor:(UIColor *)hilightBackgroundColor {
+    
+    NSMutableArray *list = _groupButtons[key];
+    for (int i = 0; i < list.count; i++) {
+        UIButton *button = list[i];
+        button.backgroundColor = backgroundColor;
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
+    }
+    
+    button.backgroundColor = hilightBackgroundColor;
+    [button setTitleColor:highlightTitleColor forState:UIControlStateNormal];
 }
 
 - (UIFont *)relativeFont:(float)fontSize {

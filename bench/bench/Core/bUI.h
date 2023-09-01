@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "bModule.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,6 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) bool fixWidthAndHeight;
 
 + (instancetype)shared;
+
+- (void)group_addButton:(UIButton *)button key:(NSString *)key;
+- (void)group_updateButton:(UIButton *)button key:(NSString *)key
+               titleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor
+ highlightTitleColor:(UIColor *)highlightTitleColor hilightBackgroundColor:(UIColor *)hilightBackgroundColor;
 
 - (float)relativeHeight:(float)height;
 
