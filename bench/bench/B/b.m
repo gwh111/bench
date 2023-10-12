@@ -19,6 +19,8 @@
 
 + (void)load {
     benchLog(@"bench loaded");
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    benchLog(@"%@",doc);
 }
 
 + (bBase *)base {

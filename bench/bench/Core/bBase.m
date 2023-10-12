@@ -61,7 +61,7 @@ static dispatch_once_t onceToken;
     NSString *data = [[NSString alloc] initWithContentsOfFile:plistPath encoding:NSUTF8StringEncoding error:nil];
     
     if (!data) {
-        benchLog(@"cannot find plist '%@'",name);
+        benchLog(@"cannot find file '%@'",name);
     }
     return data;
 }

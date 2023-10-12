@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, retain) NSString *b_normalTitle;
 @property (nonatomic, retain) UIColor *b_normalColor;
-@property (nonatomic, retain) UIFont *b_font;
+//@property (nonatomic, retain) UIFont *b_font;
 
 + (UIButton *)b_UIButton;
 + (UIButton *)b_blackBorderUIButton;
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIButton *)b_borderRadiusUIButton;
 + (UIButton *)b_roundSingelUIButton;
 + (UIButton *)b_panUIButton;
++ (UIButton *)b_okUIButton;
 
 - (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block;
 - (void)addTappedButtonOnceDelay:(float)time withBlock:(void (^)(UIButton *button))block;
