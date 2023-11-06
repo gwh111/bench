@@ -9,6 +9,8 @@
 
 @implementation UIButton (b)
 
+@dynamic b_normalColor, b_normalTitle;
+
 + (UIButton *)b_UIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(80), RH(40));

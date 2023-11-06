@@ -49,6 +49,18 @@
     return [UIColor colorWithRed:228/255.0f green:154/255.0f blue:188/255.0f alpha:1];
 }
 
++ (UIColor *)b_close {
+    return [UIColor colorWithRed:253/255.0f green:71/255.0f blue:84/255.0f alpha:1];
+}
+
++ (UIColor *)b_minimize {
+    return [UIColor colorWithRed:253/255.0f green:178/255.0f blue:67/255.0f alpha:1];
+}
+
++ (UIColor *)b_maximize {
+    return [UIColor colorWithRed:41/255.0f green:198/255.0f blue:71/255.0f alpha:1];
+}
+
 + (UIColor *)b_tinyLightGrayColor {
     return RGB(242, 242, 242);
 }

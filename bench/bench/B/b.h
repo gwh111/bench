@@ -11,6 +11,7 @@
 #import "bUI.h"
 
 #import "UIView+b.h"
+#import "UILabel+b.h"
 #import "UIImage+b.h"
 #import "UIImageView+b.h"
 #import "UIButton+b.h"
@@ -30,6 +31,7 @@
 #import "bAnimationPlay.h"
 #import "bSort.h"
 #import "bVideo.h"
+#import "bShared.h"
 //#import "bHTML.h"
 
 #ifdef DEBUG
@@ -86,6 +88,7 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 
 //+ (NSString *)containForbiddenWords:(NSString *)text;
 
++ (bShared *)shared;
 + (bHttpTask *)httpTask;
 + (bTimer *)timer;
 + (bMusicBox *)music;

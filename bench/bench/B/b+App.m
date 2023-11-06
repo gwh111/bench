@@ -29,4 +29,9 @@
     return [self appBundle][@"CFBundleVersion"];
 }
 
++ (NSString *)sandboxDocPath {
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    return doc;
+}
+
 @end

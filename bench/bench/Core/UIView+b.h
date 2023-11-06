@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) float b_centerTop;//屏幕居中
 
+@property (nonatomic, copy) NSString *benchUniqueKey;
 @property (nonatomic, copy) NSString *name;
 
 @property CGSize size;

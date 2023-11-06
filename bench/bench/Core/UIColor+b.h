@@ -34,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)b_lightPurple;
 + (UIColor *)b_lightPink;
 
++ (UIColor *)b_close;
++ (UIColor *)b_minimize;
++ (UIColor *)b_maximize;
+
 @end
 
 NS_ASSUME_NONNULL_END

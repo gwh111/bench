@@ -16,6 +16,7 @@
 		1880DC372A5E97E5002C31DE /* bTalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880DC362A5E97E5002C31DE /* bTalkView.m */; };
 		1880DC3A2A5E9862002C31DE /* b+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880DC392A5E9862002C31DE /* b+Extension.m */; };
 		1880DC3D2A5E9AAD002C31DE /* bUIModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880DC3C2A5E9AAD002C31DE /* bUIModule.m */; };
+		188BF8392AF88536008B57A6 /* bShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 188BF8382AF88536008B57A6 /* bShared.m */; };
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
@@ -128,6 +129,8 @@
 		1880DC392A5E9862002C31DE /* b+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Extension.m"; sourceTree = "<group>"; };
 		1880DC3B2A5E9AAD002C31DE /* bUIModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bUIModule.h; sourceTree = "<group>"; };
 		1880DC3C2A5E9AAD002C31DE /* bUIModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bUIModule.m; sourceTree = "<group>"; };
+		188BF8372AF88536008B57A6 /* bShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bShared.h; sourceTree = "<group>"; };
+		188BF8382AF88536008B57A6 /* bShared.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bShared.m; sourceTree = "<group>"; };
 		D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLCSKMP.cpp; sourceTree = "<group>"; };
 		D81C6A47299471BF009F5977 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		D829E80827B35EC900D7C968 /* NSDate+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+b.m"; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				1823DC652A5696CE00845A82 /* b+Share.m */,
 				1823DC672A569A9A00845A82 /* b+App.h */,
 				1823DC682A569A9A00845A82 /* b+App.m */,
+				188BF8372AF88536008B57A6 /* bShared.h */,
+				188BF8382AF88536008B57A6 /* bShared.m */,
 			);
 			path = B;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				D82B15232A4726A900183B43 /* b+UI.m in Sources */,
 				D89F9EA229F6B70E009644A6 /* test.mm in Sources */,
 				D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */,
+				188BF8392AF88536008B57A6 /* bShared.m in Sources */,
 				D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */,
 				1823DC632A56705C00845A82 /* b+Language.m in Sources */,
 				D85CCC2929EBC0B500769FFA /* b+Sandbox.m in Sources */,

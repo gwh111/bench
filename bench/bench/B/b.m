@@ -23,6 +23,10 @@
     benchLog(@"%@",doc);
 }
 
++ (bShared *)shared {
+    return bShared.shared;
+}
+
 + (bBase *)base {
     return bBase.shared;
 }

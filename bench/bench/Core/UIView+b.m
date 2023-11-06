@@ -80,6 +80,14 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     self.left = WIDTH()/2-self.width/2;
 }
 
+- (NSString *)benchUniqueKey {
+    return objc_getAssociatedObject(self, @selector(benchUniqueKey));
+}
+
+- (void)setBenchUniqueKey:(NSString *)key {
+    objc_setAssociatedObject(self, @selector(benchUniqueKey), key, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (NSString *)name {
     return objc_getAssociatedObject(self, @selector(name));
 }
