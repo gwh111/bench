@@ -21,6 +21,7 @@
     benchLog(@"bench loaded");
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     benchLog(@"%@",doc);
+    benchLog(@"w=%f,h=%f",WIDTH(), HEIGHT());
 }
 
 + (bShared *)shared {
