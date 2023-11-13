@@ -9,4 +9,18 @@
 
 @implementation bShared
 
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    NSLog(@"1");
+    return YES;
+}
+
++ (BOOL)resolveClassMethod:(SEL)sel {
+    NSLog(@"1");
+    return YES;
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    NSLog(@"1");
+}
+
 @end

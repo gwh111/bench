@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (b)
 
++ (instancetype)shared;
+
 - (id)b_copy;
 - (id)b_setClassKVDic:(NSDictionary *)dic;
 - (NSDictionary *)b_getClassKVDic;

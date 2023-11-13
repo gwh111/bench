@@ -7,8 +7,20 @@
 
 #import "NSObject+b.h"
 #import <objc/runtime.h>
+#import "bench.h"
 
 @implementation NSObject (b)
+
++ (instancetype)shared {
+    NSString *cname = NSStringFromClass(self);
+    id model = NSClassFromString(cname).new;
+    NSString *key = [NSString stringWithFormat:@"UImodule_%@",cname];
+    if ([b getSharedKey:key]) {
+        return [b getSharedKey:key];
+    }
+    [b setSharedKey:key object:model];
+    return model;
+}
 
 - (id)b_copy {
     NSData *tempArchive = [NSKeyedArchiver archivedDataWithRootObject:self];
