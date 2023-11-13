@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;
++ (NSDictionary *)getDocument:(NSString *)name;
++ (void)saveDocument:(NSDictionary *)data name:(NSString *)name;
++ (NSString *)bundlePathWithName:(NSString *)name;
 
 @end
 

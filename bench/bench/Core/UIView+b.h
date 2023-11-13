@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) float b_centerTop;//屏幕居中
 
 @property (nonatomic, copy) NSString *benchUniqueKey;
+@property (nonatomic, copy) NSString *benchName;
+
 @property (nonatomic, copy) NSString *name;
 
 @property CGSize size;
@@ -35,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
+
+- (id)benchInitOnParent:(UIView *)parent;
+- (id)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
+
+- (void)initUI:(UIView *)parent;
+- (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
 
 @end
 

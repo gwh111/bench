@@ -16,6 +16,34 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
 
 @implementation UIView (b)
 
+- (id)benchInitOnParent:(UIView *)parent {
+    UIView *view = [self initWithFrame:parent.frame];
+    view.left = 0;
+    view.top = 0;
+    [view initUI:parent];
+    [parent addSubview:view];
+    return view;
+}
+
+- (id)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
+    UIView *view = [self initWithFrame:parent.frame];
+    view.left = 0;
+    view.top = 0;
+    view.width = width;
+    view.height = height;
+    [view initUI:parent width:width height:height];
+    [parent addSubview:view];
+    return view;
+}
+
+- (void)initUI:(UIView *)parent {
+    
+}
+
+- (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
+    
+}
+
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block {
     [self b_tappedInterval:time withBlock:block];
 }

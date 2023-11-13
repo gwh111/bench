@@ -32,14 +32,14 @@ static dispatch_once_t onceToken;
 }
 
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
-                                   type:(NSString *)type {
+                                type:(NSString *)type {
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:type
                                                         inDirectory:name];
     return paths;
 }
 
 + (NSData *)bundleFileWithPath:(NSString *)name
-                             type:(NSString *)type {
+                          type:(NSString *)type {
     if (!name) return nil;
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:type];

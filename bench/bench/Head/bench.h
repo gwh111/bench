@@ -26,5 +26,6 @@
 
 #import "NSArray+b.h"
 
+#import "DES.h"
 
 // extension:plug
