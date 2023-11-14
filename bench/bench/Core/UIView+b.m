@@ -124,6 +124,14 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     objc_setAssociatedObject(self, @selector(name), name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (NSString *)benchName {
+    return objc_getAssociatedObject(self, @selector(benchName));
+}
+
+- (void)setBenchName:(NSString *)benchName {
+    objc_setAssociatedObject(self, @selector(benchName), benchName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (nullable __kindof id)viewWithName:(NSString *)name {
     for (UIView *view in self.subviews) {
         if (view.name) {

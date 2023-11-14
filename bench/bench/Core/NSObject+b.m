@@ -14,7 +14,7 @@
 + (instancetype)shared {
     NSString *cname = NSStringFromClass(self);
     id model = NSClassFromString(cname).new;
-    NSString *key = [NSString stringWithFormat:@"UImodule_%@",cname];
+    NSString *key = [NSString stringWithFormat:@"benchShared_%@",cname];
     if ([b getSharedKey:key]) {
         return [b getSharedKey:key];
     }
