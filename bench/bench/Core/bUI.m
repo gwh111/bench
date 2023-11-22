@@ -11,6 +11,8 @@
 @interface bUI () <UIApplicationDelegate>
 
 @property (nonatomic,retain) NSMutableDictionary *groupButtons;
+@property (nonatomic,assign) CGFloat _safeTop;
+@property (nonatomic,assign) CGFloat _safeBottom;
 
 @end
 
@@ -168,17 +170,25 @@ static dispatch_once_t onceToken;
 }
 
 - (float)safeTop {
+    if (__safeTop > 0) {
+        return __safeTop;
+    }
     float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
     float v3 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
     if (v3 > v) {
-        return v3;
+        __safeTop = v3;
     }
-    return v;
+    __safeTop = v;
+    return __safeTop;
 }
 
 - (float)safeBottom {
+    if (__safeBottom > 0) {
+        return __safeBottom;
+    }
     float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
-    return v;
+    __safeBottom = v;
+    return __safeBottom;
 }
 
 - (float)safeWidth {
