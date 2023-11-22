@@ -68,6 +68,25 @@
     return currentDateString;
 }
 
+- (NSString *)b_convertToStringOpt {
+    NSString *text;
+    NSDate *now = NSDate.b_localDate;
+    if (now.b_year == self.b_year) {
+        if (now.b_month == self.b_month) {
+            if (now.b_day == self.b_day) {
+                text = [NSString stringWithFormat:@"今天 %ld:%ld", self.b_hour, (long)self.b_minute];
+            } else {
+                text = [NSString stringWithFormat:@"%ld天前 %ld:%ld", now.b_day-self.b_day, self.b_hour, (long)self.b_minute];
+            }
+        } else {
+            text = [NSString stringWithFormat:@"%ld.%ld", self.b_month, (long)self.b_day];
+        }
+    } else {
+        text = [NSString stringWithFormat:@"%ld %ld.%ld", self.b_year, self.b_month, (long)self.b_day];
+    }
+    return text;
+}
+
 - (NSString *)b_convertToString {
     return [self b_convertToStringWithformatter:nil];
 }

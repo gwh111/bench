@@ -135,8 +135,18 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
 - (nullable __kindof id)viewWithName:(NSString *)name {
     for (UIView *view in self.subviews) {
         if (view.name) {
-//            CCLOG(@"%@",view.name);
             if ([view.name isEqualToString:name]) {
+                return view;
+            }
+        }
+    }
+    return nil;
+}
+
+- (nullable __kindof id)viewWithBenchName:(NSString *)name {
+    for (UIView *view in self.subviews) {
+        if (view.benchName) {
+            if ([view.benchName isEqualToString:name]) {
                 return view;
             }
         }

@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
+- (nullable __kindof id)viewWithBenchName:(NSString *)name;
 
 - (id)benchInitOnParent:(UIView *)parent;
 - (id)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;

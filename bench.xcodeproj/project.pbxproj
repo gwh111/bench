@@ -20,6 +20,7 @@
 		18B2EFE02B00BCB4002C9A4C /* LCdes.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2EFD92B00BCB4002C9A4C /* LCdes.m */; };
 		18B2EFE12B00BCB4002C9A4C /* DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2EFDA2B00BCB4002C9A4C /* DES.m */; };
 		18B2EFE22B00BCB4002C9A4C /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2EFDF2B00BCB4002C9A4C /* GTMBase64.m */; };
+		18B2F05F2B0D906E002C9A4C /* CALayer+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F05E2B0D906E002C9A4C /* CALayer+b.m */; };
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
@@ -141,6 +142,8 @@
 		18B2EFDD2B00BCB4002C9A4C /* DES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DES.h; sourceTree = "<group>"; };
 		18B2EFDE2B00BCB4002C9A4C /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		18B2EFDF2B00BCB4002C9A4C /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		18B2F05D2B0D906E002C9A4C /* CALayer+b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+b.h"; sourceTree = "<group>"; };
+		18B2F05E2B0D906E002C9A4C /* CALayer+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+b.m"; sourceTree = "<group>"; };
 		D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLCSKMP.cpp; sourceTree = "<group>"; };
 		D81C6A47299471BF009F5977 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		D829E80827B35EC900D7C968 /* NSDate+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+b.m"; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				D8C3F484295AA78200E3F2FF /* InfoView.m */,
 				D890E21127891D4D00079C0C /* UIView+b.h */,
 				D890E21527891D4D00079C0C /* UIView+b.m */,
+				18B2F05D2B0D906E002C9A4C /* CALayer+b.h */,
+				18B2F05E2B0D906E002C9A4C /* CALayer+b.m */,
 				1823DC592A5540A100845A82 /* UIImage+b.h */,
 				1823DC5A2A5540A100845A82 /* UIImage+b.m */,
 				1823DC5C2A5540EB00845A82 /* UIImageView+b.h */,
@@ -678,6 +683,7 @@
 				D8712C292A021C91009E5C84 /* NSArray+b.m in Sources */,
 				D8A37E44288E3EFA00E0C895 /* bMusicBox.m in Sources */,
 				D83733A128BC741B002BAA73 /* bAnimationPlay.m in Sources */,
+				18B2F05F2B0D906E002C9A4C /* CALayer+b.m in Sources */,
 				D88B3D76286420D40078E8B3 /* bHttpTask.m in Sources */,
 				D82B15232A4726A900183B43 /* b+UI.m in Sources */,
 				D89F9EA229F6B70E009644A6 /* test.mm in Sources */,

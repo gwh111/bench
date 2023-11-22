@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 根据日期获得星期几
 - (NSString *)b_weekday;
 
+- (NSString *)b_convertToStringOpt;
 - (NSString *)b_convertToString;
 
 - (NSString *)b_convertToStringWithformatter:(NSString *)formatterStr;
