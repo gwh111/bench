@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CALayer (b)
 
 - (void)b_addBenchShadow;
+- (void)b_addBenchShadowTopRight;
 
 @end
 

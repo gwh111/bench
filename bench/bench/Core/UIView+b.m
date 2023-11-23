@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "b.h"
 #import "UITapGestureRecognizer+b.h"
+#import "CALayer+b.h"
 //#import "CC_CoreCrash.h"
 
 typedef void (^bAssociatedTapBlock)(UIView *view);
@@ -41,6 +42,26 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
 }
 
 - (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
+    
+}
+
+- (void)b_addBenchShadow {
+    [self.layer b_addBenchShadow];
+    
+    self.layer.masksToBounds = YES;
+    UIView *view = UIView.new;
+    view.backgroundColor = UIColor.whiteColor;
+    view.frame = self.frame;
+    [self.superview addSubview:view];
+    
+    [self.superview bringSubviewToFront:self];
+    
+    CALayer *layer = view.layer;
+    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    layer.cornerRadius = RH(10);
+    layer.shadowColor = UIColor.b_lightRed.CGColor;
+    layer.shadowOpacity = 0.6;
+    layer.shadowOffset = CGSizeMake(RH(5), -RH(6));
     
 }
 
