@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)stringWithJson:(id)object;
 
 + (void)delay:(double)delayInSeconds block:(void (^)(void))block;
-+ (id)getDefault:(NSString *)key;
-+ (void)saveDefault:(NSString *)key value:(id)value;
-+ (NSDate *)getAppInstallDate;
+//+ (id)getDefault:(NSString *)key;
+//+ (void)saveDefault:(NSString *)key value:(id)value;
+//+ (NSDate *)getAppInstallDate;
 
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                 type:(NSString *)type;

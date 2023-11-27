@@ -75,10 +75,10 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 
 + (bDataBaseStore *)database;
 
-+ (id)getDefault:(NSString *)key;
-+ (void)saveDefault:(NSString *)key value:(id)value;
+//+ (id)getDefault:(NSString *)key;
+//+ (void)saveDefault:(NSString *)key value:(id)value;
 
-+ (NSDate *)appInstallDate;
+//+ (NSDate *)appInstallDate;
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                 type:(NSString *)type;
 + (BOOL)copyBundlePlistToSandboxToPath:(NSString *)name;

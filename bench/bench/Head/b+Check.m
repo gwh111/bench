@@ -6,6 +6,9 @@
 //
 
 #import "b+Check.h"
+#import "b+App.h"
+
+//typedef void (^benchSafeBlock)(BOOL isSafe);
 
 @implementation b (Check)
 
@@ -16,35 +19,49 @@
     return NO;
 }
 
++ (void)setIsSafeReviewVersion:(NSString *)reviewVersion inReview:(BOOL)inReview {
+    if (!inReview) {
+        [b benchDefaultSetObject:@(YES) forKey:@"isSafe"];
+    } else {
+        NSString *version = b.version;
+        if ([b compareVersion:reviewVersion cutVersion:version] > 0) {
+            [b benchDefaultSetObject:@(YES) forKey:@"isSafe"];
+        } else {
+            [b benchDefaultSetObject:@(NO) forKey:@"isSafe"];
+        }
+    }
+}
+
 + (BOOL)isSafe {
     if (self.isDebug) {
         return YES;
     }
-    if (self.isProxyStatus) {
-        return NO;
-    }
-    {
-        NSString *time = @"2022-09-18 08:08:08";
-        NSDate *localD = NSDate.b_localDate;
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-        [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-        NSDate *resDate = [dateFormatter dateFromString:time];
-        if (!resDate) {
-            [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss z"];
-            resDate = [dateFormatter dateFromString:time];
-        }
-        
-        NSTimeInterval timeInterval = [resDate timeIntervalSinceDate:localD];
-    }
+    BOOL safe = [[b benchDefaultObjectForKey:@"isSafe"]boolValue];
+    return safe;
     
-    NSArray *languages = [NSLocale preferredLanguages];
-    NSString *currentLanguage = [languages objectAtIndex:0];
-    if (![currentLanguage containsString:@"zh"]) {
-        return NO;
-    }
-    return YES;
+    
+//    {
+//        NSString *time = @"2022-09-18 08:08:08";
+//        NSDate *localD = NSDate.b_localDate;
+//        
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+//        [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+//        NSDate *resDate = [dateFormatter dateFromString:time];
+//        if (!resDate) {
+//            [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss z"];
+//            resDate = [dateFormatter dateFromString:time];
+//        }
+//        
+//        NSTimeInterval timeInterval = [resDate timeIntervalSinceDate:localD];
+//    }
+//    
+//    NSArray *languages = [NSLocale preferredLanguages];
+//    NSString *currentLanguage = [languages objectAtIndex:0];
+//    if (![currentLanguage containsString:@"zh"]) {
+//        return NO;
+//    }
+//    return YES;
 }
 
 + (BOOL)isProxyStatus {
@@ -249,7 +266,7 @@
 }
 
 + (void)printFontNames {
-    NSDictionary *dic = [b getDefault:@"temp"];
+    NSDictionary *dic = [b benchDefaultObjectForKey:@"temp"];
 //        NSMutableDictionary *mut = NSMutableDictionary.new;
     NSArray *arr = [UIFont familyNames];
     for (NSString *family in arr) {

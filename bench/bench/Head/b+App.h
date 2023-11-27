@@ -17,6 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)saveDocument:(NSDictionary *)data name:(NSString *)name;
 + (NSString *)bundlePathWithName:(NSString *)name;
 
++ (id)benchDefaultObjectForKey:(NSString *)key;
++ (void)benchDefaultSetObject:(id)value forKey:(NSString *)key;
+
++ (id)benchDefaultObjectForKey:(NSString *)key fileName:(NSString *)fileName;
++ (void)benchDefaultSetObject:(id)value forKey:(NSString *)key fileName:(NSString *)fileName;
+
++ (void)launch;
++ (int)launchDayFromFirstDay;
+
++ (BOOL)requestIsInColdTime:(NSString *)key;
++ (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content;
++ (NSDictionary *)requestCacheData:(NSString *)key;
+
 @end
 
 NS_ASSUME_NONNULL_END

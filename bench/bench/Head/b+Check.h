@@ -12,7 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface b (Check)
 
 + (BOOL)isDebug;
+
 + (BOOL)isSafe;
++ (void)setIsSafeReviewVersion:(NSString *)reviewVersion inReview:(BOOL)inReview;
+
 + (BOOL)isProxyStatus;
 + (BOOL)isJailBreak;
 + (BOOL)isChinese;

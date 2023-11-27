@@ -255,38 +255,38 @@ static dispatch_once_t onceToken;
     });
 }
 
-+ (id)getDefault:(NSString *)key {
-    if (!key) {
-        benchLog(@"error:key=nil");
-        return nil;
-    }
-    return [[NSUserDefaults standardUserDefaults]objectForKey:key];
-}
+//+ (id)getDefault:(NSString *)key {
+//    if (!key) {
+//        benchLog(@"error:key=nil");
+//        return nil;
+//    }
+//    return [[NSUserDefaults standardUserDefaults]objectForKey:key];
+//}
+//
+//+ (void)saveDefault:(NSString *)key value:(id)value {
+//    if (!key) {
+//        benchLog(@"error:key=nil");
+//        return;
+//    }
+//    if (!value) {
+//        benchLog(@"error:v=nil");
+//        [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
+//        return;
+//    }
+//    [[NSUserDefaults standardUserDefaults]setObject:value forKey:key];
+//    [[NSUserDefaults standardUserDefaults]synchronize];
+//}
 
-+ (void)saveDefault:(NSString *)key value:(id)value {
-    if (!key) {
-        benchLog(@"error:key=nil");
-        return;
-    }
-    if (!value) {
-        benchLog(@"error:v=nil");
-        [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
-        return;
-    }
-    [[NSUserDefaults standardUserDefaults]setObject:value forKey:key];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-}
-
-+ (NSDate *)getAppInstallDate {
-    NSDate *date;
-    NSString *key = @"AppInstallDate";
-    date = [self getDefault:key];
-    if (!date) {
-        date = NSDate.b_localDate;
-        [self saveDefault:key value:date];
-    }
-    return date;
-}
+//+ (NSDate *)getAppInstallDate {
+//    NSDate *date;
+//    NSString *key = @"AppInstallDate";
+//    date = [self getDefault:key];
+//    if (!date) {
+//        date = NSDate.b_localDate;
+//        [self saveDefault:key value:date];
+//    }
+//    return date;
+//}
 
 
 

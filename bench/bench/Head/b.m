@@ -48,17 +48,11 @@
     return bDataBaseStore.shared;
 }
 
-+ (id)getDefault:(NSString *)key {
-    return [bBase getDefault:key];
-}
 
-+ (void)saveDefault:(NSString *)key value:(id)value {
-    [bBase saveDefault:key value:value];
-}
 
-+ (NSDate *)appInstallDate {
-    return [bBase getAppInstallDate];
-}
+//+ (NSDate *)appInstallDate {
+//    return [bBase getAppInstallDate];
+//}
 
 //+ (NSString *)containForbiddenWords:(NSString *)text {
 //    return [bBase containForbiddenWords:text];

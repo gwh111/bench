@@ -10,6 +10,11 @@
 
 @implementation b (Share)
 
++ (void)copyToPastBoard:(NSString *)text {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = text;
+}
+
 + (void)setSharedKey:(NSString *)key object:(id)object {
     if (!bBase.shared.sharedData) {
         bBase.shared.sharedData = NSMutableDictionary.new;
