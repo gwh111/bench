@@ -15,6 +15,12 @@
     pasteboard.string = text;
 }
 
++ (NSString *)pasteboardText {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    NSString *text = pasteboard.string;
+    return text;
+}
+
 + (void)setSharedKey:(NSString *)key object:(id)object {
     if (!bBase.shared.sharedData) {
         bBase.shared.sharedData = NSMutableDictionary.new;

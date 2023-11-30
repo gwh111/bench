@@ -69,6 +69,14 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return NO;
 }
 
++ (void)setKeychainObjectId:(NSString *)str {
+    [NSString setKeychainObjectId:str];
+}
+
++ (NSString *)getKeychainObjectId {
+    return [NSString getKeychainObjectId];
+}
+
 + (NSDictionary *)appBundle {
     return [[NSBundle mainBundle] infoDictionary];
 }

@@ -242,8 +242,12 @@ static dispatch_once_t onceToken;
     return NO;
 }
 
-- (void)showNormalAltWithMsg:(NSString *)msg block:(void (^)(int index, NSString *name))block {
+- (void)showBenchAltWithMsg:(NSString *)msg block:(void (^)(int index, NSString *name))block {
     [self showAltOn:b.ui.currentUIViewController title:@"提示" msg:msg bts:@[@"确定"] block:block];
+}
+
+- (void)showBenchAltWithMsg:(NSString *)msg bts:(NSArray *)bts block:(void (^)(int index, NSString *name))block {
+    [self showAltOn:b.ui.currentUIViewController title:@"提示" msg:msg bts:bts block:block];
 }
 
 - (void)showAltOn:(UIViewController *)controller title:(NSString *)title msg:(NSString *)msg bts:(NSArray *)bts block:(void (^)(int index, NSString *name))block {

@@ -74,7 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIViewController *)currentUIViewController;
 
 // 系统弹窗
-- (void)showNormalAltWithMsg:(NSString *)msg block:(void (^)(int index, NSString *name))block;
+- (void)showBenchAltWithMsg:(NSString *)msg block:(void (^)(int index, NSString *name))block;
+- (void)showBenchAltWithMsg:(NSString *)msg bts:(NSArray *)bts block:(void (^)(int index, NSString *name))block;
 // @param bts 按钮的title数组
 - (void)showAltOn:(UIViewController *)controller title:(NSString *_Nullable)title msg:(NSString *_Nullable)msg bts:(NSArray *)bts block:(void (^)(int index, NSString *indexTitle))block;
 

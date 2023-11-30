@@ -30,6 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content;
 + (NSDictionary *)requestCacheData:(NSString *)key;
 
++ (void)setKeychainObjectId:(NSString *)str;
++ (NSString *)getKeychainObjectId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,6 +25,7 @@
 #import "InfoView.h"
 
 #import "NSArray+b.h"
+#import "NSString+b.h"
 
 #import "DES.h"
 #import "CALayer+b.h"
