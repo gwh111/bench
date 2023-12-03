@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (App)
 
++ (NSString *)appName;
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;
 + (NSDictionary *)getDocument:(NSString *)name;
