@@ -61,7 +61,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return like[key][@"content"];
 }
 
-+ (BOOL)requestIsInColdTime:(NSString *)key {
++ (BOOL)requestIsColding:(NSString *)key {
     NSTimeInterval inter = [self requestColdTime:key];
     if (inter < 60*60*12) {
         return YES;
@@ -124,6 +124,22 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
     [likes b_setObject:value forKey:key];
     [b saveDocument:likes name:BENCH_DEFAULT];
+}
+
++ (BOOL)isRated {
+    return [[b benchDefaultObjectForKey:@"rated"]boolValue];
+}
+
++ (void)isRatedSet:(BOOL)rated {
+    [b benchDefaultSetObject:@(rated) forKey:@"rated"];
+}
+
++ (BOOL)isCodeValided {
+    return [[b benchDefaultObjectForKey:@"code"]boolValue];
+}
+
++ (void)isCodeValidedSet:(BOOL)rated {
+    [b benchDefaultSetObject:@(rated) forKey:@"code"];
 }
 
 + (id)getDefault:(NSString *)key {

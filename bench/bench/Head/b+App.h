@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (App)
 
++ (BOOL)isRated;
++ (void)isRatedSet:(BOOL)rated;
+
++ (BOOL)isCodeValided;
++ (void)isCodeValidedSet:(BOOL)rated;
+
 + (NSString *)appName;
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;
@@ -27,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)launch;
 + (int)launchDayFromFirstDay;
 
-+ (BOOL)requestIsInColdTime:(NSString *)key;
++ (BOOL)requestIsColding:(NSString *)key;
 + (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content;
 + (NSDictionary *)requestCacheData:(NSString *)key;
 
