@@ -7,6 +7,7 @@
 
 #import "b+App.h"
 #import "DES.h"
+#import "b+Check.h"
 
 @implementation b (App)
 

@@ -34,7 +34,7 @@
 
 + (BOOL)isSafe {
     if (self.isDebug) {
-        return YES;
+//        return YES;
     }
     BOOL safe = [[b benchDefaultObjectForKey:@"isSafe"]boolValue];
     return safe;
