@@ -18,7 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, assign) BOOL playWhenReady;
 
+// 必须以属性方式持有，否则会被提前释放
 + (bVideo *)videoWithURL:(NSURL *)url;
+
++ (NSString *)convertImages:(NSArray *)images toVideoName:(NSString *)videoName;
 
 // 销毁时需要释放
 // 播放观察者释放

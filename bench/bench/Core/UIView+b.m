@@ -266,4 +266,34 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     self.center = newCenter;
 }
 
+- (UIImage *)screenshot {
+    UIImage *image = nil;
+    CGSize size = CGSizeMake(320,480);
+    size = self.frame.size;
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    [self.layer renderInContext: UIGraphicsGetCurrentContext()];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    if (image != nil) {
+        return image;
+    }else {
+        return nil;
+    }
+}
+
+- (UIImage *)screenshotWithSize:(CGSize)size {
+    UIImage *image = nil;
+//    CGSize size = CGSizeMake(320,480);
+//    size = self.frame.size;
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    [self.layer renderInContext: UIGraphicsGetCurrentContext()];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    if (image != nil) {
+        return image;
+    }else {
+        return nil;
+    }
+}
+
 @end
