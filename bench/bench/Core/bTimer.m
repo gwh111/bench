@@ -70,6 +70,14 @@ static dispatch_once_t onceToken;
     }
 }
 
+- (void)pause {
+    [_timer setFireDate:[NSDate distantFuture]];
+}
+
+- (void)play {
+    [_timer setFireDate:[NSDate date]];
+}
+
 - (void)stopTimer {
     [self.timer invalidate];
     self.timer = nil;

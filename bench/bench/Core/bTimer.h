@@ -24,6 +24,9 @@
 - (NSString *)uniqueNowTimestamp;
 - (NSString *)nowTimeTimestamp;
 
+- (void)pause;
+- (void)play;
+
 @end
 
 
