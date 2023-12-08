@@ -10,7 +10,7 @@
 
 @implementation b (Share)
 
-+ (void)copyToPastBoard:(NSString *)text {
++ (void)copyToPastBoard:(NSString *_Nullable )text {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = text;
 }

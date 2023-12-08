@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)getSharedKey:(NSString *)key;
 
-+ (void)copyToPastBoard:(NSString *)text;
++ (void)copyToPastBoard:(NSString *_Nullable)text;
 + (NSString *)pasteboardText;
 
 @end
