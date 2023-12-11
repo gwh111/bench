@@ -169,7 +169,21 @@ static dispatch_once_t onceToken;
 }
 
 - (BOOL)clear:(NSString *)tableName {
-    return [self delete:tableName where:nil];
+    BOOL result = NO;
+    NSFileManager * file_manager = [NSFileManager defaultManager];
+    if ([file_manager fileExistsAtPath:self.databasePath])
+    {
+        @autoreleasepool {
+            if (![self.db open]) return result;
+            
+            NSString *sql = [NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",tableName];
+            result = [self.db executeUpdate:sql];
+            
+            [self.db close];
+        }
+    }
+    return result;
+//    return [self delete:tableName where:nil];
 }
 
 - (BOOL)delete:(NSString *)tableName
