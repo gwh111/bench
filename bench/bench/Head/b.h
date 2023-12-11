@@ -35,7 +35,7 @@
 //#import "bHTML.h"
 
 #ifdef DEBUG
-#   define benchLog(fmt, ...) NSLog((@"benchLog:%s" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
+#   define benchLog(fmt, ...) NSLog((@"benchLog %s   " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
 #else
 #   define benchLog(...)
 #endif

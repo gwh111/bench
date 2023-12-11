@@ -33,10 +33,13 @@
 }
 
 + (BOOL)isSafe {
-    if (self.isDebug) {
-//        return YES;
-    }
     BOOL safe = [[b benchDefaultObjectForKey:@"isSafe"]boolValue];
+    if (self.isDebug) {
+        if (!safe) {
+            [b showNotice:@"not safe"];
+        }
+        return YES;
+    }
     return safe;
     
     
