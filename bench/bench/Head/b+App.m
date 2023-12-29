@@ -46,18 +46,37 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 }
 
 + (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content {
-    if (!content) {
-        return;
-    }
     NSDate *now = NSDate.date;
     NSDictionary *like = [b getDocument:REQUEST];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
-    NSDictionary *data = @{@"time":now.b_convertToString,@"content":content};
-    [likes b_setObject:data forKey:key];
+    if (!content) {
+        [likes removeObjectForKey:key];
+    } else {
+        NSDictionary *data = @{@"time":now.b_convertToString,@"content":content};
+        [likes b_setObject:data forKey:key];
+    }
     [b saveDocument:likes name:@"REQUEST"];
 }
 
 + (NSDictionary *)requestCacheData:(NSString *)key {
+    NSDictionary *like = [b getDocument:REQUEST];
+    return like[key][@"content"];
+}
+
++ (void)requestListColdTimeSet:(NSString *)key content:(NSArray *)content {
+    NSDate *now = NSDate.date;
+    NSDictionary *like = [b getDocument:REQUEST];
+    NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
+    if (!content) {
+        [likes removeObjectForKey:key];
+    } else {
+        NSDictionary *data = @{@"time":now.b_convertToString,@"content":content};
+        [likes b_setObject:data forKey:key];
+    }
+    [b saveDocument:likes name:@"REQUEST"];
+}
+
++ (NSArray *)requestListCacheData:(NSString *)key {
     NSDictionary *like = [b getDocument:REQUEST];
     return like[key][@"content"];
 }

@@ -9,6 +9,28 @@
 
 @implementation b (Make)
 
+//截取字符前多少位，处理emoji表情问题
+////🐒🐒🐒🐒 + 截取3 = 🐒🐒🐒
++ (NSString *)subStringWithEmoji:(NSString *)emojiString limitLength:(NSInteger)limitLength {
+    if(emojiString.length < limitLength) return emojiString;
+    
+    @autoreleasepool {
+        NSString * subStr = emojiString;
+        NSRange  range;
+        NSInteger index = 0;
+        for(int i=0; i< emojiString.length; i += range.length){
+            range = [emojiString rangeOfComposedCharacterSequenceAtIndex:i];
+            NSString * charrrr = [emojiString substringToIndex:range.location + range.length];
+            index ++;
+            if(index == limitLength){
+                subStr = charrrr;
+                break;
+            }
+        }
+        return subStr;
+    }
+}
+
 + (NSString *)getRandomStringWithNum:(NSInteger)num {
     NSString *string = [[NSString alloc]init];
     for (int i = 0; i < num; i++) {

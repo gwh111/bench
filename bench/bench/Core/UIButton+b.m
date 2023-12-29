@@ -11,6 +11,18 @@
 
 @dynamic b_normalColor, b_normalTitle;
 
++ (UIButton *)b_finishRoundButton {
+    UIButton *ui = UIButton.new;
+    ui.size = CGSizeMake(RH(80), RH(40));
+    [ui setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [ui setTitleColor:UIColor.darkGrayColor forState:UIControlStateDisabled];
+    ui.titleLabel.font = RF(16);
+    ui.layer.cornerRadius = RH(4);
+    ui.layer.borderWidth = 1;
+    ui.layer.borderColor = UIColor.grayColor.CGColor;
+    return ui;
+}
+
 + (UIButton *)b_UIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(80), RH(40));

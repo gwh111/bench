@@ -18,6 +18,14 @@
     self.shadowRadius = RH(6);
 }
 
+- (void)b_addBenchShadowRightBottom {
+    self.cornerRadius = RH(10);
+    self.shadowColor = UIColor.grayColor.CGColor;
+    self.shadowOpacity = 0.6;
+    self.shadowOffset = CGSizeMake(RH(5), RH(6));
+    self.shadowRadius = RH(6);
+}
+
 - (void)b_addBenchShadowDeep {
     self.cornerRadius = RH(10);
     self.shadowColor = UIColor.blackColor.CGColor;

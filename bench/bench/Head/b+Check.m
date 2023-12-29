@@ -37,6 +37,7 @@
     if (self.isDebug) {
         if (!safe) {
             [b showNotice:@"not safe"];
+//            return NO;
         }
         return YES;
     }

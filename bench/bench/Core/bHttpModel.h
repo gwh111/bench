@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface bHttpModel : NSObject
 
-@property (nonatomic, retain) NSDictionary *response;
+@property (nonatomic, retain) NSDictionary *responseDic;
 @property (nonatomic, retain) NSString *responseDate;
 @property (nonatomic, retain) NSString *resultStr;
 
