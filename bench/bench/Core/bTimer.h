@@ -17,6 +17,7 @@
 // @param name 定时任务名称
 // @param interval 时间间隔
 - (void)registerT:(NSString *)name interval:(float)interval block:(void (^)(void))block;
+- (void)registerWithRunT:(NSString *)name interval:(float)interval block:(void (^)(void))block;
 
 // 取消注册的定时任务
 - (void)unRegisterT:(NSString *)name;

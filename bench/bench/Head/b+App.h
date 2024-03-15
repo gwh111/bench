@@ -34,8 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)launchDayFromFirstDay;
 
 + (BOOL)requestIsColding:(NSString *)key;
-+ (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content;
++ (void)requestColdTimeSet:(NSString *)key content:(nullable NSDictionary *)content;
 + (NSDictionary *)requestCacheData:(NSString *)key;
+
++ (void)requestListColdTimeSet:(NSString *)key content:(nullable NSArray *)content;
++ (NSArray *)requestListCacheData:(NSString *)key;
 
 + (void)setKeychainObjectId:(NSString *)str;
 + (NSString *)getKeychainObjectId;

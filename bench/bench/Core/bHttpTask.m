@@ -84,7 +84,7 @@
             NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data
                                             options:NSJSONReadingMutableLeaves
                                               error:nil];
-            model.response = resultDic;
+            model.responseDic = resultDic;
             
             [b gotoMain:^{
                 block(model);

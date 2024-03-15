@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getRandomStringWithNum:(NSInteger)num;
 
++ (NSString *)subStringWithEmoji:(NSString *)emojiString limitLength:(NSInteger)limitLength;
+
 @end
 
 NS_ASSUME_NONNULL_END

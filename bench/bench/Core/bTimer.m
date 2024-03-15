@@ -104,20 +104,25 @@ static dispatch_once_t onceToken;
         if (getT + add < need) {
             [registerTimeMutArr replaceObjectAtIndex:i withObject:@(getT + add)];
         }else{
-//            float plus = getT + add - need;
+            //            float plus = getT + add - need;
             
             [registerTimeMutArr replaceObjectAtIndex:i withObject:@(0)];
             
             [bThread.shared gotoMain:^{
                 if (self->registerBlockMutArr.count > i) {
                     void (^myBlock)(void) = self->registerBlockMutArr[i];
-//                    NSLog(@"lastDate%@ %d %f",lastDate,registerTimeMutArr.count,plus);
+                    //                    NSLog(@"lastDate%@ %d %f",lastDate,registerTimeMutArr.count,plus);
                     myBlock();
                 }
             }];
         }
     }
     [lock unlock];
+}
+
+- (void)registerWithRunT:(NSString *)name interval:(float)interval block:(void (^)(void))block {
+    [self registerT:name interval:interval block:block];
+    block();
 }
 
 - (void)registerT:(NSString *)name interval:(float)interval block:(void (^)(void))block {
