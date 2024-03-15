@@ -13,20 +13,18 @@
 #import "CALayer+b.h"
 //#import "CC_CoreCrash.h"
 
-typedef void (^bAssociatedTapBlock)(UIView *view);
-
 @implementation UIView (b)
 
-- (id)benchInitOnParent:(UIView *)parent {
+- (void)benchInitOnParent:(UIView *)parent {
     UIView *view = [self initWithFrame:parent.frame];
     view.left = 0;
     view.top = 0;
     [view initUI:parent];
     [parent addSubview:view];
-    return view;
+//    return view;
 }
 
-- (id)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
+- (void)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
     UIView *view = [self initWithFrame:parent.frame];
     view.left = 0;
     view.top = 0;
@@ -34,7 +32,7 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     view.height = height;
     [view initUI:parent width:width height:height];
     [parent addSubview:view];
-    return view;
+//    return view;
 }
 
 - (void)initUI:(UIView *)parent {
@@ -63,6 +61,31 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     layer.shadowOpacity = 0.6;
     layer.shadowOffset = CGSizeMake(RH(5), -RH(6));
     
+}
+
+
+
+- (bAssociatedTapMenuBlock)bAssociatedTapMenuBlock {
+    return objc_getAssociatedObject(self, @selector(bAssociatedTapMenuBlock));
+}
+
+- (void)setbAssociatedTapMenuBlock:(bAssociatedTapMenuBlock)bAssociatedTapMenuBlock {
+    objc_setAssociatedObject(self, @selector(bAssociatedTapMenuBlock), bAssociatedTapMenuBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)addMenuTappedWithBlock:(bAssociatedTapMenuBlock)block {
+    [self setbAssociatedTapMenuBlock:block];
+}
+
+- (void)menuBlock:(NSString *)key {
+    bAssociatedTapMenuBlock block = self.bAssociatedTapMenuBlock;
+    block(key);
+}
+
+
+
+- (NSString *)benchUniqueKey {
+    return objc_getAssociatedObject(self, @selector(benchUniqueKey));
 }
 
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block {
@@ -127,10 +150,6 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     }
     self.top = top;
     self.left = WIDTH()/2-self.width/2;
-}
-
-- (NSString *)benchUniqueKey {
-    return objc_getAssociatedObject(self, @selector(benchUniqueKey));
 }
 
 - (void)setBenchUniqueKey:(NSString *)key {
