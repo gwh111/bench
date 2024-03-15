@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, retain) UIColor *b_normalColor;
 //@property (nonatomic, retain) UIFont *b_font;
 
++ (UIButton *)b_UXButton;
 + (UIButton *)b_finishRoundButton;
 + (UIButton *)b_UIButton;
 + (UIButton *)b_blackBorderUIButton;

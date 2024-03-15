@@ -42,6 +42,16 @@
     return ui;
 }
 
++ (UIButton *)b_UXButton {
+    UIButton *ui = UIButton.b_blackBorderUIButton;
+    ui.layer.cornerRadius = 0;
+    ui.b_normalColor = UIColor.darkGrayColor;
+    ui.layer.borderColor = ui.b_normalColor.CGColor;
+    ui.layer.borderWidth = 1;
+    ui.titleLabel.font = RF(16);
+    return ui;
+}
+
 + (UIButton *)b_blackBorderUIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(50), RH(50));
@@ -126,8 +136,16 @@
     return button;
 }
 
+- (NSString *)b_normalTitle {
+    return self.titleLabel.text;
+}
+
 - (void)setB_normalTitle:(NSString *)title {
     [self setTitle:title forState:UIControlStateNormal];
+}
+
+- (UIColor *)b_normalColor {
+    return self.titleLabel.textColor;
 }
 
 - (void)setB_normalColor:(UIColor *)color {

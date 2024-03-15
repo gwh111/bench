@@ -30,5 +30,6 @@
 
 #import "DES.h"
 #import "CALayer+b.h"
+#import "CC_Lib+UINavigationController.h"
 
 // extension:plug
