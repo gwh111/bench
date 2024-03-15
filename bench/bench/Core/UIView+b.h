@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *benchName;
 
 @property (nonatomic, copy) NSString *name;
+//@property (nonatomic, copy) NSMutableDictionary *menuTapBlocksMap;
 
 @property CGSize size;
 
@@ -33,14 +34,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property CGFloat centerX;
 @property CGFloat centerY;
 
+
+typedef void (^bAssociatedTapBlock)(UIView *view);
+typedef void (^bAssociatedTapMenuBlock)(NSString *key);
+
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block;
 - (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
+
+- (void)addMenuTappedWithBlock:(bAssociatedTapMenuBlock)block;
+- (void)menuBlock:(NSString *)key;
+
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
 - (nullable __kindof id)viewWithBenchName:(NSString *)name;
 
-- (id)benchInitOnParent:(UIView *)parent;
-- (id)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
+- (void)benchInitOnParent:(UIView *)parent;
+- (void)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
 
 - (void)initUI:(UIView *)parent;
 - (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
