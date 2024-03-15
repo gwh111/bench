@@ -12,6 +12,23 @@
 
 @implementation b (Language)
 
++ (NSString *)getTextCh:(NSString *)chtext enText:(NSString *)entext {
+//    NSString *key = @"language_index";
+//    NSNumber *n = [b getSharedKey:key];
+//    if (!n) {
+//        [b setSharedKey:key object:@(b.isChinese)];
+//        n = [b getSharedKey:key];
+//    }
+//    BOOL isCh = n.boolValue;
+//    if (isCh) {
+//        return chtext;
+//    }
+    if (b.isChinese) {
+        return chtext;
+    }
+    return entext;
+}
+
 + (NSString *)getText:(NSString *)text key:(NSString *)key {
     if (b.isChinese) {
         return text;

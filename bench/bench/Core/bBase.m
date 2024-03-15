@@ -253,6 +253,17 @@ static dispatch_once_t onceToken;
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         block();
     });
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//       // 在子线程中执行需要延时的代码
+//       [NSThread sleepForTimeInterval:delayInSeconds]; // 休眠3秒钟
+//
+//       dispatch_async(dispatch_get_main_queue(), ^{
+//          // 回到主线程中执行剩余操作
+//          // ...
+//           block();
+//       });
+//    });
 }
 
 //+ (id)getDefault:(NSString *)key {

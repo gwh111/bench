@@ -19,6 +19,7 @@
 - (void)setImage:(UIImage *)image withRect:(CGRect)rect {
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage],rect);
     UIImage *image1 = [UIImage imageWithCGImage:imageRef];
+//    self.image = image1;
     [self setImage:image1];
 }
 

@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isDebug;
 
++ (int)compareV1:(NSString *)v1 cutV2:(NSString *)v2;
+
 + (BOOL)isSafe;
 + (void)setIsSafeReviewVersion:(NSString *)reviewVersion inReview:(BOOL)inReview;
 

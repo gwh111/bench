@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isCodeValided;
 + (void)isCodeValidedSet:(BOOL)rated;
 
++ (int)getAndInitCoin:(int)value;
++ (int)getCoin;
++ (void)setCoin:(int)value;
+
 + (NSString *)appName;
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;

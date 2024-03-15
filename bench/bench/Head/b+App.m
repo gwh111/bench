@@ -82,6 +82,9 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 }
 
 + (BOOL)requestIsColding:(NSString *)key {
+//    if (b.isDebug) {
+//        return NO;
+//    }
     NSTimeInterval inter = [self requestColdTime:key];
     if (inter < 60*60*12) {
         return YES;
@@ -149,6 +152,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 + (BOOL)isRated {
     return [[b benchDefaultObjectForKey:@"rated"]boolValue];
 }
+
 
 + (void)isRatedSet:(BOOL)rated {
     [b benchDefaultSetObject:@(rated) forKey:@"rated"];
@@ -225,6 +229,24 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         NSString *desStr = [DES encryptString:s];
         [b saveDataToSandbox:desStr name:name];
     }
+}
+
++ (int)getAndInitCoin:(int)value {
+    NSString *coin = [b benchDefaultObjectForKey:@"coin"];
+    if (!coin) {
+        [self setCoin:value];
+        coin = [b benchDefaultObjectForKey:@"coin"];
+    }
+    return coin.intValue;
+}
+
++ (int)getCoin {
+    NSString *coin = [b benchDefaultObjectForKey:@"coin"];
+    return coin.intValue;
+}
+
++ (void)setCoin:(int)value {
+    [b benchDefaultSetObject:@(value) forKey:@"coin"];
 }
 
 @end

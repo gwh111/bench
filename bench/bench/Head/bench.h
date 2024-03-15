@@ -26,6 +26,7 @@
 
 #import "NSArray+b.h"
 #import "NSString+b.h"
+#import "UILabel+b.h"
 
 #import "DES.h"
 #import "CALayer+b.h"

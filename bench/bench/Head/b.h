@@ -51,6 +51,7 @@
 #define WO(weakObject) __weak typeof(weakObject) weakObject##Weak = weakObject;
 #define SO(strongObject) __strong typeof(strongObject) strongObject##Weak = strongObject;
 
+//#define Bench [b shared]
 /**
 Profile time cost.
 @param block     code to benchmark

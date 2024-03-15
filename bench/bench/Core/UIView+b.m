@@ -45,6 +45,10 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
     
 }
 
+- (void)setupData {
+    
+}
+
 - (void)b_addBenchShadow {
     [self.layer b_addBenchShadow];
     

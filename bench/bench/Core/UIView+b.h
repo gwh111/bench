@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)initUI:(UIView *)parent;
 - (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
 
+- (void)setupData;
+
 - (UIImage *)screenshot;
 - (UIImage *)screenshotWithSize:(CGSize)size;
 //- (void)b_addBenchShadow;

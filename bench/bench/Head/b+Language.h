@@ -9,10 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define TEXT(text) [b getText:text key:@"text"]
-#define TEXT_KEY(text,key) [b getText:a key:key]
+//#define TEXT(text) [b getText:text key:@"text"]
+//#define TEXT_KEY(text,key) [b getText:a key:key]
+#define TEXT_CH_EN(ch, en) [b getTextCh:ch enText:en]
 
 @interface b (Language)
+
++ (NSString *)getTextCh:(NSString *)chtext enText:(NSString *)entext;
 
 + (NSString *)getText:(NSString *)text key:(NSString *)key;
 

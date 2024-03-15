@@ -18,8 +18,9 @@
     [ui setTitleColor:UIColor.darkGrayColor forState:UIControlStateDisabled];
     ui.titleLabel.font = RF(16);
     ui.layer.cornerRadius = RH(4);
+    ui.backgroundColor = RGB(232, 232, 232);
     ui.layer.borderWidth = 1;
-    ui.layer.borderColor = UIColor.grayColor.CGColor;
+    ui.layer.borderColor = UIColor.lightGrayColor.CGColor;
     return ui;
 }
 
@@ -152,7 +153,8 @@
 - (void)setImage:(UIImage *)image withRect:(CGRect)rect {
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage],rect);
     UIImage *image1 = [UIImage imageWithCGImage:imageRef];
-    [self setImage:image1 forState:UIControlStateNormal];
+    self.imageView.image = image1;
+//    [self setImage:image1 forState:UIControlStateNormal];
 }
 
 - (void)setImage:(UIImage *)image withBenchPieceRect:(BenchPicecRect)benchPicecRect {

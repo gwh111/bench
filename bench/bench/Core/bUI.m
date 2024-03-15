@@ -80,6 +80,9 @@ static dispatch_once_t onceToken;
 }
 
 - (UIFont *)relativeFont:(NSString * _Nullable)fontName fontSize:(float)fontSize {
+    if (_defaultFontName) {
+        fontName = _defaultFontName;
+    }
     if (WIDTH() < 375) {
         fontSize = fontSize - 2;
     }else if (WIDTH() == 375) {

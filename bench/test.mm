@@ -92,8 +92,10 @@ class testCPP {
         vector<int>res{10,0};
 //        if (testMap.count(key) == 0)
 //        cout << "no this key" << endl;
-//        if (testMap.find(key) == testMap.end())
-//            cout << "no this key" << endl;
+        map<string,string> testMap;
+        testMap["key"];
+        if (testMap.find("key") == testMap.end())
+            cout << "no this key" << endl;
         /*
          第一行输入一个正整数 n ，表示数组 cost 的长度。
          第二行输入 n 个正整数，表示数组 cost 的值。
@@ -105,7 +107,7 @@ class testCPP {
             cin >> value;
             vec[i] = value;
         }
-        
+//        vec.size();
 //        插入
 //        res.insert(res.begin()+minindex,value);
         
@@ -279,40 +281,6 @@ class testCPP {
 };
 
 
-//    id testBlock = ^()
-//    {
-//          NSLog(@"%@",self.mapView);
-//    };
-//    [self test:testBlock];
-//    int(^block)(int) = ^int(int num){return 1;};
-    
-//    testCPP t;
-//    t.test();
-//
-//    NSMutableArray *arr = @[@[@1,@2].mutableCopy,@[@3,@4].mutableCopy].mutableCopy;
-//    arr[1][1] = @5;
-//
-//    vector<vector<int>> v(12,vector<int>(12,3));
-
-//+ (void)sort:(NSArray *)list index:(int)index temp:(NSMutableArray *)temp {
-//    if (temp.count >= list.count) {
-//        NSString *res = @"";
-//        for (int i = 0; i < temp.count; i++) {
-//            res = [NSString stringWithFormat:@"%@%@",res,temp[i]];
-//        }
-//        printf("res=%@", res);
-//        return;
-//    }
-//    for (int i = 0; i < list.count; i++) {
-//        [temp addObject:list[i]];
-//        NSMutableArray *ntemp = list.mutableCopy;
-//        [ntemp removeObjectAtIndex:i];
-//        [self sort:ntemp index:index+1 temp:temp];
-//        [temp removeLastObject];
-//    }
-//}
-
-
 
 
 
@@ -320,9 +288,34 @@ class testCPP {
 
 + (void)test {
     printf("test start\n");
+    
+    int v1 = 0;
+    int v2 = v1;
+    
+    v2++;
+    printf("%d",v1);
+    
 //    testCPP t;
 //    t.test();
+    map<char, int>map1;
+    map1['a'] = 1;
+    map1['b'] = 2;
+
+    cout << map1['a'] << endl; // 返回1
+    cout << map1['c'] << endl; // 返回0 // 这里相当于存入了['c',0]到map1中
+    
+    if (map1['c'] == 0) {
+        printf("1no c");
+    }
+    if (map1.find('c') == map1.end()) {
+        printf("2no c"); // cout 后不执行
+    }
+    if (map1.count('c') == 0) {
+        printf("3no c"); // cout 后不执行
+    }
+    
     testCPP test;
+    test.test();
     
     TreeNode *t = new TreeNode(3);
     
@@ -340,11 +333,67 @@ class testCPP {
     TreeNode *root = test.creatTree(nums, 1, (int)nums.size());
     
     test.levelOrder(root);
-    
+//    printf(nums);
     
     
     printf("test end\n");
 }
 
+
+#include <map>
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+
+bool next(vector<vector<char>> &vs, int as_x, int as_y) {
+    
+    return 1;
+}
+int solution(vector<int> &A) {
+    // Implement your solution here
+    string s = "123";
+    
+//    char ch = s.at(0);
+//    string c = ch;
+    
+    stringstream ss(s);
+    vector<string> tokens;
+    while (ss.good()) {
+        string substr;
+        getline(ss, substr, ' ');
+        
+        if (!substr.empty()) {
+            tokens.push_back(substr);
+        }
+    }
+    
+    for (const auto& token : tokens) {
+        cout << token << endl;
+    }
+    
+    
+    vector<int> v;
+    map<int,int> m;
+    v.push_back(1);
+    m[v[0]] = 2;
+    if (m.find(1) == m.end()) {
+        printf("yes");
+    }
+    for (auto it = m.begin(); it != m.end(); ++it) {
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+    
+    printf("%d",m[200]);
+    // for (int i = 0; i < (int)A.size(); i++) {
+    //     cout << A[i] << endl;
+    // }
+    // string str = "13";
+    // int n = atoi(str.c_str());
+    // //int->string
+    // int m = 0;
+    // string s = to_string(m);
+    return 0;
+}
 
 @end
