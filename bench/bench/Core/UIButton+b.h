@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, retain) UIFont *b_font;
 
 + (UIButton *)b_UXButton;
++ (UIButton *)b_titleButton;
+
 + (UIButton *)b_finishRoundButton;
 + (UIButton *)b_UIButton;
 + (UIButton *)b_blackBorderUIButton;

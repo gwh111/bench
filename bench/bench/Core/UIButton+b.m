@@ -52,6 +52,13 @@
     return ui;
 }
 
++ (UIButton *)b_titleButton {
+    UIButton *ui = UIButton.new;
+    ui.b_normalColor = UIColor.blackColor;
+    ui.titleLabel.font = RF(16);
+    return ui;
+}
+
 + (UIButton *)b_blackBorderUIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(50), RH(50));
@@ -107,6 +114,7 @@
 + (UIButton *)b_panUIButton {
     UIButton *button = UIButton.b_UIButton;
     [button setTitleColor:UIColor.b_lightYellow forState:UIControlStateHighlighted];
+    button.b_normalColor = UIColor.whiteColor;
     button.size = CGSizeMake(RH(60), RH(20));
     button.backgroundColor = UIColor.grayColor;
     button.titleLabel.font = RF(12);
