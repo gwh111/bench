@@ -16,7 +16,8 @@
 @implementation UIView (b)
 
 - (void)benchInitOnParent:(UIView *)parent {
-    UIView *view = [self initWithFrame:parent.frame];
+    UIView *view = self;
+    view.frame = parent.frame;
     view.left = 0;
     view.top = 0;
     [view initUI:parent];
@@ -25,7 +26,8 @@
 }
 
 - (void)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
-    UIView *view = [self initWithFrame:parent.frame];
+    UIView *view = self;
+    view.frame = parent.frame;
     view.left = 0;
     view.top = 0;
     view.width = width;

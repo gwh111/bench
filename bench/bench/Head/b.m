@@ -148,11 +148,11 @@
     [bUI.shared stopLoading];
 }
 
-+ (id)documentsStringWithPath:(NSString *)name {
++ (id)sandboxDocumentsStringWithPath:(NSString *)name {
     return [bBase documentsStringWithPath:name];
 }
 
-+ (NSDictionary *)documentsPlistWithPath:(NSString *)name {
++ (NSDictionary *)sandboxDocumentsPlistWithPath:(NSString *)name {
     return [bBase documentsPlistWithPath:name];
 }
 

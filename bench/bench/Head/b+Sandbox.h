@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Sandbox)
 
-+ (NSString *)documentPath;
++ (NSString *)sandboxDocumentPath;
++ (void)sandboxMakeDocument:(NSString *)name;
++ (BOOL)sandboxIsExistFileAtPath:(NSString *)path;
++ (NSArray *)sandboxFilesAtPath:(NSString *)path;
++ (void)sandboxRemoveDocument:(NSString *)name;
 
 @end
 

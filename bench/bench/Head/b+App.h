@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)appName;
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;
-+ (NSDictionary *)getDocument:(NSString *)name;
-+ (void)saveDocument:(NSDictionary *)data name:(NSString *)name;
++ (NSDictionary *)getDictionary:(NSString *)name;
++ (void)saveDictionary:(NSDictionary *)data name:(NSString *)name;
 + (NSString *)bundlePathWithName:(NSString *)name;
 
 + (id)benchDefaultObjectForKey:(NSString *)key;

@@ -12,7 +12,7 @@
 
 + (UIImage *)getAppPaperImage {
     NSString *name = @"appPaper";
-    NSString *path = [NSString stringWithFormat:@"%@/%@",b.documentPath,name];
+    NSString *path = [NSString stringWithFormat:@"%@/%@",b.sandboxDocumentPath,name];
     NSData *data = [NSData dataWithContentsOfFile:path];
     UIImage *image = [UIImage imageWithData:data];
     return image;
@@ -21,7 +21,7 @@
 + (void)setAppPaperImage:(UIImage *)image {
     NSData *data = UIImagePNGRepresentation(image);
     NSString *name = @"appPaper";
-    NSString *path = [NSString stringWithFormat:@"%@/%@",b.documentPath,name];
+    NSString *path = [NSString stringWithFormat:@"%@/%@",b.sandboxDocumentPath,name];
     [data writeToFile:path atomically:YES];
 }
 

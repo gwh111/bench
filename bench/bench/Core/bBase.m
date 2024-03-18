@@ -156,7 +156,9 @@ static dispatch_once_t onceToken;
     NSString *fileName = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
     //判断路径是否存在
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
-        NSString *data = [[NSString alloc] initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
+        NSError *error;
+        NSString *data = [[NSString alloc] initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:&error];
+        NSLog(@"%@",error);
         return data;
     }
 //    NSLog(@"no such file '%@'",name);

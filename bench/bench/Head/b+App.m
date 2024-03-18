@@ -34,7 +34,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 
 + (NSTimeInterval)requestColdTime:(NSString *)key {
     NSDate *now = NSDate.date;
-    NSDictionary *like = [b getDocument:REQUEST];
+    NSDictionary *like = [b getDictionary:REQUEST];
     NSDictionary *data = like[key];
     if (data) {
         NSString *time = data[@"time"];
@@ -47,7 +47,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 
 + (void)requestColdTimeSet:(NSString *)key content:(NSDictionary *)content {
     NSDate *now = NSDate.date;
-    NSDictionary *like = [b getDocument:REQUEST];
+    NSDictionary *like = [b getDictionary:REQUEST];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
     if (!content) {
         [likes removeObjectForKey:key];
@@ -55,17 +55,17 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         NSDictionary *data = @{@"time":now.b_convertToString,@"content":content};
         [likes b_setObject:data forKey:key];
     }
-    [b saveDocument:likes name:@"REQUEST"];
+    [b saveDictionary:likes name:@"REQUEST"];
 }
 
 + (NSDictionary *)requestCacheData:(NSString *)key {
-    NSDictionary *like = [b getDocument:REQUEST];
+    NSDictionary *like = [b getDictionary:REQUEST];
     return like[key][@"content"];
 }
 
 + (void)requestListColdTimeSet:(NSString *)key content:(NSArray *)content {
     NSDate *now = NSDate.date;
-    NSDictionary *like = [b getDocument:REQUEST];
+    NSDictionary *like = [b getDictionary:REQUEST];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
     if (!content) {
         [likes removeObjectForKey:key];
@@ -73,11 +73,11 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         NSDictionary *data = @{@"time":now.b_convertToString,@"content":content};
         [likes b_setObject:data forKey:key];
     }
-    [b saveDocument:likes name:@"REQUEST"];
+    [b saveDictionary:likes name:@"REQUEST"];
 }
 
 + (NSArray *)requestListCacheData:(NSString *)key {
-    NSDictionary *like = [b getDocument:REQUEST];
+    NSDictionary *like = [b getDictionary:REQUEST];
     return like[key][@"content"];
 }
 
@@ -126,27 +126,27 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 }
 
 + (id)benchDefaultObjectForKey:(NSString *)key fileName:(NSString *)fileName {
-    NSDictionary *like = [b getDocument:fileName];
+    NSDictionary *like = [b getDictionary:fileName];
     return like[key];
 }
 
 + (void)benchDefaultSetObject:(id)value forKey:(NSString *)key fileName:(NSString *)fileName {
-    NSDictionary *like = [b getDocument:fileName];
+    NSDictionary *like = [b getDictionary:fileName];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
     [likes b_setObject:value forKey:key];
-    [b saveDocument:likes name:fileName];
+    [b saveDictionary:likes name:fileName];
 }
 
 + (id)benchDefaultObjectForKey:(NSString *)key {
-    NSDictionary *like = [b getDocument:BENCH_DEFAULT];
+    NSDictionary *like = [b getDictionary:BENCH_DEFAULT];
     return like[key];
 }
 
 + (void)benchDefaultSetObject:(id)value forKey:(NSString *)key {
-    NSDictionary *like = [b getDocument:BENCH_DEFAULT];
+    NSDictionary *like = [b getDictionary:BENCH_DEFAULT];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
     [likes b_setObject:value forKey:key];
-    [b saveDocument:likes name:BENCH_DEFAULT];
+    [b saveDictionary:likes name:BENCH_DEFAULT];
 }
 
 + (BOOL)isRated {
@@ -193,14 +193,14 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return path;
 }
 
-+ (NSDictionary *)getDocument:(NSString *)name {
++ (NSDictionary *)getDictionary:(NSString *)name {
     NSString *service = @"b";
     NSDictionary *data = @{};
     if ([service isEqualToString:@"a"]) {
-        data = [b documentsPlistWithPath:name];
+        data = [b sandboxDocumentsPlistWithPath:name];
     }
     if ([service isEqualToString:@"b"]) {
-        id code = [b documentsStringWithPath:[NSString stringWithFormat:@"%@",name]];
+        id code = [b sandboxDocumentsStringWithPath:[NSString stringWithFormat:@"%@",name]];
         if (!code) {
             return nil;
         }
@@ -214,7 +214,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 }
 
 //保存到沙盒
-+ (void)saveDocument:(NSDictionary *)data name:(NSString *)name {
++ (void)saveDictionary:(NSDictionary *)data name:(NSString *)name {
     NSString *fileKey = [NSString stringWithFormat:@"%@,%@",@"key",name];
     NSString *code = [DES encryptString:fileKey];
     NSMutableDictionary *mutData = data.mutableCopy;

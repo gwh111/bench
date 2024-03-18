@@ -110,8 +110,8 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 + (void)showCannotTapLoading:(NSString *)noticeStr;
 + (void)stopLoading;
 
-+ (id)documentsStringWithPath:(NSString *)name;
-+ (NSDictionary *)documentsPlistWithPath:(NSString *)name;
++ (id)sandboxDocumentsStringWithPath:(NSString *)name;
++ (NSDictionary *)sandboxDocumentsPlistWithPath:(NSString *)name;
 + (NSString *)bundleStringWithPath:(NSString *)name type:(NSString *)type;
 + (NSDictionary *)bundlePlistWithPath:(NSString *)name;
 
