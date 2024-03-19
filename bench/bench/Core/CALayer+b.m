@@ -22,7 +22,7 @@
     self.cornerRadius = RH(10);
     self.shadowColor = UIColor.grayColor.CGColor;
     self.shadowOpacity = 0.6;
-    self.shadowOffset = CGSizeMake(RH(5), RH(6));
+    self.shadowOffset = CGSizeMake(RH(3), RH(6));
     self.shadowRadius = RH(6);
 }
 

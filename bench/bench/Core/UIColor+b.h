@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define HEXA(COLOR,A) [UIColor b_hex:COLOR alpha:a]
+#define HEXA(COLOR) [UIColor colorWithHexString:COLOR]
 #define HEX(COLOR) HEXA(COLOR,1.0)
 #define RGBA(r,g,b,a) [UIColor b_rgb:r green:g blue:b alpha:a]
 #define RGB(r,g,b) [UIColor b_rgb:r green:g blue:b alpha:1]
@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define WHITEA(a) [UIColor b_rgb:255 green:255 blue:255 alpha:a]
 
 @interface UIColor (b)
+
++ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
 + (UIColor *)b_hex:(NSString *)hex alpha:(float)alpha;
 + (UIColor *)b_rgb:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
@@ -37,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)b_close;
 + (UIColor *)b_minimize;
 + (UIColor *)b_maximize;
+
+- (NSString *)hexadecimalFromUIColor;
 
 @end
 

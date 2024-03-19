@@ -49,6 +49,7 @@
     ui.layer.borderColor = ui.b_normalColor.CGColor;
     ui.layer.borderWidth = 1;
     ui.titleLabel.font = RF(16);
+    ui.backgroundColor = RGBA(255, 255, 255, 0.5);
     return ui;
 }
 
@@ -62,14 +63,15 @@
 + (UIButton *)b_blackBorderUIButton {
     UIButton *ui = UIButton.new;
     ui.size = CGSizeMake(RH(50), RH(50));
-    ui.layer.cornerRadius = RH(4);
+    ui.layer.cornerRadius = RH(10);
     [ui setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     [ui setTitleColor:UIColor.grayColor forState:UIControlStateDisabled];
-    ui.titleLabel.font = RF(16);
-    ui.layer.borderWidth = 2;
+    ui.titleLabel.font = RF(14);
+    ui.layer.borderWidth = 1;
     ui.layer.borderColor = UIColor.blackColor.CGColor;
-    ui.titleLabel.font = BRF(16);
+    ui.titleLabel.font = RF(14);
     ui.b_normalColor = UIColor.blackColor;
+    ui.backgroundColor = UIColor.whiteColor;
     return ui;
 }
 
@@ -79,10 +81,10 @@
     ui.layer.cornerRadius = RH(4);
     [ui setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     [ui setTitleColor:UIColor.grayColor forState:UIControlStateDisabled];
-    ui.titleLabel.font = RF(16);
-    ui.layer.borderWidth = 2;
+    ui.titleLabel.font = RF(14);
+    ui.layer.borderWidth = 1;
     ui.layer.borderColor = UIColor.whiteColor.CGColor;
-    ui.titleLabel.font = BRF(16);
+    ui.titleLabel.font = RF(14);
     ui.b_normalColor = UIColor.blackColor;
     return ui;
 }
@@ -92,7 +94,7 @@
     ui.size = CGSizeMake(RH(80), RH(40));
     [ui setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     [ui setTitleColor:UIColor.darkGrayColor forState:UIControlStateDisabled];
-    ui.titleLabel.font = RF(16);
+    ui.titleLabel.font = RF(14);
     ui.layer.cornerRadius = RH(4);
     ui.layer.borderWidth = 1;
     ui.layer.borderColor = UIColor.grayColor.CGColor;
@@ -102,10 +104,10 @@
 + (UIButton *)b_roundSingelUIButton {
     UIButton *pk = UIButton.b_UIButton;
     pk.size = CGSizeMake(RH(30), RH(30));
-    pk.layer.cornerRadius = RH(15);
+    pk.layer.cornerRadius = RH(10);
     pk.layer.borderColor = UIColor.whiteColor.CGColor;
     pk.layer.borderWidth = 1;
-    pk.titleLabel.font = BRF(12);
+    pk.titleLabel.font = RF(14);
     pk.b_normalColor = UIColor.whiteColor;
     pk.backgroundColor = RGBA(0, 0, 0, 0.5);
     return pk;
