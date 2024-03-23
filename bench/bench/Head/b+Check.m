@@ -75,6 +75,27 @@
     }
 }
 
++ (BOOL)isDateBefore:(NSString *)dataStr {
+    NSString *time = @"2022-09-18 08:08:08";
+    time = dataStr;
+    NSDate *localD = NSDate.b_localDate;
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSDate *resDate = [dateFormatter dateFromString:time];
+    if (!resDate) {
+        [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss z"];
+        resDate = [dateFormatter dateFromString:time];
+    }
+
+    NSTimeInterval timeInterval = [resDate timeIntervalSinceDate:localD];
+    if (timeInterval > 0) {
+        return YES;
+    }
+    return NO;
+}
+
 + (BOOL)isSafe {
 //    return NO;
     BOOL safe = [[b benchDefaultObjectForKey:@"isSafe"]boolValue];
