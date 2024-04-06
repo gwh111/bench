@@ -109,7 +109,8 @@ static dispatch_once_t onceToken;
         // 拼接文件路径
     NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
     NSLog(@"save to path %@",path);
-    return [data writeToFile:path atomically:YES];
+    NSError *error;
+    return [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }
 
 + (void)removeSandboxFile:(NSString *)name {

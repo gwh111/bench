@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)sandboxIsExistFileAtPath:(NSString *)path;
 + (NSArray *)sandboxFilesAtPath:(NSString *)path;
 + (void)sandboxRemoveDocument:(NSString *)name;
++ (void)sandboxRenameDocument:(NSString *)name newName:(NSString *)newName;
++ (void)sandboxWriteImage:(UIImage *)image jpgCompressRate:(float)rate toPath:(NSString *)path;
++ (UIImage *)sandboxImageWithPath:(NSString *)path;
 
 @end
 

@@ -363,7 +363,9 @@ static dispatch_once_t onceToken;
     label.font = RF(14);
     label.textColor = UIColor.whiteColor;
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = RGBA(0, 0, 0, .8);
+    label.backgroundColor = RGBA(0, 0, 0, 1);
+    label.layer.cornerRadius = RH(5);
+    label.layer.masksToBounds = true;
     [showV addSubview:label];
     
     label.width = WIDTH() - RH(40);

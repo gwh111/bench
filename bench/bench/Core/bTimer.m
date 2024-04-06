@@ -25,7 +25,7 @@
 
 @property (nonatomic, assign) float minF;
 
-@property (nonatomic, assign) NSString *currentUniqueTimeStamp;
+@property (nonatomic, retain) NSString *currentUniqueTimeStamp;
 @property (nonatomic, assign) int currentUniqueTimeStampCount;
 
 @end

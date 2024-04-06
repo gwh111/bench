@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIButton *)b_UXButton;
 + (UIButton *)b_titleButton;
++ (UIButton *)b_topButton;
++ (UIButton *)b_blackBackButton;
 
 + (UIButton *)b_finishRoundButton;
 + (UIButton *)b_UIButton;

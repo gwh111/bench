@@ -45,18 +45,33 @@
 + (UIButton *)b_UXButton {
     UIButton *ui = UIButton.b_blackBorderUIButton;
     ui.layer.cornerRadius = 0;
-    ui.b_normalColor = UIColor.darkGrayColor;
+    ui.b_normalColor = UIColor.blackColor;
     ui.layer.borderColor = ui.b_normalColor.CGColor;
     ui.layer.borderWidth = 1;
     ui.titleLabel.font = RF(16);
-    ui.backgroundColor = RGBA(255, 255, 255, 0.5);
+    ui.backgroundColor = RGBA(255, 255, 255, 1);
+    return ui;
+}
+
++ (UIButton *)b_blackBackButton {
+    UIButton *ui = UIButton.new;
+    ui.b_normalColor = UIColor.whiteColor;
+    ui.backgroundColor = RGB(22, 22, 22);
+    ui.titleLabel.font = RF(14);
+    return ui;
+}
+
++ (UIButton *)b_topButton {
+    UIButton *ui = UIButton.new;
+    ui.b_normalColor = UIColor.whiteColor;
+    ui.titleLabel.font = BRF(14);
     return ui;
 }
 
 + (UIButton *)b_titleButton {
     UIButton *ui = UIButton.new;
     ui.b_normalColor = UIColor.blackColor;
-    ui.titleLabel.font = RF(16);
+    ui.titleLabel.font = RF(14);
     return ui;
 }
 
@@ -109,7 +124,7 @@
     pk.layer.borderWidth = 1;
     pk.titleLabel.font = RF(14);
     pk.b_normalColor = UIColor.whiteColor;
-    pk.backgroundColor = RGBA(0, 0, 0, 0.5);
+    pk.backgroundColor = RGBA(0, 0, 0, 0.8);
     return pk;
 }
 
