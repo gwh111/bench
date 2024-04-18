@@ -32,6 +32,7 @@
 #import "bSort.h"
 #import "bVideo.h"
 #import "bShared.h"
+#import "bPurchase.h"
 //#import "bHTML.h"
 
 #ifdef DEBUG

@@ -23,6 +23,7 @@
 		18B2F05F2B0D906E002C9A4C /* CALayer+b.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F05E2B0D906E002C9A4C /* CALayer+b.m */; };
 		D805C5942BA4866A00E06820 /* CC_Lib+UINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D805C5932BA4866A00E06820 /* CC_Lib+UINavigationController.m */; };
 		D81C6A442990F1DA009F5977 /* testLCSKMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */; };
+		D81FD3DD2BD0923200C6696B /* bPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = D81FD3DC2BD0923200C6696B /* bPurchase.m */; };
 		D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80827B35EC900D7C968 /* NSDate+b.m */; };
 		D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D829E80B27B35EC900D7C968 /* UIColor+b.m */; };
 		D82B15152A32299100183B43 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = D82B15142A32299100183B43 /* readme.md */; };
@@ -149,6 +150,8 @@
 		D805C5932BA4866A00E06820 /* CC_Lib+UINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CC_Lib+UINavigationController.m"; sourceTree = "<group>"; };
 		D81C6A432990F1DA009F5977 /* testLCSKMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLCSKMP.cpp; sourceTree = "<group>"; };
 		D81C6A47299471BF009F5977 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		D81FD3DB2BD0923200C6696B /* bPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bPurchase.h; sourceTree = "<group>"; };
+		D81FD3DC2BD0923200C6696B /* bPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bPurchase.m; sourceTree = "<group>"; };
 		D829E80827B35EC900D7C968 /* NSDate+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+b.m"; sourceTree = "<group>"; };
 		D829E80927B35EC900D7C968 /* NSDate+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+b.h"; sourceTree = "<group>"; };
 		D829E80A27B35EC900D7C968 /* UIColor+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+b.h"; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				1880DC302A5BDF83002C31DE /* bModule.m */,
 				1880DC3B2A5E9AAD002C31DE /* bUIModule.h */,
 				1880DC3C2A5E9AAD002C31DE /* bUIModule.m */,
+				D81FD3DB2BD0923200C6696B /* bPurchase.h */,
+				D81FD3DC2BD0923200C6696B /* bPurchase.m */,
 				D8AE040128D2AE0B000CFC35 /* bVideo.h */,
 				D8AE040028D2AE0B000CFC35 /* bVideo.m */,
 				D83733A028BC741B002BAA73 /* bAnimationPlay.h */,
@@ -707,6 +712,7 @@
 				D8A37E41288E3DFF00E0C895 /* UITapGestureRecognizer+b.m in Sources */,
 				D837339B28BAFB64002BAA73 /* bMD5.m in Sources */,
 				D8FEE958278FCEB4006E3A22 /* UIViewController+b.m in Sources */,
+				D81FD3DD2BD0923200C6696B /* bPurchase.m in Sources */,
 				D890E1D527891CDB00079C0C /* ViewController.swift in Sources */,
 				1823DC662A5696CE00845A82 /* b+Share.m in Sources */,
 				D890E1D127891CDB00079C0C /* AppDelegate.swift in Sources */,

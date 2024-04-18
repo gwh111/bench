@@ -249,4 +249,29 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     [b benchDefaultSetObject:@(value) forKey:@"coin"];
 }
 
++ (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId {
+//    NSString *msg = @"评论有奖~给我们一个评论，赠送30天会员。";
+//    NSString *des = @"伯牙鼓琴，锺子期听之。方鼓琴而志在太山，锺子期曰:“善哉乎鼓琴！巍巍乎若太山。”少选之间而志在流水，锺子期又曰：”善哉乎鼓琴！汤汤乎若流水。”锺子期死，伯牙破琴绝弦，终身不复鼓琴，以为世无足复为鼓琴者。";
+    
+    [b.ui showAltOn:b.ui.currentUIViewController title:msg msg:des bts:@[@"复制推荐内容后评论",@"取消"] block:^(int index, NSString * _Nonnull indexTitle) {
+        if (index == 0) {
+//            a.shared.rate = 2;
+//            NSString *appId = @"1635508901";
+            NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
+            
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            pasteboard.string = des;
+            
+            if (@available(iOS 10.0, *)) {
+                [UIApplication.sharedApplication openURL:[NSURL URLWithString:urlStr] options:NSMutableDictionary.new completionHandler:^(BOOL success) {
+                    
+                }];
+            } else {
+                // Fallback on earlier versions
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+            }
+        }
+    }];
+}
+
 @end
