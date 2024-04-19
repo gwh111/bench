@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getKeychainObjectId;
 
 + (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId;
++ (void)xhsAccount;
 
 @end
 

@@ -274,4 +274,16 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     }];
 }
 
++ (void)xhsAccount {
+
+    NSURL *taobaoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"xhsdiscover://item/%@?type=%@",@"642f5f91000000001203d152",@"normal"]];
+    if ([[UIApplication sharedApplication] canOpenURL:taobaoUrl]) {
+        [[UIApplication sharedApplication] openURL:taobaoUrl options:@{} completionHandler:^(BOOL success) {
+            
+        }];
+    } else {
+        [b showNotice:[NSString stringWithFormat:@"小红书官方账号：%@",b.appName]];
+    }
+}
+
 @end
