@@ -166,6 +166,7 @@
 }
 
 - (void)setB_normalTitle:(NSString *)title {
+    self.titleLabel.text = title;
     [self setTitle:title forState:UIControlStateNormal];
 }
 
