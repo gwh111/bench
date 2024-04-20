@@ -365,6 +365,8 @@ static dispatch_once_t onceToken;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = RGBA(0, 0, 0, 1);
     label.layer.masksToBounds = true;
+    label.layer.borderWidth = 1;
+    label.layer.borderColor = UIColor.whiteColor.CGColor;
     [showV addSubview:label];
     
     label.width = WIDTH() - RH(40);
@@ -377,8 +379,12 @@ static dispatch_once_t onceToken;
     label.left = label.left-RH(10);
     label.height = label.height+RH(20);
     
-    label.layer.cornerRadius = label.height/2;
-    label.top = b.ui.safeTop;
+//    label.layer.cornerRadius = label.height/2;
+    label.width = WIDTH();
+    label.alpha = 0.8;
+    label.centerY = HEIGHT()/2;
+    label.centerX = WIDTH()/2;
+//    label.top = b.ui.safeTop+RH(10);
     
     float animateDelay = delay;
     if (animateDelay == 0) {
