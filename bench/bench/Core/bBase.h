@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                 type:(NSString *)type;
++ (NSArray *)bundleFilePathsWithPath:(NSString *)name
+                                type:(NSString *)type;
+
 + (NSString *)bundleStringWithPath:(NSString *)name type:(NSString *)type;
 + (NSDictionary *)bundlePlistWithPath:(NSString *)name;
 + (BOOL)copyBundlePlistToSandboxToPath:(NSString *)name;

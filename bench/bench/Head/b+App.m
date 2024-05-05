@@ -8,6 +8,7 @@
 #import "b+App.h"
 #import "DES.h"
 #import "b+Check.h"
+#import "b+Share.h"
 
 @implementation b (App)
 
@@ -245,6 +246,12 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return coin.intValue;
 }
 
++ (void)addCoin:(int)value {
+    int coin = self.getCoin;
+    coin = coin + value;
+    [self setCoin:coin];
+}
+
 + (void)setCoin:(int)value {
     [b benchDefaultSetObject:@(value) forKey:@"coin"];
 }
@@ -257,6 +264,10 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         if (index == 0) {
 //            a.shared.rate = 2;
 //            NSString *appId = @"1635508901";
+            if (!b.isRated) {
+                [b setSharedKey:@"rate" object:@"1"];
+            }
+            
             NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
             
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
@@ -276,7 +287,8 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 
 + (void)xhsAccount {
 
-    NSURL *taobaoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"xhsdiscover://item/%@?type=%@",@"642f5f91000000001203d152",@"normal"]];
+    NSURL *taobaoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"xhsdiscover://item/%@?type=%@",@"66285a0d000000001c0065af",@"normal"]];
+    // https://www.xiaohongshu.com/discovery/item/66285a0d000000001c0065af?app_platform=android&ignoreEngage=true&app_version=8.33.0&share_from_user_hidden=true&type=normal&author_share=1&xhsshare=CopyLink&shareRedId=N0xFMUhJR0I2NzUyOTgwNjY0OThJOUlP&apptime=1713926941
     if ([[UIApplication sharedApplication] canOpenURL:taobaoUrl]) {
         [[UIApplication sharedApplication] openURL:taobaoUrl options:@{} completionHandler:^(BOOL success) {
             

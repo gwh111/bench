@@ -35,6 +35,16 @@
     return ui;
 }
 
++ (UILabel *)b_whiteTextUILabel {
+    UILabel *ui = UILabel.new;
+    ui.size = CGSizeMake(WIDTH()-RH(20), RH(35));
+    ui.left = RH(10);
+    ui.font = RF(14);
+    ui.numberOfLines = 0;
+    ui.textColor = UIColor.whiteColor;
+    return ui;
+}
+
 + (UILabel *)b_roundUILabel {
     UILabel *label = UILabel.b_UILabel;
     label.size = CGSizeMake(RH(40), RH(40));

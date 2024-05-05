@@ -49,4 +49,8 @@
     return string;
 }
 
++ (int)getRandom:(int)number {
+    return arc4random()%number;
+}
+
 @end

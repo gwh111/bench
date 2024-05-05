@@ -83,6 +83,9 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 //+ (NSDate *)appInstallDate;
 + (NSArray *)bundleFileNamesWithPath:(NSString *)name
                                 type:(NSString *)type;
++ (NSArray *)bundleFilePathsWithPath:(NSString *)name
+                                type:(NSString *)type;
+
 + (BOOL)copyBundlePlistToSandboxToPath:(NSString *)name;
 + (BOOL)savePlistToSandbox:(id)data name:(NSString *)name;
 + (BOOL)saveDataToSandbox:(id)data name:(NSString *)name;

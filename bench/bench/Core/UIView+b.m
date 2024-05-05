@@ -15,6 +15,23 @@
 
 @implementation UIView (b)
 
+- (void)show {
+    self.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)dismiss {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
 - (void)benchInitOnParent:(UIView *)parent {
     UIView *view = self;
     view.frame = parent.frame;
@@ -194,6 +211,21 @@
         if (view.benchName) {
             if ([view.benchName isEqualToString:name]) {
                 return view;
+            }
+        }
+    }
+    return nil;
+}
+
+- (nullable __kindof id)viewWithBenchName:(NSString *)name subName:(NSString *)subname {
+    for (UIView *view in self.subviews) {
+        if (view.benchName) {
+            if ([view.benchName isEqualToString:name]) {
+                for (UIView *view2 in view.subviews) {
+                    if ([view2.benchName isEqualToString:subname]) {
+                        return view2;
+                    }
+                }
             }
         }
     }

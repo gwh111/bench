@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)getAndInitCoin:(int)value;
 + (int)getCoin;
 + (void)setCoin:(int)value;
++ (void)addCoin:(int)value;
 
 + (NSString *)appName;
 + (NSString *)bundleID;

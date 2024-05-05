@@ -31,11 +31,25 @@ static dispatch_once_t onceToken;
     return self;
 }
 
-+ (NSArray *)bundleFileNamesWithPath:(NSString *)name
++ (NSArray *)bundleFilePathsWithPath:(NSString *)name
                                 type:(NSString *)type {
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:type
                                                         inDirectory:name];
     return paths;
+}
+
++ (NSArray *)bundleFileNamesWithPath:(NSString *)name
+                                type:(NSString *)type {
+    NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:type
+                                                        inDirectory:name];
+    NSMutableArray *mutList = NSMutableArray.new;
+    for (int i = 0; i < paths.count; i++) {
+        NSString *path = paths[i];
+        NSArray *sets = [path componentsSeparatedByString:@"/"];
+        NSString *name = sets.lastObject;
+        [mutList addObject:name];
+    }
+    return mutList.copy;
 }
 
 + (NSData *)bundleFileWithPath:(NSString *)name
@@ -109,6 +123,12 @@ static dispatch_once_t onceToken;
         // 拼接文件路径
     NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
     NSLog(@"save to path %@",path);
+    if ([data isKindOfClass:UIImage.class]) {
+        UIImage *image = data;
+        NSData *data = UIImageJPEGRepresentation(image, 1);
+        return [data writeToFile:path atomically:YES];
+    }
+    
     NSError *error;
     return [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }

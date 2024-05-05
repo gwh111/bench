@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^bAssociatedTapBlock)(UIView *view);
 typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
+- (void)show;
+- (void)dismiss;
+
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block;
 - (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
 
@@ -47,6 +50,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
 - (nullable __kindof id)viewWithBenchName:(NSString *)name;
+- (nullable __kindof id)viewWithBenchName:(NSString *)name subName:(NSString *)subname;
 
 - (void)benchInitOnParent:(UIView *)parent;
 - (void)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;

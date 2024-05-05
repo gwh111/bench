@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)containForbiddenWords:(NSString *)text;
 + (BOOL)containForbiddenWordsCheck:(NSString *)text;
 
++ (void)printFontNames;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,6 +14,26 @@
     return doc;
 }
 
++ (BOOL)sandboxSaveDataAtPath:(NSString *)name data:(id)data {
+    if (!name) {
+        benchLog(@"no name");
+        return NO;
+    }
+    
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        // 拼接文件路径
+    NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
+    NSLog(@"save to path %@",path);
+    if ([data isKindOfClass:UIImage.class]) {
+        UIImage *image = data;
+        NSData *data = UIImageJPEGRepresentation(image, 1);
+        return [data writeToFile:path atomically:YES];
+    }
+    
+    NSError *error;
+    return [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
+}
+
 + (void)sandboxMakeDocument:(NSString *)name {
     NSString *filePath = [self.sandboxDocumentPath stringByAppendingPathComponent:name];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -74,7 +94,16 @@
         UIImage *image = [[UIImage alloc]initWithContentsOfFile:filePath];
         return image;
     }
-//    NSLog(@"no such file '%@'",name);
+    NSString *jpg = [NSString stringWithFormat:@"%@.jpg",filePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:jpg]) {
+        UIImage *image = [[UIImage alloc]initWithContentsOfFile:jpg];
+        return image;
+    }
+    NSString *png = [NSString stringWithFormat:@"%@.png",filePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:png]) {
+        UIImage *image = [[UIImage alloc]initWithContentsOfFile:png];
+        return image;
+    }
     return nil;
 }
 

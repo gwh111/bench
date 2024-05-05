@@ -112,6 +112,11 @@
     return [bBase bundleFileNamesWithPath:name type:type];
 }
 
++ (NSArray *)bundleFilePathsWithPath:(NSString *)name
+                                type:(NSString *)type {
+    return [bBase bundleFilePathsWithPath:name type:type];
+}
+
 + (BOOL)copyBundlePlistToSandboxToPath:(NSString *)name {
     return [bBase copyBundlePlistToSandboxToPath:name];
 }

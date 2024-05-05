@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UILabel *)b_UILabel;
 + (UILabel *)b_infoUILabel;
 + (UILabel *)b_blackTextUILabel;
++ (UILabel *)b_whiteTextUILabel;
 
 @end
 

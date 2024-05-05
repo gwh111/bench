@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)sandboxRenameDocument:(NSString *)name newName:(NSString *)newName;
 + (void)sandboxWriteImage:(UIImage *)image jpgCompressRate:(float)rate toPath:(NSString *)path;
 + (UIImage *)sandboxImageWithPath:(NSString *)path;
++ (BOOL)sandboxSaveDataAtPath:(NSString *)name data:(id)data;
 
 @end
 
