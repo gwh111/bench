@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSMutableAttributedString (b)
 
 - (void)b_appendAttStr:(NSString *)appendStr color:(UIColor *)color;
-
 - (void)b_appendAttStr:(NSString *)appendStr color:(UIColor *)color font:(UIFont *)font;
+- (void)b_getReplaceAttText:(NSString *)replaceStr toAtt:(NSMutableAttributedString *)toAtt;
 
 @end
 

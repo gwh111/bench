@@ -143,10 +143,18 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return like[key];
 }
 
-+ (void)benchDefaultSetObject:(id)value forKey:(NSString *)key {
++ (void)benchDefaultRemoveObjectForKey:(NSString *)key {
+    [self benchDefaultSetObject:nil forKey:key];
+}
+
++ (void)benchDefaultSetObject:(nullable id)value forKey:(NSString *)key {
     NSDictionary *like = [b getDictionary:BENCH_DEFAULT];
     NSMutableDictionary *likes = [NSMutableDictionary dictionaryWithDictionary:like];
-    [likes b_setObject:value forKey:key];
+    if (value) {
+        [likes b_setObject:value forKey:key];
+    } else {
+        [likes removeObjectForKey:key];
+    }
     [b saveDictionary:likes name:BENCH_DEFAULT];
 }
 
@@ -256,6 +264,30 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     [b benchDefaultSetObject:@(value) forKey:@"coin"];
 }
 
++ (int)getAndInitGold:(int)value {
+    NSString *gold = [b benchDefaultObjectForKey:@"gold"];
+    if (!gold) {
+        [self setGold:value];
+        gold = [b benchDefaultObjectForKey:@"gold"];
+    }
+    return gold.intValue;
+}
+
++ (int)getGold {
+    NSString *gold = [b benchDefaultObjectForKey:@"gold"];
+    return gold.intValue;
+}
+
++ (void)addGold:(int)value {
+    int coin = self.getGold;
+    coin = coin + value;
+    [self setGold:coin];
+}
+
++ (void)setGold:(int)value {
+    [b benchDefaultSetObject:@(value) forKey:@"gold"];
+}
+
 + (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId {
 //    NSString *msg = @"评论有奖~给我们一个评论，赠送30天会员。";
 //    NSString *des = @"伯牙鼓琴，锺子期听之。方鼓琴而志在太山，锺子期曰:“善哉乎鼓琴！巍巍乎若太山。”少选之间而志在流水，锺子期又曰：”善哉乎鼓琴！汤汤乎若流水。”锺子期死，伯牙破琴绝弦，终身不复鼓琴，以为世无足复为鼓琴者。";
@@ -264,6 +296,7 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         if (index == 0) {
 //            a.shared.rate = 2;
 //            NSString *appId = @"1635508901";
+            [b setSharedKey:@"gotoRate" object:@"1"];
             if (!b.isRated) {
                 [b setSharedKey:@"rate" object:@"1"];
             }

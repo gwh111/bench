@@ -64,6 +64,8 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (UIImage *)screenshotWithSize:(CGSize)size;
 //- (void)b_addBenchShadow;
 
+- (void)addShakeTimes:(int)times block:(void(^)(void))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

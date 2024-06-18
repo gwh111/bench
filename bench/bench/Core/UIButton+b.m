@@ -6,6 +6,7 @@
 //
 
 #import "UIButton+b.h"
+#import "CALayer+b.h"
 
 @implementation UIButton (b)
 
@@ -114,6 +115,41 @@
     ui.layer.borderWidth = 1;
     ui.layer.borderColor = UIColor.grayColor.CGColor;
     return ui;
+}
+
++ (UIButton *)b_gameButton {
+    float width = WIDTH()/3-RH(60)/3;
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(40));
+    pk.layer.cornerRadius = pk.height/2;
+    pk.layer.borderColor = UIColor.grayColor.CGColor;
+    pk.layer.borderWidth = 1;
+    pk.titleLabel.font = RF(18);
+    pk.b_normalColor = UIColor.whiteColor;
+    pk.backgroundColor = RGBA(0, 0, 0, 0.8);
+    [pk setBackgroundImage:[UIImage imageNamed:@"ui/btn.jpg"] forState:UIControlStateNormal];
+    pk.clipsToBounds = YES;
+//    pk.layer.b_addBenchShadowRightBottom;
+    return pk;
+}
+
++ (UIButton *)b_gameLinButton {
+    float width = WIDTH()/3-RH(60)/3;
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(40));
+    pk.titleLabel.font = RF(18);
+    pk.b_normalColor = UIColor.whiteColor;
+    pk.clipsToBounds = YES;
+    UIView *lin = UIView.new;
+    lin.width = RH(40);
+    lin.height = RH(40);
+    lin.left = RH(20);
+    lin.layer.borderColor = UIColor.grayColor.CGColor;
+    lin.layer.borderWidth = 1;
+//    lin.backgroundColor = RGBA(0, 0, 0, 0.8);
+    lin.transform = CGAffineTransformMakeRotation(M_PI/4);
+    [pk addSubview:lin];
+    return pk;
 }
 
 + (UIButton *)b_roundSingelUIButton {

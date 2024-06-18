@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) int stopFlick;
 //@property(strong) void (^finishTalkBlock)(void);
 @property(nonatomic,assign) int cannotTap;
+@property(nonatomic,assign) UIFont *rf;
 
 - (void)initUI;
 - (void)playTalk:(void (^)(void))block;

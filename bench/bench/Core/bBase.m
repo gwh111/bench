@@ -191,7 +191,12 @@ static dispatch_once_t onceToken;
     //读取本地沙盒中的数据
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
-    NSString *fileName = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",name]];
+    NSString *fileName;
+    if ([name hasSuffix:@".plist"]) {
+        fileName = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
+    } else {
+        fileName = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",name]];
+    }
     //判断路径是否存在
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
         NSMutableDictionary *setupDic = [NSMutableDictionary dictionaryWithContentsOfFile:fileName];

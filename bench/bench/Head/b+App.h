@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setCoin:(int)value;
 + (void)addCoin:(int)value;
 
++ (int)getAndInitGold:(int)value;
++ (int)getGold;
++ (void)setGold:(int)value;
++ (void)addGold:(int)value;
+
 + (NSString *)appName;
 + (NSString *)bundleID;
 + (NSString *)sandboxDocPath;
@@ -30,7 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)bundlePathWithName:(NSString *)name;
 
 + (id)benchDefaultObjectForKey:(NSString *)key;
-+ (void)benchDefaultSetObject:(id)value forKey:(NSString *)key;
++ (void)benchDefaultRemoveObjectForKey:(NSString *)key;
++ (void)benchDefaultSetObject:(nullable id)value forKey:(NSString *)key;
 
 + (id)benchDefaultObjectForKey:(NSString *)key fileName:(NSString *)fileName;
 + (void)benchDefaultSetObject:(id)value forKey:(NSString *)key fileName:(NSString *)fileName;

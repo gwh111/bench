@@ -49,17 +49,71 @@
 
 + (bStrokeLabel *)label_white_black {
     bStrokeLabel *label = [bStrokeLabel new];
-    label.frame = CGRectMake(160, 70, 150, 100);
-    label.text = @"Hello";
+    label.frame = CGRectMake(0, 0, 150, 100);
+    label.text = @"";
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
     label.font = RF(16);
     //描边
     label.strokeColor = [UIColor blackColor];
-    label.strokeWidth = 2;
+    label.strokeWidth = 1;
     //发光
     label.layer.shadowRadius = 2;
     label.layer.shadowColor = [UIColor blackColor].CGColor;
+    label.layer.shadowOffset = CGSizeMake(0, 0);
+    label.layer.shadowOpacity = 1.0;
+    return label;
+}
+
++ (bStrokeLabel *)label_red_black {
+    bStrokeLabel *label = [bStrokeLabel new];
+    label.frame = CGRectMake(160, 70, 150, 100);
+    label.text = @"Hello";
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor b_darkRed];
+    label.font = RF(16);
+    //描边
+    label.strokeColor = [UIColor blackColor];
+    label.strokeWidth = 1;
+    //发光
+    label.layer.shadowRadius = 2;
+    label.layer.shadowColor = [UIColor blackColor].CGColor;
+    label.layer.shadowOffset = CGSizeMake(0, 0);
+    label.layer.shadowOpacity = 1.0;
+    return label;
+}
+
++ (bStrokeLabel *)label_red_white {
+    bStrokeLabel *label = [bStrokeLabel new];
+    label.frame = CGRectMake(160, 70, 150, 100);
+    label.text = @"Hello";
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor b_darkRed2];
+    label.font = RF(16);
+    //描边
+    label.strokeColor = [UIColor whiteColor];
+    label.strokeWidth = 1;
+    //发光
+    label.layer.shadowRadius = 2;
+    label.layer.shadowColor = [UIColor whiteColor].CGColor;
+    label.layer.shadowOffset = CGSizeMake(0, 0);
+    label.layer.shadowOpacity = 1.0;
+    return label;
+}
+
++ (bStrokeLabel *)label_textColor:(UIColor *)textColor strokeColer:(UIColor *)strokeColer {
+    bStrokeLabel *label = [bStrokeLabel new];
+    label.frame = CGRectMake(0, 0, 150, 100);
+    label.text = @"Hello";
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = textColor;
+    label.font = RF(16);
+    //描边
+    label.strokeColor = strokeColer;
+    label.strokeWidth = 1;
+    //发光
+    label.layer.shadowRadius = 2;
+    label.layer.shadowColor = strokeColer.CGColor;
     label.layer.shadowOffset = CGSizeMake(0, 0);
     label.layer.shadowOpacity = 1.0;
     return label;

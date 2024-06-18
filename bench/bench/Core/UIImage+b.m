@@ -9,6 +9,10 @@
 
 @implementation UIImage (b)
 
-
++ (UIImage *)getImage:(UIImage *)image withRect:(CGRect)rect {
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage],rect);
+    UIImage *image1 = [UIImage imageWithCGImage:imageRef];
+    return image1;
+}
 
 @end

@@ -24,6 +24,10 @@
         // 拼接文件路径
     NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
     NSLog(@"save to path %@",path);
+    
+    if ([data isKindOfClass:NSDictionary.class]) {
+//        data = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+    }
     if ([data isKindOfClass:UIImage.class]) {
         UIImage *image = data;
         NSData *data = UIImageJPEGRepresentation(image, 1);

@@ -61,7 +61,7 @@
 
 + (void)playAtView:(UIView *)view aniPath:(NSString *)path fromIndex:(int)index alpha:(float)alpha reverse:(int)reverse{
     UIImageView *imageV=[[UIImageView alloc]init];
-    imageV.frame=CGRectMake(0, 0, WIDTH(), WIDTH()/2);
+    imageV.frame=CGRectMake(0, 0, view.width, view.height);
     imageV.center = CGPointMake(view.width/2, view.height/2);
     [view addSubview:imageV];
     imageV.contentMode=UIViewContentModeScaleAspectFit;

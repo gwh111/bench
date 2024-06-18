@@ -38,6 +38,17 @@
         }
         [self setValue:value forKey:name];
     }
+    if (![self.superclass isMemberOfClass:NSObject.class]) {
+        NSArray *names = [self.superclass b_getClassNameListWithout_];
+        for (int i = 0; i < names.count; i++) {
+            NSString *name = names[i];
+            id value = [dic objectForKey:name];
+            if (!value) {
+                continue;
+            }
+            [self setValue:value forKey:name];
+        }
+    }
     return self;
 }
 
@@ -51,6 +62,17 @@
             continue;
         }
         [mutDic setObject:[self valueForKey:name] forKey:name];
+    }
+    if (![self.superclass isMemberOfClass:NSObject.class]) {
+        NSArray *names = [self.superclass b_getClassNameListWithout_];
+        for (int i = 0; i < names.count; i++) {
+            NSString *name = names[i];
+            id value = [self valueForKey:name];
+            if (!value) {
+                continue;
+            }
+            [mutDic setObject:[self valueForKey:name] forKey:name];
+        }
     }
     return mutDic;
 }
@@ -94,7 +116,7 @@
         // 取出成员变量
         Ivar ivar = *(ivars + i);
         NSString *name = [NSString stringWithFormat:@"%s",ivar_getName(ivar)];
-        if (name.length > 1) {
+        if ([name hasPrefix:@"_"]) {
             name = [name substringFromIndex:1];
         }
         [mutArr addObject:name];

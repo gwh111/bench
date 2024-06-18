@@ -51,6 +51,15 @@
     view.height = height;
     [view initUI:parent width:width height:height];
     [parent addSubview:view];
+    
+    
+        
+//        CATransition *animation = [CATransition animation];
+//        animation.type = @"cube";
+//        animation.subtype = kCATransitionFromRight;
+//        animation.duration = 1.0;
+//        // 在window上执行CATransition, 即可在ViewController转场时执行动画
+//        [view.layer addAnimation:animation forKey:@"kTransitionAnimation"];
 //    return view;
 }
 
@@ -351,6 +360,29 @@
     }else {
         return nil;
     }
+}
+
+- (void)addShakeTimes:(int)times block:(void(^)(void))block {
+    times = times-1;
+    if (times <= 0) {
+        block();
+        return;
+    }
+    float left = self.left;
+    [UIView animateWithDuration:0.05 animations:^{
+        self.left = left-RH(2);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.left = left+RH(2);
+        } completion:^(BOOL finished) {
+            self.left = left;
+            [self addShakeTimes:times block:block];
+        }];
+    }];
+}
+
+- (void)shake:(int)time {
+    
 }
 
 @end

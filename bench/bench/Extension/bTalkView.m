@@ -97,6 +97,11 @@
     desT.font = RF(16);
     [popV addSubview:desT];
     
+    UIFont *rf = self.rf;
+    if (rf) {
+        desT.font = rf;
+    }
+    
     flick = UILabel.new;
     flick.size = CGSizeMake(RH(20), RH(20));
     flick.center = CGPointMake(desT.width - RH(20), desT.height - RH(10));
@@ -106,6 +111,9 @@
     flick.text = @"▼";
     [self addFlickAni];
     flick.hidden = YES;
+    if (rf) {
+        flick.font = rf;
+    }
 }
 
 - (void)addFlickAni {

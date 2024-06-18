@@ -104,10 +104,40 @@
     return NO;
 }
 
+- (CATransition *)animationWithType:(BenchVCAnimation)ani subtype:(CATransitionSubtype)subtype {
+    CATransition *animation = [CATransition animation];
+    if (ani == BenchVCAnimationCube) {
+        animation.type = @"cube";
+    }
+    if (ani == BenchVCAnimationFade) {
+        animation.type = kCATransitionFade;
+    }
+    if (ani == BenchVCAnimationSuckEffect) {
+        animation.type = @"suckEffect";
+    }
+    if (ani == BenchVCAnimationRippleEffect) {
+        animation.type = @"rippleEffect";
+    }
+    animation.subtype = subtype;
+    animation.duration = 0.5;
+    return animation;
+}
+
+- (void)pushViewController:(id)vc animation:(BenchVCAnimation)ani {
+    if (self.b_failedSetupRoot) {
+        return;
+    }
+    CATransition *animation = [self animationWithType:ani subtype:kCATransitionFromRight];
+    [bUI.shared.navController.view.window.layer addAnimation:animation forKey:@"kTransitionAnimation"];
+    
+    [self pushViewController:vc];
+}
+
 - (void)pushViewController:(id)vc {
     if (self.b_failedSetupRoot) {
         return;
     }
+    
     UINavigationController *navController = bUI.shared.navController;
     [navController pushViewController:vc animated:YES];
     [bUI.shared.navArray addObject:vc];
@@ -122,6 +152,16 @@
     [bUI.shared.navArray addObject:vc];
 }
 
+- (void)presentViewController:(id)vc animation:(BenchVCAnimation)ani {
+    if (self.b_failedSetupRoot) {
+        return;
+    }
+    CATransition *animation = [self animationWithType:ani subtype:kCATransitionFromTop];
+    [bUI.shared.navController.view.window.layer addAnimation:animation forKey:@"kTransitionAnimation"];
+    
+    [self presentViewController:vc];
+}
+
 - (void)presentViewController:(id)vc {
     if (self.b_failedSetupRoot) {
         return;
@@ -131,6 +171,16 @@
         
         [bUI.shared.navArray addObject:vc];
     }];
+}
+
+- (void)dismissViewControllerWithAnimation:(BenchVCAnimation)ani {
+    if (self.b_failedSetupRoot) {
+        return;
+    }
+    CATransition *animation = [self animationWithType:ani subtype:kCATransitionFromBottom];
+    [bUI.shared.navController.view.window.layer addAnimation:animation forKey:@"kTransitionAnimation"];
+    
+    [self dismissViewController];
 }
 
 - (void)dismissViewController {
@@ -143,6 +193,16 @@
     }];
 }
 
+- (void)popViewControllerWithAnimation:(BenchVCAnimation)ani {
+    if (self.b_failedSetupRoot) {
+        return;
+    }
+    CATransition *animation = [self animationWithType:ani subtype:kCATransitionFromLeft];
+    [bUI.shared.navController.view.window.layer addAnimation:animation forKey:@"kTransitionAnimation"];
+    
+    [self popViewController];
+}
+
 - (void)popViewController {
     if (self.b_failedSetupRoot) {
         return;
@@ -151,6 +211,16 @@
     [navArray removeLastObject];
     UINavigationController *navController = bUI.shared.navController;
     [navController popViewControllerAnimated:YES];
+}
+
+- (void)popViewControllerAnimated:(BOOL)animated {
+    if (self.b_failedSetupRoot) {
+        return;
+    }
+    NSMutableArray *navArray = bUI.shared.navArray;
+    [navArray removeLastObject];
+    UINavigationController *navController = bUI.shared.navController;
+    [navController popViewControllerAnimated:animated];
 }
 
 @end

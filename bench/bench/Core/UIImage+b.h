@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (b)
 
++ (UIImage *)getImage:(UIImage *)image withRect:(CGRect)rect;
+
 @end
 
 NS_ASSUME_NONNULL_END

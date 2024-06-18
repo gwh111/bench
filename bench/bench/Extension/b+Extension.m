@@ -9,21 +9,25 @@
 
 @implementation b (Extension)
 
++ (void)playTalk:(NSString *)talk rf:(UIFont *)rf block:(void (^)(void))block {
+    [self playTalks:@[talk] name:@"" rf:rf block:block];
+}
+
 + (void)playTalk:(NSString *)talk block:(void (^)(void))block {
-    [self playTalks:@[talk] name:@"" block:block];
+    [self playTalks:@[talk] name:@"" rf:nil block:block];
 }
 
 + (void)playTalks:(NSArray *)talks block:(void (^)(void))block {
-    [self playTalks:talks name:@"" block:block];
+    [self playTalks:talks name:@"" rf:nil block:block];
 }
 
 + (bTalkView *)playCannotTapTalks:(NSArray *)talks block:(void (^)(void))block {
-    bTalkView *t = [self playTalks:talks name:@"" block:block];
+    bTalkView *t = [self playTalks:talks name:@"" rf:nil block:block];
     t.cannotTap = YES;
     return t;
 }
 
-+ (bTalkView *)playTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block {
++ (bTalkView *)playTalks:(NSArray *)talks name:(NSString *)name rf:(UIFont *)rf block:(void (^)(void))block {
 
 //    if (!bTalkView.shared.talksCacheList) {
 //        bTalkView.shared.talksCacheList = NSMutableArray.new;
@@ -40,6 +44,7 @@
     bTalkView *talk = bTalkView.new;
     talk.talkArr = talks;
     talk.name = name;
+    talk.rf = rf;
     [b.ui.currentUIViewController.view addSubview:talk];
     [talk initUI];
     [talk playTalk:block];

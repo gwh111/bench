@@ -382,10 +382,10 @@ static dispatch_once_t onceToken;
     label.height = label.height+RH(20);
     
 //    label.layer.cornerRadius = label.height/2;
-    label.width = WIDTH();
-    label.alpha = 0.8;
-    label.centerY = HEIGHT()/2;
-    label.centerX = WIDTH()/2;
+//    label.width = WIDTH()-RH(40);
+//    label.alpha = 0.8;
+//    label.centerY = HEIGHT()/2;
+//    label.centerX = WIDTH()/2;
 //    label.top = b.ui.safeTop+RH(10);
     
     float animateDelay = delay;

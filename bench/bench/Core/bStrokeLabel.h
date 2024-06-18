@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (bStrokeLabel *)label;
 + (bStrokeLabel *)label2;
 + (bStrokeLabel *)label_white_black;
++ (bStrokeLabel *)label_red_black;
++ (bStrokeLabel *)label_red_white;
++ (bStrokeLabel *)label_textColor:(UIColor *)textColor strokeColer:(UIColor *)strokeColer;
 
 - (void)drawTextInRect:(CGRect)rect;
 

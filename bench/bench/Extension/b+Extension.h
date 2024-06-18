@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (bTalkView *)playCannotTapTalks:(NSArray *)talks block:(void (^)(void))block;
 
++ (void)playTalk:(NSString *)talk rf:(UIFont *)rf block:(void (^)(void))block;
 + (void)playTalk:(NSString *)talk block:(void (^)(void))block;
 + (void)playTalks:(NSArray *)talks block:(void (^)(void))block;
 

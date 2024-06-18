@@ -31,4 +31,19 @@
     [self appendAttributedString:att];
 }
 
+- (void)b_getReplaceAttText:(NSString *)replaceStr toAtt:(NSMutableAttributedString *)toAtt {
+    NSString *copyStr = self.string;
+//    NSMutableAttributedString *copyAtt = [[NSMutableAttributedString alloc]initWithAttributedString:self];
+    NSString *replace = @"";
+    for (int i = 0; i < toAtt.string.length; i++) {
+        replace = [replace stringByAppendingString:@"a"];
+    }
+    while ([copyStr rangeOfString:replaceStr].location != NSNotFound) {
+        NSRange range = [copyStr rangeOfString:replaceStr];
+        copyStr = [copyStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replace];
+        [self replaceCharactersInRange:range withAttributedString:toAtt];
+    }
+//    return copyAtt;
+}
+
 @end
