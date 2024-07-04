@@ -381,6 +381,27 @@
     }];
 }
 
+- (void)addShakeTimes:(int)times speed:(float)speed wait:(float)wait block:(void(^)(void))block {
+    times = times-1;
+    if (times <= 0) {
+        block();
+        return;
+    }
+    float left = self.left;
+    [UIView animateWithDuration:speed animations:^{
+        self.left = left-RH(2);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:speed*2 animations:^{
+            self.left = left+RH(2);
+        } completion:^(BOOL finished) {
+            self.left = left;
+            [b delay:wait block:^{
+                [self addShakeTimes:times speed:speed wait:wait block:block];
+            }];
+        }];
+    }];
+}
+
 - (void)shake:(int)time {
     
 }

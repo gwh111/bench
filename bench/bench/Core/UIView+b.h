@@ -65,6 +65,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 //- (void)b_addBenchShadow;
 
 - (void)addShakeTimes:(int)times block:(void(^)(void))block;
+- (void)addShakeTimes:(int)times speed:(float)speed wait:(float)wait block:(void(^)(void))block;
 
 @end
 

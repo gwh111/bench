@@ -106,7 +106,8 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 }
 
 + (NSString *)appName {
-    return [self appBundle][@"CFBundleName"];
+    NSLog(@"%@",[self appBundle]);
+    return [self appBundle][@"CFBundleDisplayName"];
 }
 
 + (NSString *)bundleID {

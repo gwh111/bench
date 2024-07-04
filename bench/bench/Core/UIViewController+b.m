@@ -189,8 +189,8 @@
     }
     UINavigationController *navController = bUI.shared.navController;
     [navController dismissViewControllerAnimated:YES completion:^{
-        [bUI.shared.navArray removeLastObject];
     }];
+    [bUI.shared.navArray removeLastObject];
 }
 
 - (void)popViewControllerWithAnimation:(BenchVCAnimation)ani {

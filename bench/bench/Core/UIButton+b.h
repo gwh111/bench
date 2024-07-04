@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIButton *)b_panUIButton;
 + (UIButton *)b_okUIButton;
 + (UIButton *)b_gameButton;
-+ (UIButton *)b_gameLinButton;
+//+ (UIButton *)b_gameLinButton;
 
 - (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block;
 - (void)addTappedButtonOnceDelay:(float)time withBlock:(void (^)(UIButton *button))block;
