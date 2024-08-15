@@ -24,6 +24,14 @@
     }];
 }
 
+- (void)unshow {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
 - (void)dismiss {
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = 0;

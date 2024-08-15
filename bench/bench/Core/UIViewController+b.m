@@ -72,10 +72,11 @@
     }
     if (maxh > displayView.height) {
         displayView.contentSize = CGSizeMake(displayView.width, maxh);
+//        [displayView setContentOffset:CGPointMake(0, displayView.contentSize.height- displayView.bounds.size.height) animated:YES];
     }
-    if (maxw > displayView.width) {
-        displayView.contentSize = CGSizeMake(maxw, displayView.height);
-    }
+//    if (maxw > displayView.width) {
+//        displayView.contentSize = CGSizeMake(maxw, displayView.height);
+//    }
 }
 
 - (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc {

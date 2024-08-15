@@ -54,9 +54,6 @@
     }];
 }
 
-- (void)start {
-}
-
 - (void)initUI {
     
 //    if (popV) {
@@ -77,7 +74,7 @@
     float h = RH(100);
     popV = UIView.new;
     [self addSubview:popV];
-    popV.frame = CGRectMake(RH(10), self.height - h - b.ui.safeBottom, WIDTH() - RH(20), h);
+    popV.frame = CGRectMake(RH(10), self.height - h - b.ui.safeBottom-RH(10), WIDTH() - RH(20), h);
     popV.backgroundColor = UIColor.blackColor;
     popV.layer.cornerRadius = 4;
     popV.layer.borderColor = UIColor.whiteColor.CGColor;

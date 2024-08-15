@@ -157,7 +157,7 @@
     return [bBase documentsStringWithPath:name];
 }
 
-+ (NSDictionary *)sandboxDocumentsPlistWithPath:(NSString *)name {
++ (id)sandboxDocumentsPlistWithPath:(NSString *)name {
     return [bBase documentsPlistWithPath:name];
 }
 

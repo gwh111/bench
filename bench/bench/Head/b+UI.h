@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)getAppPaperImage;
 + (void)setAppPaperImage:(UIImage *)image;
++ (void)rotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation viewController:(UIViewController *)viewController errorHandler:(void (^)(NSError *))errorHandler;
 
 @end
 

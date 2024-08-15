@@ -22,7 +22,7 @@
 
 - (void)b_addBlackOpageTop {
     CAGradientLayer *layer = CAGradientLayer.new;
-    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-RH(10));
+    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/2);
     layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
     layer.locations = @[@(0),@(1)];
     layer.startPoint = CGPointMake(0.5, 0);
@@ -32,11 +32,11 @@
 
 - (void)b_addBlackOpageBottom {
     CAGradientLayer *layer = CAGradientLayer.new;
-    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-RH(10));
+    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
     layer.locations = @[@(0),@(1)];
     layer.startPoint = CGPointMake(0.5, 1);
-    layer.endPoint = CGPointMake(0.5, 0);
+    layer.endPoint = CGPointMake(0.5, 0.3);
     [self addSublayer:layer];
 }
 

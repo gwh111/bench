@@ -96,8 +96,25 @@
     return NO;
 }
 
++ (BOOL)isPad {
+    float per = HEIGHT()/WIDTH();
+    if (per < 2) {
+        return YES;
+    }
+    return NO;
+}
+
++ (void)setIsSafeTime:(NSString *)time {
+    [b benchDefaultSetObject:time forKey:@"safe-time"];
+}
+
 + (BOOL)isSafe {
 //    return NO;
+    NSString *time = [b benchDefaultObjectForKey:@"safe-time"];
+    if ([b isDateBefore:time]) {
+        return false;
+    }
+    return true;
     BOOL safe = [[b benchDefaultObjectForKey:@"isSafe"]boolValue];
     if (self.isDebug) {
         if (!safe) {

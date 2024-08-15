@@ -39,6 +39,7 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
 typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
 - (void)show;
+- (void)unshow;
 - (void)dismiss;
 
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block;

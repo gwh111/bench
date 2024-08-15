@@ -130,7 +130,7 @@ static dispatch_once_t onceToken;
     }
     
     NSError *error;
-    return [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    return [data writeToFile:path atomically:YES];
 }
 
 + (void)removeSandboxFile:(NSString *)name {
@@ -186,7 +186,7 @@ static dispatch_once_t onceToken;
     return nil;
 }
 
-+ (NSDictionary *)documentsPlistWithPath:(NSString *)name {
++ (id)documentsPlistWithPath:(NSString *)name {
     if (!name) return nil;
     //读取本地沙盒中的数据
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
@@ -200,7 +200,12 @@ static dispatch_once_t onceToken;
     //判断路径是否存在
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
         NSMutableDictionary *setupDic = [NSMutableDictionary dictionaryWithContentsOfFile:fileName];
-        return setupDic;
+        if (setupDic) {
+            return setupDic;
+        }
+        NSArray *find = [NSArray arrayWithContentsOfFile:fileName];
+        
+        return find;
     }
 //    NSLog(@"no such file '%@'",name);
     return nil;

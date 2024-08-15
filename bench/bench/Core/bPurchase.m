@@ -15,6 +15,7 @@
     int fail;
     
     NSString *bidStr;
+    NSArray *bidList;
     NSString *kInAppPurchaseProUpgradeProductId;
     
     UITextView *infoL;
@@ -46,6 +47,7 @@ typedef void (^finishBlock)(NSString *result);
 @property (nonatomic, retain) NSString *spName;
 
 @property (nonatomic, retain) NSArray *chooseNames;
+@property (nonatomic, retain) NSDate *lastdate;
 
 @end
 
@@ -85,6 +87,8 @@ static dispatch_once_t onceToken;
     self = [super init];
     if (self) {
         
+        b.ui.fixWidthAndHeight = YES;
+        
         self.backgroundColor = RGBA(0, 0, 0, .5);
         self.frame = CGRectMake(0, 0, WIDTH(), HEIGHT());
         self.alpha = 0;
@@ -109,6 +113,83 @@ static dispatch_once_t onceToken;
         
     }
     return self;
+}
+
+- (void)presentWithIds:(NSArray *)bidlist names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock {
+    purchaseIndex = 1;
+    
+    _fBlock = finishBlock;
+    
+//    bidStr = @"com.gwh.note.pro";
+    self->bidList = bidlist;
+    
+    self->kInAppPurchaseProUpgradeProductId = bidlist[0];
+    
+    self->superArr = [[NSMutableArray alloc]initWithArray:names];
+
+    self->desArr = [[NSMutableArray alloc]initWithArray:dess];
+    
+    for (int i = 0; i < superArr.count; i++) {
+        
+        NSString *name = superArr[i];
+        
+        UIButton *button = UIButton.new;
+        button.frame = CGRectMake(WIDTH()/2 - RH(50), RH(10), RH(80), RH(40));
+        [button setTitle:superArr[i] forState:UIControlStateNormal];
+        button.b_normalColor = UIColor.whiteColor;
+        button.backgroundColor = RGBA(44, 44, 44, 1);
+        button.layer.cornerRadius = 6;
+        button.name = name;
+        button.titleLabel.font = BRF(16);
+        [popV addSubview:button];
+        button.left = RH(10)+RH(90)*i;
+        
+        [button addTappedOnceWithBlock:^(UIView *v) {
+            
+            self->infoL.text = self->desArr[i];
+            int index = i;
+            self->kInAppPurchaseProUpgradeProductId = self->bidList[i];
+            
+        }];
+    }
+    
+    infoL = UITextView.new;
+    infoL.frame = CGRectMake(RH(10), RH(60), WIDTH() - RH(20), RH(130));
+    infoL.textAlignment = NSTextAlignmentLeft;
+    infoL.textColor = [UIColor whiteColor];
+    infoL.text = desArr[0];
+    infoL.font = RF(16);
+    [popV addSubview:infoL];
+    infoL.editable = NO;
+    infoL.selectable = NO;
+    infoL.backgroundColor = [UIColor clearColor];
+    
+    {
+        UILabel *label = UILabel.new;
+        [popV addSubview:label];
+        label.size = CGSizeMake(WIDTH()/2-RH(60), RH(40));
+        label.left = RH(10);
+        label.top = RH(180);
+        label.font = RF(12);
+        label.textColor = UIColor.grayColor;
+        label.backgroundColor = UIColor.clearColor;
+        label.text = @"充值遇到问题可到首页提交问题反馈。";
+        label.numberOfLines = 2;
+    }
+    
+    
+    UIButton *button = UIButton.new;
+    button.frame = CGRectMake(WIDTH()/2 - RH(50), RH(180), RH(100), RH(40));
+    [button setTitle:TEXT_CH_EN(@"购买", @"Purchase") forState:UIControlStateNormal];
+    button.titleLabel.textColor = UIColor.b_lightYellow;
+    button.backgroundColor = RGBA(44, 44, 44, 1);
+    button.layer.cornerRadius = 6;
+    button.tag = 10;
+    button.titleLabel.font = BRF(16);
+    [popV addSubview:button];
+    [button addTappedOnceWithBlock:^(UIView * v) {
+        [self buyAsk];
+    }];
 }
 
 - (void)presentWithId:(NSString *)bidStr names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock {
@@ -377,7 +458,7 @@ static dispatch_once_t onceToken;
     [b gotoMain:^{
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         
-        //                CCLOG(@"%@",dict);
+                        NSLog(@"%@",dict);
         
         if (dict[@"status"]) {
             [self uploadInAppP:[b stringWithJson:dict] type:self->kInAppPurchaseProUpgradeProductId choose:self.getChooseValue];
@@ -395,6 +476,15 @@ static dispatch_once_t onceToken;
                     exit(0);
                     return;
                 }
+                if (!_lastdate) {
+                    _lastdate = NSDate.date;
+                } else {
+                    NSDate *now = NSDate.date;
+                    NSTimeInterval inter = [now timeIntervalSinceDate:_lastdate];
+                    if (inter < 5) {
+                        return;
+                    }
+                }
 //                for (int i = 0; i < _safeList.count; i++) {
 //                    NSString *find = _safeList[i];
 //                    if ([find isEqualToString:receipt_creation_date_ms]) {
@@ -407,6 +497,14 @@ static dispatch_once_t onceToken;
 //                [_safeList addObject:receipt_creation_date_ms];
 //                NSLog(@"_safeList%d",(int)_safeList.count);
                 [b stopLoading];
+                
+                NSString *key = self->kInAppPurchaseProUpgradeProductId;
+                NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
+                NSMutableDictionary *mutdic = [[NSMutableDictionary alloc]initWithDictionary:buydic];
+                int v = [mutdic[key]intValue];
+                v++;
+                [mutdic b_setObject:@(v) forKey:key];
+                [b benchDefaultSetObject:mutdic forKey:@"inapp"];
                 
                 if (self->_fBlock) {
                     self->_fBlock(self->kInAppPurchaseProUpgradeProductId);

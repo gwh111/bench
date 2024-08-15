@@ -63,17 +63,17 @@
         }
         [mutDic setObject:[self valueForKey:name] forKey:name];
     }
-    if (![self.superclass isMemberOfClass:NSObject.class]) {
-        NSArray *names = [self.superclass b_getClassNameListWithout_];
-        for (int i = 0; i < names.count; i++) {
-            NSString *name = names[i];
-            id value = [self valueForKey:name];
-            if (!value) {
-                continue;
-            }
-            [mutDic setObject:[self valueForKey:name] forKey:name];
-        }
-    }
+//    if (![self.superclass isMemberOfClass:NSObject.class]) {
+//        NSArray *names = [self.superclass b_getClassNameListWithout_];
+//        for (int i = 0; i < names.count; i++) {
+//            NSString *name = names[i];
+//            id value = [self valueForKey:name];
+//            if (!value) {
+//                continue;
+//            }
+//            [mutDic setObject:[self valueForKey:name] forKey:name];
+//        }
+//    }
     return mutDic;
 }
 

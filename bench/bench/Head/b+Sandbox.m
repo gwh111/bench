@@ -15,6 +15,7 @@
 }
 
 + (BOOL)sandboxSaveDataAtPath:(NSString *)name data:(id)data {
+//    return [self saveToDocumentsWithData:data toPath:name type:@""];
     if (!name) {
         benchLog(@"no name");
         return NO;
@@ -25,6 +26,7 @@
     NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];
     NSLog(@"save to path %@",path);
     
+    NSError *error;
     if ([data isKindOfClass:NSDictionary.class]) {
 //        data = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
     }
@@ -33,9 +35,44 @@
         NSData *data = UIImageJPEGRepresentation(image, 1);
         return [data writeToFile:path atomically:YES];
     }
+    if ([data isKindOfClass:NSString.class]) {
+        BOOL success = [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        NSLog(@"%@",error);
+        return success;
+    }
     
-    NSError *error;
-    return [data writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    return [data writeToFile:path atomically:YES];
+}
+
++ (BOOL)saveToDocumentsWithData:(id)data toPath:(NSString *)name type:(NSString *)type {
+    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *dataFilePath = documentsDirectory;
+    NSString *fileName;
+    if (type.length > 0) {
+        fileName = [NSString stringWithFormat:@"%@/%@.%@",dataFilePath,name,type];
+    }else{
+        fileName = [NSString stringWithFormat:@"%@/%@",dataFilePath,name];
+    }
+    if ([name containsString:@"/"]) {
+        NSArray *tempArr = [name componentsSeparatedByString:@"/"];
+        NSString *lastName = [tempArr lastObject];
+        name = [name stringByReplacingOccurrencesOfString:lastName withString:@""];
+        dataFilePath = [dataFilePath stringByAppendingString:@"/"];
+        dataFilePath = [dataFilePath stringByAppendingString:name];
+    }
+    BOOL isDir = NO;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL existed = [fileManager fileExistsAtPath:dataFilePath isDirectory:&isDir];
+    if (!(isDir && existed)) {
+        [fileManager createDirectoryAtPath:dataFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    BOOL success = [data writeToFile:fileName atomically:YES];
+    if (success) {
+        return YES;
+    }else{
+//        CCLOG(@"保存失败");
+        return NO;
+    }
 }
 
 + (void)sandboxMakeDocument:(NSString *)name {

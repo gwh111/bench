@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)b_rgb:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
 + (UIColor *)b_tinyLightGrayColor;
 
++ (UIColor *)b_goldYellow;
 + (UIColor *)b_lightYellow;
 + (UIColor *)b_lightRed;
 + (UIColor *)b_darkRed;

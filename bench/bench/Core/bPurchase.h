@@ -49,5 +49,6 @@
 
 - (void)present;
 - (void)presentWithId:(NSString *)bidStr names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock;
+- (void)presentWithIds:(NSArray *)bidlist names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock;
 
 @end

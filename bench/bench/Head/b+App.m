@@ -289,7 +289,34 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     [b benchDefaultSetObject:@(value) forKey:@"gold"];
 }
 
-+ (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId {
++ (NSString *)getUserName {
+    NSString *coin = [b benchDefaultObjectForKey:@"userName"];
+    return coin;
+}
+
++ (NSString *)getNickName {
+    NSString *coin = [b benchDefaultObjectForKey:@"nickName"];
+    return coin;
+}
+
++ (NSString *)getGender {
+    NSString *coin = [b benchDefaultObjectForKey:@"gender"];
+    return coin;
+}
+
++ (void)setUserName:(NSString *)userName {
+    [b benchDefaultSetObject:userName forKey:@"userName"];
+}
+
++ (void)setNickName:(NSString *)nickName {
+    [b benchDefaultSetObject:nickName forKey:@"nickName"];
+}
+
++ (void)setGender:(NSString *)gender {
+    [b benchDefaultSetObject:gender forKey:@"gender"];
+}
+
++ (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId hasReward:(BOOL)hasReward{
 //    NSString *msg = @"评论有奖~给我们一个评论，赠送30天会员。";
 //    NSString *des = @"伯牙鼓琴，锺子期听之。方鼓琴而志在太山，锺子期曰:“善哉乎鼓琴！巍巍乎若太山。”少选之间而志在流水，锺子期又曰：”善哉乎鼓琴！汤汤乎若流水。”锺子期死，伯牙破琴绝弦，终身不复鼓琴，以为世无足复为鼓琴者。";
     
@@ -297,7 +324,9 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
         if (index == 0) {
 //            a.shared.rate = 2;
 //            NSString *appId = @"1635508901";
-            [b setSharedKey:@"gotoRate" object:@"1"];
+            if (hasReward) {
+                [b setSharedKey:@"gotoRate" object:@"1"];
+            }
             if (!b.isRated) {
                 [b setSharedKey:@"rate" object:@"1"];
             }
@@ -322,6 +351,19 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 + (void)xhsAccount {
 
     NSURL *taobaoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"xhsdiscover://item/%@?type=%@",@"66285a0d000000001c0065af",@"normal"]];
+    // https://www.xiaohongshu.com/discovery/item/66285a0d000000001c0065af?app_platform=android&ignoreEngage=true&app_version=8.33.0&share_from_user_hidden=true&type=normal&author_share=1&xhsshare=CopyLink&shareRedId=N0xFMUhJR0I2NzUyOTgwNjY0OThJOUlP&apptime=1713926941
+    if ([[UIApplication sharedApplication] canOpenURL:taobaoUrl]) {
+        [[UIApplication sharedApplication] openURL:taobaoUrl options:@{} completionHandler:^(BOOL success) {
+            
+        }];
+    } else {
+        [b showNotice:[NSString stringWithFormat:@"小红书官方账号：%@",b.appName]];
+    }
+}
+
++ (void)xhsAccount:(NSString *)idtext {
+
+    NSURL *taobaoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"xhsdiscover://item/%@?type=%@",idtext,@"normal"]];
     // https://www.xiaohongshu.com/discovery/item/66285a0d000000001c0065af?app_platform=android&ignoreEngage=true&app_version=8.33.0&share_from_user_hidden=true&type=normal&author_share=1&xhsshare=CopyLink&shareRedId=N0xFMUhJR0I2NzUyOTgwNjY0OThJOUlP&apptime=1713926941
     if ([[UIApplication sharedApplication] canOpenURL:taobaoUrl]) {
         [[UIApplication sharedApplication] openURL:taobaoUrl options:@{} completionHandler:^(BOOL success) {

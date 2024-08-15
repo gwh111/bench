@@ -9,6 +9,10 @@
 
 @implementation UIColor (b)
 
++ (UIColor *)b_goldYellow {
+    return [self b_hex:@"#c6a24b" alpha:1];
+}
+
 + (UIColor *)b_lightYellow {
     return [UIColor colorWithRed:255/255.0f green:251/255.0f blue:152/255.0f alpha:1];
 }

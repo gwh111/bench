@@ -16,10 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)compareV1:(NSString *)v1 cutV2:(NSString *)v2;
 
 + (BOOL)isSafe;
++ (void)setIsSafeTime:(NSString *)time;
 + (BOOL)isDateBefore:(NSString *)dataStr;
 
 + (void)setIsSafeReviewVersion:(NSString *)reviewVersion inReview:(BOOL)inReview;
 
++ (BOOL)isPad;
 + (BOOL)isProxyStatus;
 + (BOOL)isJailBreak;
 + (BOOL)isChinese;

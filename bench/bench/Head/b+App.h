@@ -11,6 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (App)
 
++ (NSString *)getUserName;
++ (NSString *)getNickName;
++ (NSString *)getGender;
++ (void)setUserName:(NSString *)userName;
++ (void)setNickName:(NSString *)nickName;
++ (void)setGender:(NSString *)gender;
+
 + (BOOL)isRated;
 + (void)isRatedSet:(BOOL)rated;
 
@@ -54,8 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setKeychainObjectId:(NSString *)str;
 + (NSString *)getKeychainObjectId;
 
-+ (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId;
++ (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId hasReward:(BOOL)hasReward;
 + (void)xhsAccount;
++ (void)xhsAccount:(NSString *)idtext;
 
 @end
 

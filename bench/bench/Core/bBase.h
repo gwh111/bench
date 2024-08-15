@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)removeSandboxFile:(NSString *)name;
 
 + (id)documentsStringWithPath:(NSString *)name;
-+ (NSDictionary *)documentsPlistWithPath:(NSString *)name;
++ (id)documentsPlistWithPath:(NSString *)name;
 
 
 @end
