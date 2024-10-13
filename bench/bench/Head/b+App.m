@@ -9,6 +9,7 @@
 #import "DES.h"
 #import "b+Check.h"
 #import "b+Share.h"
+#import "AskView.h"
 
 @implementation b (App)
 
@@ -144,6 +145,17 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return like[key];
 }
 
++ (BOOL)hasSetKey:(NSString *)key {
+    if ([[b benchDefaultObjectForKey:key]intValue] == 1) {
+        return YES;
+    }
+    return NO;
+}
+
++ (void)setKey:(NSString *)key {
+    [b benchDefaultSetObject:@"1" forKey:key];
+}
+
 + (void)benchDefaultRemoveObjectForKey:(NSString *)key {
     [self benchDefaultSetObject:nil forKey:key];
 }
@@ -265,6 +277,15 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     [b benchDefaultSetObject:@(value) forKey:@"coin"];
 }
 
++ (BOOL)checkCoinValue:(int)value {
+    int v = self.getCoin;
+    if (value > v) {
+        [b showNotice:@"铜币不够了。"];
+        return YES;
+    }
+    return NO;
+}
+
 + (int)getAndInitGold:(int)value {
     NSString *gold = [b benchDefaultObjectForKey:@"gold"];
     if (!gold) {
@@ -283,6 +304,15 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     int coin = self.getGold;
     coin = coin + value;
     [self setGold:coin];
+}
+
++ (BOOL)checkGoldValue:(int)value {
+    int v = self.getGold;
+    if (value > v) {
+        [b showNotice:@"金币不够了。"];
+        return YES;
+    }
+    return NO;
 }
 
 + (void)setGold:(int)value {
@@ -346,6 +376,55 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
             }
         }
     }];
+}
+
++ (void)openAppStore:(NSString *)appId {
+    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
+    
+//    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//    pasteboard.string = des;
+    
+    if (@available(iOS 10.0, *)) {
+        [UIApplication.sharedApplication openURL:[NSURL URLWithString:urlStr] options:NSMutableDictionary.new completionHandler:^(BOOL success) {
+            
+        }];
+    } else {
+        // Fallback on earlier versions
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+    }
+}
+
++ (int)getChargeTotalValue {
+    NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
+    NSMutableDictionary *mutdic = [[NSMutableDictionary alloc]initWithDictionary:buydic];
+    NSArray *keys = mutdic.allKeys;
+    int total = 0;
+    for (int i = 0; i < keys.count; i++) {
+        NSString *key = keys[i];
+        int times = [mutdic[key]intValue];
+        if ([key hasSuffix:@"1"]) {
+            total = total+8*times;
+        }
+        if ([key hasSuffix:@"2"]) {
+            total = total+28*times;
+        }
+        if ([key hasSuffix:@"3"]) {
+            total = total+68*times;
+        }
+    }
+    return total;
+}
+
++ (UIColor *)colorWithStar:(int)star {
+    NSArray *colors = @[UIColor.whiteColor,UIColor.b_lightGreen,UIColor.b_lightBlue,UIColor.b_lightPurple,UIColor.orangeColor,
+          UIColor.b_lightRed,UIColor.b_lightYellow,UIColor.b_lightPink,UIColor.whiteColor,UIColor.darkGrayColor];
+    if (star < 0) {
+        star = 0;
+    }
+    if (star >= colors.count) {
+        star = (int)colors.count-1;
+    }
+    return colors[star];
 }
 
 + (void)xhsAccount {

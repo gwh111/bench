@@ -11,7 +11,7 @@
 
 @implementation NSObject (b)
 
-+ (instancetype)shared {
++ (instancetype)b_shared {
     NSString *cname = NSStringFromClass(self);
     id model = NSClassFromString(cname).new;
     NSString *key = [NSString stringWithFormat:@"benchShared_%@",cname];

@@ -72,14 +72,15 @@
     }];
     
     float h = RH(100);
+    float w = SHORTWIDTH();
     popV = UIView.new;
     [self addSubview:popV];
-    popV.frame = CGRectMake(RH(10), self.height - h - b.ui.safeBottom-RH(10), WIDTH() - RH(20), h);
-    popV.backgroundColor = UIColor.blackColor;
-    popV.layer.cornerRadius = 4;
+    popV.frame = CGRectMake(RH(10), self.height - h - b.ui.safeBottom-RH(10), w, h);
+    popV.backgroundColor = RGBA(0, 0, 0, 0.75);
+    popV.layer.cornerRadius = 10;
     popV.layer.borderColor = UIColor.whiteColor.CGColor;
-    popV.layer.borderWidth = 2;
-    
+    popV.layer.borderWidth = 1;
+    popV.centerX = WIDTH()/2;
     
     UIButton *close = UIButton.new;
     close.frame = CGRectMake(0, 0, WIDTH(), popV.top);

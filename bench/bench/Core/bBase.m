@@ -47,6 +47,9 @@ static dispatch_once_t onceToken;
         NSString *path = paths[i];
         NSArray *sets = [path componentsSeparatedByString:@"/"];
         NSString *name = sets.lastObject;
+        if (name.length <= 0) {
+            continue;
+        }
         [mutList addObject:name];
     }
     return mutList.copy;

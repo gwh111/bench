@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (int)getCoin;
 + (void)setCoin:(int)value;
 + (void)addCoin:(int)value;
++ (BOOL)checkCoinValue:(int)value;
++ (BOOL)checkGoldValue:(int)value;
 
 + (int)getAndInitGold:(int)value;
 + (int)getGold;
@@ -64,6 +66,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId hasReward:(BOOL)hasReward;
 + (void)xhsAccount;
 + (void)xhsAccount:(NSString *)idtext;
+
++ (void)openAppStore:(NSString *)appId;
+
++ (int)getChargeTotalValue;
++ (UIColor *)colorWithStar:(int)star;
+
++ (BOOL)hasSetKey:(NSString *)key;
++ (void)setKey:(NSString *)key;
 
 @end
 

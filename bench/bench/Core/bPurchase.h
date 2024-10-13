@@ -51,4 +51,6 @@
 - (void)presentWithId:(NSString *)bidStr names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock;
 - (void)presentWithIds:(NSArray *)bidlist names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock;
 
+- (void)addChargeTotalReward:(NSArray *)names prices:(NSArray *)prices block:(void(^)(int index))finishBlock;
+
 @end

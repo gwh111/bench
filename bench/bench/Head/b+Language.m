@@ -12,6 +12,49 @@
 
 @implementation b (Language)
 
++ (NSArray *)getPlistTextChs:(NSArray *)chtexts {
+    NSMutableArray *list = NSMutableArray.new;
+    for (int i = 0; i < chtexts.count; i++) {
+        NSString *text = chtexts[i];
+        NSString *find = [self getPlistTextCh:text];
+        [list addObject:find];
+    }
+    return list;
+}
+
++ (NSString *)getPlistTextCh:(NSString *)chtext {
+    if (b.isChinese) {
+        return chtext;
+    }
+    NSString *path = @"text/ch_en";
+    id d = [b getSharedKey:path];
+    if (d) {
+        return d;
+    }
+    NSMutableDictionary *data = NSMutableDictionary.new;
+    NSString *content = [b bundleStringWithPath:path type:@"md"];
+    if (content.length <= 10) {
+        return chtext;
+    }
+    NSArray *lines = [content componentsSeparatedByString:@"\n"];
+    for (int i = 0; i < lines.count; i++) {
+        NSString *line = lines[i];
+        if (line.length <= 0) {
+            continue;
+        }
+        NSArray *kvs = [line componentsSeparatedByString:@"="];
+        NSString *key = kvs[0];
+        NSString *v = kvs[1];
+        [data setObject:v forKey:key];
+    }
+    [b setSharedKey:@"text/ch_en" object:data];
+//    NSDictionary *data = [b bundlePlistWithPath:path];
+    if (!data[chtext]) {
+        return chtext;
+    }
+    return data[chtext];
+}
+
 + (NSString *)getTextCh:(NSString *)chtext enText:(NSString *)entext {
 //    NSString *key = @"language_index";
 //    NSNumber *n = [b getSharedKey:key];

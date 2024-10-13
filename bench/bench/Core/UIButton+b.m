@@ -117,17 +117,46 @@
     return ui;
 }
 
++ (UIButton *)b_gameInkButton {
+    float width = SHORTWIDTH()/3-RH(60)/3;
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(60));
+    pk.layer.cornerRadius = 2;
+    pk.titleLabel.font = RF(18);
+    pk.b_normalColor = UIColor.whiteColor;
+    [pk setBackgroundImage:[UIImage imageNamed:@"ui/ink_slide.png"] forState:UIControlStateNormal];
+    pk.clipsToBounds = YES;
+//    pk.layer.b_addBenchShadowRightBottom;
+    return pk;
+}
+
 + (UIButton *)b_gameButton {
-    float width = WIDTH()/3-RH(60)/3;
+    float width = SHORTWIDTH()/3-RH(60)/3;
     UIButton *pk = UIButton.b_UIButton;
     pk.size = CGSizeMake(width, RH(40));
-    pk.layer.cornerRadius = pk.height/2;
+    pk.layer.cornerRadius = 2;
     pk.layer.borderColor = UIColor.grayColor.CGColor;
     pk.layer.borderWidth = 1;
     pk.titleLabel.font = RF(18);
     pk.b_normalColor = UIColor.whiteColor;
     pk.backgroundColor = RGBA(0, 0, 0, 0.8);
     [pk setBackgroundImage:[UIImage imageNamed:@"ui/btn.jpg"] forState:UIControlStateNormal];
+    pk.clipsToBounds = YES;
+//    pk.layer.b_addBenchShadowRightBottom;
+    return pk;
+}
+
++ (UIButton *)b_gameBackButton {
+    float width = WIDTH()/3-RH(60)/3;
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(40));
+    pk.layer.cornerRadius = 2;
+    pk.layer.borderColor = UIColor.grayColor.CGColor;
+    pk.layer.borderWidth = 1;
+    pk.titleLabel.font = RF(18);
+    pk.b_normalColor = UIColor.whiteColor;
+    pk.backgroundColor = RGBA(0, 0, 0, 0.8);
+    [pk setBackgroundImage:[UIImage imageNamed:@"ui/btnback.png"] forState:UIControlStateNormal];
     pk.clipsToBounds = YES;
 //    pk.layer.b_addBenchShadowRightBottom;
     return pk;

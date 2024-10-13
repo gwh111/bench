@@ -115,6 +115,49 @@ static dispatch_once_t onceToken;
     return self;
 }
 
+- (void)addChargeTotalReward:(NSArray *)names prices:(NSArray *)prices block:(void(^)(int index))finishBlock {
+    UILabel *label = UILabel.new;
+    [popV addSubview:label];
+    label.size = CGSizeMake(WIDTH()/2-RH(60), RH(100));
+    label.right = WIDTH()-RH(10);
+    label.top = RH(150);
+    label.font = RF(16);
+    label.textColor = UIColor.b_lightRed;
+    label.textAlignment = NSTextAlignmentRight;
+    label.backgroundColor = UIColor.clearColor;
+    label.text = @"累计充值回馈";
+    
+    [label addTappedOnceWithBlock:^(UIView * _Nonnull view) {
+        int total = [b getChargeTotalValue];
+        NSMutableAttributedString *att = NSMutableAttributedString.new;
+        [att b_appendAttStr:@"累计充值赠送：\n\n" color:UIColor.whiteColor font:BRF(16)];
+        for (int i = 0; i < names.count; i++) {
+            NSString *name = names[i];
+            [att b_appendAttStr:[NSString stringWithFormat:@"%@\n\n",name] color:[b colorWithStar:i+1] font:RF(16)];
+        }
+    //    [att b_appendAttStr:@"满9元赠送招式【雷之呼吸】\n\n" color:[b colorWithStar:1] font:RF(16)];
+        [att b_appendAttStr:[NSString stringWithFormat:@"目前累计充值%d元。",total] color:UIColor.b_lightRed font:RF(16)];
+        [AskView playAsk:att okContent:@"点击领取" block:^(BOOL ok) {
+            if (ok == NO) {
+                return;
+            }
+            if (total <= 0) {
+                [b showNotice:@"没有达到条件。"];
+                return;
+            }
+            for (int i = 0; i < prices.count; i++) {
+                int index = prices.count-i-1;
+                int price = [prices[index]intValue];
+                if (total >= price) {
+                    finishBlock(index);
+                    return;
+                }
+            }
+            [b showNotice:@"没有达到条件。"];
+        }];
+    }];
+}
+
 - (void)presentWithIds:(NSArray *)bidlist names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock {
     purchaseIndex = 1;
     

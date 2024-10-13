@@ -61,8 +61,8 @@ static dispatch_once_t onceToken;
 }
 
 - (void)group_updateButton:(UIButton *)button key:(NSString *)key
-               titleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor
- highlightTitleColor:(UIColor *)highlightTitleColor hilightBackgroundColor:(UIColor *)hilightBackgroundColor {
+                titleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor
+       highlightTitleColor:(UIColor *)highlightTitleColor hilightBackgroundColor:(UIColor *)hilightBackgroundColor {
     
     NSMutableArray *list = _groupButtons[key];
     for (int i = 0; i < list.count; i++) {
@@ -80,11 +80,11 @@ static dispatch_once_t onceToken;
 }
 
 - (UIFont *)relativeFont:(NSString * _Nullable)fontName fontSize:(float)fontSize {
-    if (fontName.length <= 0) {
-        if (_defaultFontName) {
-            fontName = _defaultFontName;
-        }
-    }
+    //    if (fontName.length <= 0) {
+    //        if (_defaultFontName) {
+    //            fontName = _defaultFontName;
+    //        }
+    //    }
     if (WIDTH() < 375) {
         fontSize = fontSize - 2;
     }else if (WIDTH() == 375) {
@@ -131,6 +131,27 @@ static dispatch_once_t onceToken;
 
 - (float)y {
     return [self statusBarHeight];
+}
+
+- (float)shortWidth {
+    float h = [UIScreen mainScreen].bounds.size.height;
+    float w = [UIScreen mainScreen].bounds.size.width;
+    if (h > w) {
+        return w;
+    }
+    return h;
+}
+
+- (float)largeHeight {
+    if (_heightRate > 0) {
+        return self.width*_heightRate;
+    }
+    float h = [UIScreen mainScreen].bounds.size.height;
+    float w = [UIScreen mainScreen].bounds.size.width;
+    if (h < w) {
+        return w;
+    }
+    return h;
 }
 
 - (float)width {

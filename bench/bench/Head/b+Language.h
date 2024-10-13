@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Language)
 
+#define TEXT(text) [b getPlistTextCh:text]
++ (NSString *)getPlistTextCh:(NSString *)chtext;
+#define TEXTS(chtexts) [b getPlistTextChs:chtexts]
++ (NSArray *)getPlistTextChs:(NSArray *)chtexts;
+
 + (NSString *)getTextCh:(NSString *)chtext enText:(NSString *)entext;
 
 + (NSString *)getText:(NSString *)text key:(NSString *)key;

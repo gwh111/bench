@@ -71,7 +71,7 @@
         }
     }
     if (maxh > displayView.height) {
-        displayView.contentSize = CGSizeMake(displayView.width, maxh);
+        displayView.contentSize = CGSizeMake(displayView.width, maxh+RH(10));
 //        [displayView setContentOffset:CGPointMake(0, displayView.contentSize.height- displayView.bounds.size.height) animated:YES];
     }
 //    if (maxw > displayView.width) {

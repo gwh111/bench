@@ -14,12 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 #define PW(f) f * WIDTH() //宽度的几倍
 #define PH(f) f * HEIGHT() //高度的几倍
 #define RF(f) [bUI.shared relativeFont:f]
-#define BRF(f) [bUI.shared relativeFont:@"Helvetica-Bold" fontSize:f]
+//#define BRF(f) [bUI.shared relativeFont:@"Helvetica-Bold" fontSize:f]
+#define BRF(f) [bUI.shared relativeFont:f]
 
 #define X() [bUI.shared x]
 #define Y() [bUI.shared y]
 #define WIDTH() [bUI.shared width]
 #define HEIGHT() [bUI.shared height]
+#define SHORTWIDTH() [bUI.shared shortWidth]
+#define LARGEHEIGHT() [bUI.shared largeHeight]
+
+#define SAFE_BOTTOM() [bUI.shared safeBottom]
+
 
 @interface bUI : UIViewController
 
@@ -59,6 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)makeHeightRate:(float)rate;
 - (float)width;
 - (float)height;
+- (float)shortWidth;
+- (float)largeHeight;
+
 - (float)safeHeight;
 
 - (float)safeTop;

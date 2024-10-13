@@ -104,6 +104,8 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 + (bUI *)ui;
 + (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc;
 + (NSDictionary *)jsonWithString:(id)object;
+//+ (NSDictionary *)jsonDicWithString:(id)object;
++ (NSArray *)jsonArrWithString:(id)object;
 + (NSString *)stringWithJson:(id)object;
 + (void)delay:(double)delayInSeconds block:(void (^)(void))block;
 + (void)gotoMain:(void (^)(void))block;
@@ -116,6 +118,10 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 
 + (id)sandboxDocumentsStringWithPath:(NSString *)name;
 + (id)sandboxDocumentsPlistWithPath:(NSString *)name;
+
++ (id)documentsStringWithPath:(NSString *)name;
++ (id)documentsPlistWithPath:(NSString *)name;
+
 + (NSString *)bundleStringWithPath:(NSString *)name type:(NSString *)type;
 + (NSDictionary *)bundlePlistWithPath:(NSString *)name;
 

@@ -87,6 +87,14 @@
     [bUI.shared setupRootWindow:window andRootViewController:vc];
 }
 
+//+ (NSDictionary *)jsonDicWithString:(id)object {
+//    return [bBase jsonWithString:object];
+//}
+
++ (NSArray *)jsonArrWithString:(id)object {
+    return [bBase jsonWithString:object];
+}
+
 + (NSDictionary *)jsonWithString:(id)object {
     return [bBase jsonWithString:object];
 }
@@ -158,6 +166,13 @@
 }
 
 + (id)sandboxDocumentsPlistWithPath:(NSString *)name {
+    return [bBase documentsPlistWithPath:name];
+}
+
++ (id)documentsStringWithPath:(NSString *)name {
+    return [bBase documentsStringWithPath:name];
+}
++ (id)documentsPlistWithPath:(NSString *)name {
     return [bBase documentsPlistWithPath:name];
 }
 
