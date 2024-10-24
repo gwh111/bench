@@ -199,9 +199,9 @@ static dispatch_once_t onceToken;
     if (__safeTop > 0) {
         return __safeTop;
     }
-    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
-    float v3 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
-    if (v3 > v) {
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
+    float v3 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.left;
+    if (v3 < v) {
         __safeTop = v3;
     }
     __safeTop = v;
@@ -214,6 +214,10 @@ static dispatch_once_t onceToken;
     }
     float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
     __safeBottom = v;
+    float v2 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.left;
+    if (v2 > v) {
+        __safeBottom = v2;
+    }
     return __safeBottom;
 }
 

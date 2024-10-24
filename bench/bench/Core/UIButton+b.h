@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIButton *)b_panUIButton;
 + (UIButton *)b_okUIButton;
 + (UIButton *)b_gameInkButton;
++ (UIButton *)b_gameInkOKButton;
++ (UIButton *)b_gameInkCloseButton;
 + (UIButton *)b_gameButton;
 + (UIButton *)b_gameBackButton;
 //+ (UIButton *)b_gameLinButton;

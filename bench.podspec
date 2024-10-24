@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.frameworks   = 'UIKit'  
   spec.module_name  = 'b'
 
-  spec.ios.deployment_target  = '7.0'
+  spec.ios.deployment_target  = '8.0'
 
   spec.source_files       = 'bench/bench/*'
   spec.resources          = 'bench/bench/bench.bundle'

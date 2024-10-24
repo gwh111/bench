@@ -269,6 +269,9 @@ static dispatch_once_t onceToken;
     if ([object isKindOfClass:[NSString class]]) {
         return object;
     }
+    if (![object isKindOfClass:[NSDictionary class]]) {
+        return object;
+    }
     NSError *error;
     // Pass 0 if you don't care about the readability of the generated string
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];

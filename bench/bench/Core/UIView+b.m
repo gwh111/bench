@@ -47,7 +47,7 @@
     view.top = 0;
     [view initUI:parent];
     [parent addSubview:view];
-//    return view;
+    //    return view;
 }
 
 - (void)benchInitOnParent:(UIView *)parent width:(CGFloat)width height:(CGFloat)height {
@@ -61,14 +61,14 @@
     [parent addSubview:view];
     
     
-        
-//        CATransition *animation = [CATransition animation];
-//        animation.type = @"cube";
-//        animation.subtype = kCATransitionFromRight;
-//        animation.duration = 1.0;
-//        // 在window上执行CATransition, 即可在ViewController转场时执行动画
-//        [view.layer addAnimation:animation forKey:@"kTransitionAnimation"];
-//    return view;
+    
+    //        CATransition *animation = [CATransition animation];
+    //        animation.type = @"cube";
+    //        animation.subtype = kCATransitionFromRight;
+    //        animation.duration = 1.0;
+    //        // 在window上执行CATransition, 即可在ViewController转场时执行动画
+    //        [view.layer addAnimation:animation forKey:@"kTransitionAnimation"];
+    //    return view;
 }
 
 - (void)initUI:(UIView *)parent {
@@ -357,8 +357,8 @@
 
 - (UIImage *)screenshotWithSize:(CGSize)size {
     UIImage *image = nil;
-//    CGSize size = CGSizeMake(320,480);
-//    size = self.frame.size;
+    //    CGSize size = CGSizeMake(320,480);
+    //    size = self.frame.size;
     UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     [self.layer renderInContext: UIGraphicsGetCurrentContext()];
     image = UIGraphicsGetImageFromCurrentImageContext();
@@ -412,6 +412,190 @@
 
 - (void)shake:(int)time {
     
+}
+
+- (void)addBlurEffectView {
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurv = [[UIVisualEffectView alloc]initWithEffect:blur];
+    blurv.frame = self.frame;
+    [self addSubview:blurv];
+}
+
+- (void)addInkVCBack:(NSString *)title backName:(NSString *)back {
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurv = [[UIVisualEffectView alloc]initWithEffect:blur];
+    blurv.frame = self.frame;
+    [self addSubview:blurv];
+    
+    UIImageView *desk = UIImageView.new;
+    desk.width = WIDTH();
+    desk.height = HEIGHT();
+    [self addSubview:desk];
+    desk.contentMode = UIViewContentModeScaleAspectFill;
+    desk.image = [UIImage imageNamed:back];
+    desk.alpha = 0.3;
+    
+    [self safeView];
+    
+    UIButton *btn = UIButton.b_gameInkButton;
+    btn.width = RH(150);
+    btn.height = RH(50);
+    btn.left = SAFE_BOTTOM()+RH(10);
+    btn.top = SAFE_TOP()+RH(10);
+    [self addSubview:btn];
+    
+    UILabel *label = UILabel.b_whiteTextUILabel;
+    label.width = RH(200);
+    label.height = RH(50);
+    label.left = SAFE_BOTTOM()+RH(10);
+    label.top = SAFE_TOP()+RH(10);
+    label.font = RF(30);
+    [self addSubview:label];
+    label.text = title;
+    
+    UIButton *close = UIButton.b_gameInkCloseButton;
+    close.width = RH(60);
+    close.titleLabel.font = RF(30);
+    close.right = WIDTH()-SAFE_BOTTOM()-RH(10);
+    close.top = SAFE_TOP()+RH(10);
+    [self addSubview:close];
+    [close addTappedOnceWithBlock:^(UIView *v) {
+        [self dismiss];
+    }];
+}
+
+- (UIScrollView *)getPopViewWidth:(CGFloat)width {
+    UIScrollView *contentView = [self viewWithBenchName:@"contentView"];
+    if (contentView) {
+        return contentView;
+    }
+    self.size = CGSizeMake(WIDTH(), HEIGHT());
+    self.backgroundColor = RGBA(0, 0, 0, 0.5);
+    
+    [self addBlurEffectView];
+    
+    UIButton *close = UIButton.new;
+    close.size = CGSizeMake(WIDTH(), HEIGHT());
+    [self addSubview:close];
+    [close addTappedOnceWithBlock:^(UIView *v) {
+        [self dismiss];
+    }];
+    
+    UIImageView *back = UIImageView.new;
+    back.size = CGSizeMake(width, HEIGHT());
+    back.image = [UIImage imageNamed:@"ui_point/point_square"];
+    back.centerX = WIDTH()/2;
+    back.centerY = HEIGHT()/2;
+    [self addSubview:back];
+    [b delay:0.2 block:^{
+        [back addShakeTimes:5 block:^{
+                
+        }];
+    }];
+    back.benchName = @"back";
+    
+    float w = back.width-RH(150);
+    float h1 = back.height-RH(100);
+    contentView = UIScrollView.new;
+    contentView.size = CGSizeMake(w, h1);
+    [self addSubview:contentView];
+    contentView.benchName = @"contentView";
+    contentView.center = back.center;
+    
+    return contentView;
+}
+
+- (UIScrollView *)getPopView {
+    UIScrollView *contentView = [self getPopViewWidth:HEIGHT()+RH(170)];
+    
+    return contentView;
+}
+
+- (UIView *)getPopViewWithOK {
+    self.size = CGSizeMake(WIDTH(), HEIGHT());
+    self.backgroundColor = RGBA(0, 0, 0, 0.5);
+    
+    [self addBlurEffectView];
+    
+    UIButton *close = UIButton.new;
+    close.size = CGSizeMake(WIDTH(), HEIGHT());
+    [self addSubview:close];
+    [close addTappedOnceWithBlock:^(UIView *v) {
+        [self dismiss];
+    }];
+    
+    UIImageView *back = UIImageView.new;
+    back.size = CGSizeMake(HEIGHT()+RH(120), HEIGHT()-RH(80));
+    back.image = [UIImage imageNamed:@"ui_point/point_square"];
+    back.centerX = WIDTH()/2;
+    back.top = RH(10);
+    [self addSubview:back];
+    [back addShakeTimes:5 block:^{
+            
+    }];
+    
+    float w = back.width-RH(100);
+    float h1 = back.height-RH(100);
+    UIView *contentView = UIView.new;
+    contentView.size = CGSizeMake(w, h1);
+    [self addSubview:contentView];
+    contentView.center = back.center;
+    
+    {
+        UIButton *pk = UIButton.b_gameInkButton;
+        [self addSubview:pk];
+        pk.top = contentView.bottom+RH(20);
+        pk.left = contentView.left;
+        pk.b_normalTitle = @"取消";
+        [pk addTappedOnceWithBlock:^(UIView *v) {
+            
+            [self dismiss];
+        }];
+        pk.benchName = @"cancel";
+        pk.right = 0;
+        [UIView animateWithDuration:0.25 animations:^{
+            pk.left = contentView.left;
+        }];
+    }
+    {
+        UIButton *pk = UIButton.b_gameInkButton;
+        [self addSubview:pk];
+        pk.right = contentView.right;
+        pk.top = contentView.bottom+RH(20);
+        pk.b_normalTitle = @"确定";
+        pk.titleLabel.font = BRF(16);
+        [pk addTappedOnceWithBlock:^(UIView *v) {
+            
+        }];
+        pk.benchName = @"ok";
+        pk.left = WIDTH();
+        [UIView animateWithDuration:0.25 animations:^{
+            pk.right = contentView.right;
+        }];
+    }
+    return contentView;
+}
+
+- (UIScrollView *)safeView {
+    UIScrollView *displayView = objc_getAssociatedObject(self, @selector(displayView));
+    if (displayView.height <= 0) {
+        [self setupSafeView];
+        displayView = objc_getAssociatedObject(self, @selector(displayView));
+    }
+    return displayView;
+}
+
+- (void)setSafeView:(UIScrollView *)displayView {
+    objc_setAssociatedObject(self, @selector(displayView), displayView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setupSafeView {
+    UIScrollView *displayView = UIScrollView.new;
+    displayView.size = CGSizeMake(WIDTH()-SAFE_BOTTOM()*2-RH(20), HEIGHT()-SAFE_TOP()*2-RH(20));
+    displayView.centerX = WIDTH()/2;
+    displayView.centerY = HEIGHT()/2;
+    [self addSubview:displayView];
+    self.safeView = displayView;
 }
 
 @end

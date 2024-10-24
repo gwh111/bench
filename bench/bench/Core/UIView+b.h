@@ -68,6 +68,14 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)addShakeTimes:(int)times block:(void(^)(void))block;
 - (void)addShakeTimes:(int)times speed:(float)speed wait:(float)wait block:(void(^)(void))block;
 
+- (void)addBlurEffectView;
+- (void)addInkVCBack:(NSString *)title backName:(NSString *)back;
+
+@property (nonatomic, retain) UIScrollView *safeView;
+- (UIScrollView *)getPopView;
+- (UIView *)getPopViewWithOK;
+- (UIScrollView *)getPopViewWidth:(CGFloat)width;
+
 @end
 
 NS_ASSUME_NONNULL_END

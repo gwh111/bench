@@ -130,6 +130,33 @@
     return pk;
 }
 
++ (UIButton *)b_gameInkOKButton {
+    float width = RH(100);
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(100));
+//    pk.layer.cornerRadius = 2;
+    pk.titleLabel.font = RF(22);
+    pk.b_normalColor = UIColor.whiteColor;
+    [pk setBackgroundImage:[UIImage imageNamed:@"ui_point/point3.png"] forState:UIControlStateNormal];
+//    pk.clipsToBounds = YES;
+//    pk.layer.b_addBenchShadowRightBottom;
+    return pk;
+}
+
++ (UIButton *)b_gameInkCloseButton {
+    float width = SHORTWIDTH()/3-RH(60)/3;
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(width, RH(60));
+    pk.layer.cornerRadius = 2;
+    pk.titleLabel.font = RF(30);
+    pk.b_normalTitle = @"x";
+    pk.b_normalColor = UIColor.whiteColor;
+    [pk setBackgroundImage:[UIImage imageNamed:@"ui/ink_slide.png"] forState:UIControlStateNormal];
+    pk.clipsToBounds = YES;
+//    pk.layer.b_addBenchShadowRightBottom;
+    return pk;
+}
+
 + (UIButton *)b_gameButton {
     float width = SHORTWIDTH()/3-RH(60)/3;
     UIButton *pk = UIButton.b_UIButton;

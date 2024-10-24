@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define LARGEHEIGHT() [bUI.shared largeHeight]
 
 #define SAFE_BOTTOM() [bUI.shared safeBottom]
-
+#define SAFE_TOP() [bUI.shared safeTop]
 
 @interface bUI : UIViewController
 
