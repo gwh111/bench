@@ -71,7 +71,7 @@
     back.centerX = WIDTH()/2;
     back.top = RH(10);
     [self addSubview:back];
-    [back addShakeTimes:5 block:^{
+    [back addShakeTimes:2 block:^{
             
     }];
     
