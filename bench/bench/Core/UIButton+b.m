@@ -242,7 +242,7 @@
     [button setTitleColor:UIColor.b_lightYellow forState:UIControlStateHighlighted];
     button.b_normalColor = UIColor.whiteColor;
     button.size = CGSizeMake(RH(60), RH(30));
-    button.backgroundColor = UIColor.grayColor;
+    button.backgroundColor = UIColor.blackColor;
     button.titleLabel.font = RF(16);
     button.top = RH(200);
 //    button.layer.shadowOffset = CGSizeMake(1, 1);

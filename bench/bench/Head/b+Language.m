@@ -22,38 +22,78 @@
     return list;
 }
 
++ (void)setPlistTextChPaths:(NSArray *)paths {
+    [b setSharedKey:@"bench_textChPaths" object:paths];
+}
+
 + (NSString *)getPlistTextCh:(NSString *)chtext {
+    chtext = [chtext stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     if (b.isChinese) {
         return chtext;
     }
-    NSString *path = @"text/ch_en";
-    id d = [b getSharedKey:path];
-    if (d) {
-        return d;
-    }
-    NSMutableDictionary *data = NSMutableDictionary.new;
-    NSString *content = [b bundleStringWithPath:path type:@"md"];
-    if (content.length <= 10) {
-        return chtext;
-    }
-    NSArray *lines = [content componentsSeparatedByString:@"\n"];
-    for (int i = 0; i < lines.count; i++) {
-        NSString *line = lines[i];
-        if (line.length <= 0) {
-            continue;
+    NSString *language = b.currentLanguage;
+    NSArray *bench_textChNames = [b getSharedKey:@"bench_textChPaths"];
+    if (bench_textChNames) {
+        for (int i = 0; i < bench_textChNames.count; i++) {
+            NSString *path = bench_textChNames[i];
+            NSDictionary *plist = [b getSharedKey:path];
+            if (!plist) {
+                plist = [b bundlePlistWithPath:path];
+                [b setSharedKey:path object:plist];
+            }
+            if (plist[chtext]) {
+                return plist[chtext];
+            }
         }
-        NSArray *kvs = [line componentsSeparatedByString:@"="];
-        NSString *key = kvs[0];
-        NSString *v = kvs[1];
-        [data setObject:v forKey:key];
-    }
-    [b setSharedKey:@"text/ch_en" object:data];
-//    NSDictionary *data = [b bundlePlistWithPath:path];
-    if (!data[chtext]) {
         return chtext;
     }
-    return data[chtext];
+    NSString *path = @"text/ch_en";
+    NSDictionary *plist = [b getSharedKey:path];
+    if (!plist) {
+        plist = [b bundlePlistWithPath:path];
+    }
+    [b setSharedKey:@"text/ch_en" object:plist];
+    if (!plist[chtext]) {
+        return chtext;
+    }
+    if ([language containsString:@"en"]) {
+        return plist[chtext];
+    }
+    return plist[chtext];
 }
+
+//+ (NSString *)getPlistTextCh:(NSString *)chtext {
+//    if (b.isChinese) {
+//        return chtext;
+//    }
+//    NSString *path = @"text/ch_en";
+//    id d = [b getSharedKey:path];
+//    if (d) {
+//        return d;
+//    }
+//    NSMutableDictionary *data = NSMutableDictionary.new;
+//    NSString *content = [b bundleStringWithPath:path type:@"md"];
+//    if (content.length <= 10) {
+//        return chtext;
+//    }
+//    NSArray *lines = [content componentsSeparatedByString:@"\n"];
+//    for (int i = 0; i < lines.count; i++) {
+//        NSString *line = lines[i];
+//        if (line.length <= 0) {
+//            continue;
+//        }
+//        NSArray *kvs = [line componentsSeparatedByString:@"="];
+//        NSString *key = kvs[0];
+//        NSString *v = kvs[1];
+//        [data setObject:v forKey:key];
+//    }
+//    [b setSharedKey:@"text/ch_en" object:data];
+////    NSDictionary *data = [b bundlePlistWithPath:path];
+//    if (!data[chtext]) {
+//        return chtext;
+//    }
+//    return data[chtext];
+//}
 
 + (NSString *)getTextCh:(NSString *)chtext enText:(NSString *)entext {
 //    NSString *key = @"language_index";

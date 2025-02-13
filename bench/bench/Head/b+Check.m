@@ -229,6 +229,12 @@
     return [currentLanguage containsString:@"zh-Hans-CN"];
 }
 
++ (NSString *)currentLanguage {
+    NSArray *languages = [NSLocale preferredLanguages];
+    NSString *currentLanguage = [languages objectAtIndex:0];
+    return currentLanguage;
+}
+
 + (NSString *)version {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }

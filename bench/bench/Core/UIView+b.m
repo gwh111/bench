@@ -24,6 +24,15 @@
     }];
 }
 
+- (void)showToAlpha:(CGFloat)alpha {
+//    self.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = alpha;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
 - (void)unshow {
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = 0;
@@ -71,6 +80,15 @@
     //    return view;
 }
 
+- (void)addBGnamed:(NSString *)imagepath mode:(UIViewContentMode)mode {
+    UIImageView *deskbg = UIImageView.new;
+    deskbg.width = self.width;
+    deskbg.height = self.height;
+    [deskbg setImageWithPath:imagepath];
+    [self addSubview:deskbg];
+    deskbg.contentMode = mode;
+}
+
 - (void)initUI:(UIView *)parent {
     
 }
@@ -79,7 +97,7 @@
     
 }
 
-- (void)setupData {
+- (void)setupTableData {
     
 }
 

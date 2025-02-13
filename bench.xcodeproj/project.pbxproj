@@ -49,6 +49,8 @@
 		D88B3D75286420D40078E8B3 /* bTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D88B3D70286420D40078E8B3 /* bTimer.m */; };
 		D88B3D76286420D40078E8B3 /* bHttpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D88B3D73286420D40078E8B3 /* bHttpTask.m */; };
 		D88B3D792864214F0078E8B3 /* bThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D88B3D782864214F0078E8B3 /* bThread.m */; };
+		D88BB01F2D3F3AF0006A916E /* bSelectV.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BB01E2D3F3AF0006A916E /* bSelectV.m */; };
+		D88BB0222D3F3B78006A916E /* bLabelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BB0212D3F3B78006A916E /* bLabelGroup.m */; };
 		D890E1D127891CDB00079C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D890E1D027891CDB00079C0C /* AppDelegate.swift */; };
 		D890E1D327891CDB00079C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D890E1D227891CDB00079C0C /* SceneDelegate.swift */; };
 		D890E1D527891CDB00079C0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D890E1D427891CDB00079C0C /* ViewController.swift */; };
@@ -196,6 +198,10 @@
 		D88B3D73286420D40078E8B3 /* bHttpTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bHttpTask.m; sourceTree = "<group>"; };
 		D88B3D772864214F0078E8B3 /* bThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bThread.h; sourceTree = "<group>"; };
 		D88B3D782864214F0078E8B3 /* bThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bThread.m; sourceTree = "<group>"; };
+		D88BB01E2D3F3AF0006A916E /* bSelectV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bSelectV.m; sourceTree = "<group>"; };
+		D88BB0202D3F3B14006A916E /* bSelectV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bSelectV.h; sourceTree = "<group>"; };
+		D88BB0212D3F3B78006A916E /* bLabelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bLabelGroup.m; sourceTree = "<group>"; };
+		D88BB0232D3F3B86006A916E /* bLabelGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bLabelGroup.h; sourceTree = "<group>"; };
 		D890E1CD27891CDB00079C0C /* bench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D890E1D027891CDB00079C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D890E1D227891CDB00079C0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -536,6 +542,10 @@
 				D890E20927891D2C00079C0C /* bench_extension.h */,
 				1880DC382A5E9862002C31DE /* b+Extension.h */,
 				1880DC392A5E9862002C31DE /* b+Extension.m */,
+				D88BB0202D3F3B14006A916E /* bSelectV.h */,
+				D88BB01E2D3F3AF0006A916E /* bSelectV.m */,
+				D88BB0232D3F3B86006A916E /* bLabelGroup.h */,
+				D88BB0212D3F3B78006A916E /* bLabelGroup.m */,
 				1880DC352A5E97E5002C31DE /* bTalkView.h */,
 				1880DC362A5E97E5002C31DE /* bTalkView.m */,
 			);
@@ -685,6 +695,7 @@
 				18B2EFE12B00BCB4002C9A4C /* DES.m in Sources */,
 				D88B3D74286420D40078E8B3 /* bHttpModel.m in Sources */,
 				D829E80C27B35EC900D7C968 /* NSDate+b.m in Sources */,
+				D88BB0222D3F3B78006A916E /* bLabelGroup.m in Sources */,
 				1823DC5E2A5540EB00845A82 /* UIImageView+b.m in Sources */,
 				D890E21927891D4D00079C0C /* bBase.m in Sources */,
 				D88B3D75286420D40078E8B3 /* bTimer.m in Sources */,
@@ -709,6 +720,7 @@
 				D88B3D792864214F0078E8B3 /* bThread.m in Sources */,
 				D837339C28BAFB64002BAA73 /* bStrokeLabel.m in Sources */,
 				D8FE0CF827B5462600A141D5 /* bDatabaseTool.m in Sources */,
+				D88BB01F2D3F3AF0006A916E /* bSelectV.m in Sources */,
 				D8A37E41288E3DFF00E0C895 /* UITapGestureRecognizer+b.m in Sources */,
 				D837339B28BAFB64002BAA73 /* bMD5.m in Sources */,
 				D8FEE958278FCEB4006E3A22 /* UIViewController+b.m in Sources */,

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Language)
 
++ (void)setPlistTextChPaths:(NSArray *)paths;
 #define TEXT(text) [b getPlistTextCh:text]
 + (NSString *)getPlistTextCh:(NSString *)chtext;
 #define TEXTS(chtexts) [b getPlistTextChs:chtexts]

@@ -7,6 +7,8 @@
 
 #import "b.h"
 #import "bTalkView.h"
+#import "bSelectV.h"
+#import "bLabelGroup.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (bTalkView *)playTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block;
 + (void)playTrueTalks:(NSArray *)talks name:(NSString *)name block:(void (^)(void))block;
+
++ (void)playAsk:(NSString *)askStr selectArr:(NSArray *)selectArr block:(void (^)(NSUInteger select))block;
++ (void)playCanCancelAsk:(NSString *)askStr selectArr:(NSArray *)selectArr block:(void (^)(NSUInteger select))block;
 
 @end
 

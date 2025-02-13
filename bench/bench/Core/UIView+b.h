@@ -39,6 +39,7 @@ typedef void (^bAssociatedTapBlock)(UIView *view);
 typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
 - (void)show;
+- (void)showToAlpha:(CGFloat)alpha;
 - (void)unshow;
 - (void)dismiss;
 
@@ -47,7 +48,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
 - (void)addMenuTappedWithBlock:(bAssociatedTapMenuBlock)block;
 - (void)menuBlock:(NSString *)key;
-
+- (void)addBGnamed:(NSString *)imagepath mode:(UIViewContentMode)mode;
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
 - (nullable __kindof id)viewWithBenchName:(NSString *)name;
@@ -59,7 +60,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)initUI:(UIView *)parent;
 - (void)initUI:(UIView *)parent width:(CGFloat)width height:(CGFloat)height;
 
-- (void)setupData;
+- (void)setupTableData;
 
 - (UIImage *)screenshot;
 - (UIImage *)screenshotWithSize:(CGSize)size;

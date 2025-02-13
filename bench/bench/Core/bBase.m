@@ -122,6 +122,7 @@ static dispatch_once_t onceToken;
         return NO;
     }
     
+    
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         // 拼接文件路径
     NSString *path = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",name]];

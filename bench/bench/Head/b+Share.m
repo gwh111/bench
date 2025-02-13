@@ -21,6 +21,10 @@
     return text;
 }
 
++ (void)removeSharedKey:(NSString *)key {
+    [bBase.shared.sharedData removeObjectForKey:key];
+}
+
 + (void)setSharedKey:(NSString *)key object:(id)object {
     if (!bBase.shared.sharedData) {
         bBase.shared.sharedData = NSMutableDictionary.new;

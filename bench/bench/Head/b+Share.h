@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Share)
 
++ (void)removeSharedKey:(NSString *)key;
 // 可重入
 + (void)setSharedKey:(NSString *)key object:(id)object;
 // 不可重入

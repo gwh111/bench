@@ -66,10 +66,11 @@
     }];
     
     UIImageView *back = UIImageView.new;
-    back.size = CGSizeMake(HEIGHT()+RH(120), HEIGHT()-RH(80));
+    back.size = CGSizeMake(WIDTH(), WIDTH());
     back.image = [UIImage imageNamed:@"ui_point/point_square"];
     back.centerX = WIDTH()/2;
     back.top = RH(10);
+    back.centerY = HEIGHT()/2;
     [self addSubview:back];
     [back addShakeTimes:2 block:^{
             

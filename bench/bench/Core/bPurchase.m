@@ -433,7 +433,9 @@ static dispatch_once_t onceToken;
         // send out a notification for the failed transaction
         NSLog(@"fail");
         [b showNotice:[NSString stringWithFormat:@"fail  %@",transaction.error]];
-        [b stopLoading];
+        [b gotoMain:^{
+            [b stopLoading];
+        }];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kInAppPurchaseManagerTransactionFailedNotification object:self userInfo:userInfo];
     }
@@ -488,7 +490,9 @@ static dispatch_once_t onceToken;
                     
                     [self purchaseFinish:data userInfo:userInfo];
                 } else {
-                    [b stopLoading];
+                    [b gotoMain:^{
+                        [b stopLoading];
+                    }];
                 }
             }];
             [dataTask resume];
@@ -539,7 +543,9 @@ static dispatch_once_t onceToken;
 //                }
 //                [_safeList addObject:receipt_creation_date_ms];
 //                NSLog(@"_safeList%d",(int)_safeList.count);
-                [b stopLoading];
+                [b gotoMain:^{
+                    [b stopLoading];
+                }];
                 
                 NSString *key = self->kInAppPurchaseProUpgradeProductId;
                 NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
@@ -583,7 +589,9 @@ static dispatch_once_t onceToken;
                         
         }];
         [self uploadInAppP:content type:self->kInAppPurchaseProUpgradeProductId choose:self.getChooseValue];
-        [b stopLoading];
+        [b gotoMain:^{
+            [b stopLoading];
+        }];
     }];
 }
 //
@@ -617,7 +625,9 @@ static dispatch_once_t onceToken;
 
         [b showNotice:@"cancel"];
         
-        [b stopLoading];
+        [b gotoMain:^{
+            [b stopLoading];
+        }];
     }
 }
 #pragma mark -
@@ -663,6 +673,9 @@ static dispatch_once_t onceToken;
 -(void) requestDidFinish:(SKRequest *)request {
     NSLog(@"----------反馈信息结束--------------");
     
+    [b gotoMain:^{
+        [b stopLoading];
+    }];
 }
 
 - (void)requestProUpgradeProductData {

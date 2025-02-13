@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)benchDefaultObjectForKey:(NSString *)key fileName:(NSString *)fileName;
 + (void)benchDefaultSetObject:(id)value forKey:(NSString *)key fileName:(NSString *)fileName;
 
++ (BOOL)isFirstLaunchKey:(NSString *)key;
++ (void)launchKey:(NSString *)key;
++ (BOOL)isFirstLaunch;
 + (void)launch;
 + (int)launchDayFromFirstDay;
 
@@ -74,6 +77,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)hasSetKey:(NSString *)key;
 + (void)setKey:(NSString *)key;
+
++ (NSString *)getMemberExpire;
++ (BOOL)isMember;
++ (void)setMemberAddDays:(int)days;
 
 @end
 

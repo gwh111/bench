@@ -15,4 +15,18 @@
     return image1;
 }
 
++ (UIImage *)getImageNamed:(NSString *)name {
+    UIImage *image = [UIImage imageNamed:name];
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",name]];
+    }
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",name]];
+    }
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpeg",name]];
+    }
+    return image;
+}
+
 @end

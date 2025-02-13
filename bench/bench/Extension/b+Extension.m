@@ -60,4 +60,29 @@
     [talk playTalk:block];
 }
 
++ (void)playAsk:(NSString *)askStr selectArr:(NSArray *)selectArr block:(void (^)(NSUInteger select))block {
+    bSelectV *select = bSelectV.new;
+//    if (ccs.currentVC.view) {
+//        [ccs.currentVC.view addSubview:select];
+//    } else {
+//
+//    }
+    [b.ui.currentUIViewController.view addSubview:select];
+    [select initUI];
+    [select playAsk:askStr selectArr:selectArr block:block];
+}
+
++ (void)playCanCancelAsk:(NSString *)askStr selectArr:(NSArray *)selectArr block:(void (^)(NSUInteger select))block {
+    bSelectV *select = bSelectV.new;
+//    if (ccs.currentVC.view) {
+//        [ccs.currentVC.view addSubview:select];
+//    } else {
+//
+//    }
+    [b.ui.currentUIViewController.view addSubview:select];
+    select.canCancel = YES;
+    [select initUI];
+    [select playAsk:askStr selectArr:selectArr block:block];
+}
+
 @end

@@ -10,6 +10,20 @@
 
 @implementation UIImageView (b)
 
+- (void)setImageWithPath:(NSString *)path {
+    UIImage *image = [UIImage imageNamed:path];
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",path]];
+    }
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",path]];
+    }
+    if (!image) {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpeg",path]];
+    }
+    self.image = image;
+}
+
 - (void)addTappedImageViewOnceWithBlock:(void (^)(UIImageView *imageView))block {
     [self addTappedOnceWithBlock:^(UIView *v) {
         block((UIImageView *)v);

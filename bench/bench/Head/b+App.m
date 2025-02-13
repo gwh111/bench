@@ -17,9 +17,30 @@ static NSString *FIRST_LAUNCH = @"FIRST_LAUNCH";
 static NSString *REQUEST = @"REQUEST";
 static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 
++ (BOOL)isFirstLaunch {
+    if (![b benchDefaultObjectForKey:FIRST_LAUNCH]) {
+        return YES;
+    }
+    return NO;
+}
+
 + (void)launch {
     if (![b benchDefaultObjectForKey:FIRST_LAUNCH]) {
         [b benchDefaultSetObject:NSDate.date.b_convertToString forKey:FIRST_LAUNCH];
+    }
+    benchLog(@"launchDayFromFirstDay = %d",self.launchDayFromFirstDay);
+}
+
++ (BOOL)isFirstLaunchKey:(NSString *)key {
+    if (![b benchDefaultObjectForKey:key]) {
+        return YES;
+    }
+    return NO;
+}
+
++ (void)launchKey:(NSString *)key {
+    if (![b benchDefaultObjectForKey:key]) {
+        [b benchDefaultSetObject:NSDate.date.b_convertToString forKey:key];
     }
     benchLog(@"launchDayFromFirstDay = %d",self.launchDayFromFirstDay);
 }
@@ -315,6 +336,49 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return NO;
 }
 
++ (BOOL)isMember {
+    NSString *expire = [b benchDefaultObjectForKey:@"member_expire_date"];
+    if (!expire) {
+        return NO;
+    }
+    NSDate *expired = expire.b_convertToDate;
+    NSDate *now = NSDate.date;
+    // 比较两个日期的间隔
+    NSTimeInterval timeInterval = [now timeIntervalSinceDate:expired];
+    NSLog(@"两个日期相差%.0f秒", timeInterval);
+    if (timeInterval > 0) {
+        
+        return NO;
+    }
+    return YES;
+}
+
++ (NSString *)getMemberExpire {
+    NSString *expire = [b benchDefaultObjectForKey:@"member_expire_date"];
+    return expire;
+}
+
++ (void)setMemberAddDays:(int)days {
+    
+    // 获取当前日期
+    NSDate *currentDate = [NSDate date];
+     
+    // 获取日历对象
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+     
+    // 创建一个日期组件对象，表示要增加的时间量
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    dateComponents.day = days; // 增加5天
+     
+    // 使用日历对象计算新的日期
+    NSDate *newDate = [calendar dateByAddingComponents:dateComponents toDate:currentDate options:0];
+     
+    // 输出结果
+    NSLog(@"Original date: %@", currentDate);
+    NSLog(@"New date: %@", newDate);
+    [b benchDefaultSetObject:newDate.b_convertToString forKey:@"member_expire_date"];
+}
+
 + (void)setGold:(int)value {
     [b benchDefaultSetObject:@(value) forKey:@"gold"];
 }
@@ -350,7 +414,8 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 //    NSString *msg = @"评论有奖~给我们一个评论，赠送30天会员。";
 //    NSString *des = @"伯牙鼓琴，锺子期听之。方鼓琴而志在太山，锺子期曰:“善哉乎鼓琴！巍巍乎若太山。”少选之间而志在流水，锺子期又曰：”善哉乎鼓琴！汤汤乎若流水。”锺子期死，伯牙破琴绝弦，终身不复鼓琴，以为世无足复为鼓琴者。";
     
-    [b.ui showAltOn:b.ui.currentUIViewController title:msg msg:des bts:@[@"复制推荐内容后评论",@"取消"] block:^(int index, NSString * _Nonnull indexTitle) {
+    NSString *newdes = [NSString stringWithFormat:@"复制内容：%@",des];
+    [b.ui showAltOn:b.ui.currentUIViewController title:msg msg:newdes bts:@[@"复制推荐内容后评论",@"取消"] block:^(int index, NSString * _Nonnull indexTitle) {
         if (index == 0) {
 //            a.shared.rate = 2;
 //            NSString *appId = @"1635508901";

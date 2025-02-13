@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isJailBreak;
 + (BOOL)isChinese;
 + (BOOL)isSimplifiedChinese;
++ (NSString *)currentLanguage;
 
 + (int)randValue:(int)value;
 + (BOOL)isRand100LessThan:(int)value;
