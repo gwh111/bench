@@ -104,6 +104,15 @@
     [fileManager removeItemAtPath:filePath error:nil];
 }
 
++ (void)sandboxMoveDocumentFromPath:(NSString *)fromPath to:(NSString *)toPath {
+    NSString *filePath1 = [self.sandboxDocumentPath stringByAppendingPathComponent:fromPath];
+    NSString *filePath2 = [self.sandboxDocumentPath stringByAppendingPathComponent:toPath];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    [fileManager moveItemAtPath:filePath1 toPath:filePath2 error:&error];
+    NSLog(@"%@",error);
+}
+
 + (void)sandboxRenameDocument:(NSString *)name newName:(NSString *)newName {
     NSString *filePath = [self.sandboxDocumentPath stringByAppendingPathComponent:name];
     NSFileManager *fileManager = [NSFileManager defaultManager];

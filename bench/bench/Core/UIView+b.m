@@ -87,6 +87,7 @@
     [deskbg setImageWithPath:imagepath];
     [self addSubview:deskbg];
     deskbg.contentMode = mode;
+    deskbg.alpha = 0.8;
 }
 
 - (void)initUI:(UIView *)parent {
