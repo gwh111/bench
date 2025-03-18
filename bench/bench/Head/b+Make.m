@@ -9,6 +9,48 @@
 
 @implementation b (Make)
 
++ (NSArray *)cutLongSentenceToList:(NSString *)content {
+    NSArray *talks = [content componentsSeparatedByString:@"。"];
+    NSMutableArray *mutTalk = NSMutableArray.new;
+    for (int i = 0; i < talks.count; i++) {
+        NSString *c = talks[i];
+        c = [c stringByAppendingString:@"。"];
+        if (c.length > 30) {
+            if ([c containsString:@"！"]) {
+                NSArray *sp2 = [c componentsSeparatedByString:@"！"];
+                for (int i = 0; i < sp2.count; i++) {
+                    NSString *c = sp2[i];
+                    c = [c stringByAppendingString:@"！"];
+                    if (c.length > 30) {
+                        if ([c containsString:@"？"]) {
+                            NSArray *sp2 = [c componentsSeparatedByString:@"？"];
+                            for (int i = 0; i < sp2.count; i++) {
+                                NSString *c = sp2[i];
+                                c = [c stringByAppendingString:@"？"];
+                                if (c.length <= 2) {
+                                    continue;;
+                                }
+                                [mutTalk addObject:c];
+                            }
+                            continue;
+                        }
+                    }
+                    if (c.length <= 2) {
+                        continue;;
+                    }
+                    [mutTalk addObject:c];
+                }
+                continue;
+            }
+        }
+        if (c.length <= 2) {
+            continue;;
+        }
+        [mutTalk addObject:c];
+    }
+    return mutTalk;
+}
+
 //截取字符前多少位，处理emoji表情问题
 ////🐒🐒🐒🐒 + 截取3 = 🐒🐒🐒
 + (NSString *)subStringWithEmoji:(NSString *)emojiString limitLength:(NSInteger)limitLength {

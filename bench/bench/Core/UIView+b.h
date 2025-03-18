@@ -42,6 +42,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)showToAlpha:(CGFloat)alpha;
 - (void)unshow;
 - (void)dismiss;
+- (void)unshowShow;
 
 - (void)addTappedOnceDelay:(float)time withBlock:(void (^)(UIView *))block;
 - (void)addTappedOnceWithBlock:(void (^)(UIView *view))block;
@@ -76,6 +77,9 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (UIScrollView *)getPopView;
 - (UIView *)getPopViewWithOK;
 - (UIScrollView *)getPopViewWidth:(CGFloat)width;
+
+- (void)addFadeBlackLayerFromTop;
+- (void)addFadeBlackLayerFromBottom;
 
 @end
 

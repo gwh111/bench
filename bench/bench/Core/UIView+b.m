@@ -33,6 +33,19 @@
     }];
 }
 
+- (void)unshowShow {
+    self.alpha = 1;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.alpha = 1;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }];
+}
+
 - (void)unshow {
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = 0;
@@ -431,6 +444,26 @@
 
 - (void)shake:(int)time {
     
+}
+
+- (void)addFadeBlackLayerFromTop {
+    CAGradientLayer *layer = CAGradientLayer.new;
+    layer.frame = CGRectMake(0, 0, self.width, self.height);
+    layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
+    layer.locations = @[@(0),@(0.7)];
+    layer.startPoint = CGPointMake(0.5, 0);
+    layer.endPoint = CGPointMake(0.5, 1);
+    [self.layer addSublayer:layer];
+}
+
+- (void)addFadeBlackLayerFromBottom {
+    CAGradientLayer *layer = CAGradientLayer.new;
+    layer.frame = CGRectMake(0, 0, self.width, self.height);
+    layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
+    layer.locations = @[@(0),@(0.7)];
+    layer.startPoint = CGPointMake(0.5, 1);
+    layer.endPoint = CGPointMake(0.5, 0);
+    [self.layer addSublayer:layer];
 }
 
 - (void)addBlurEffectView {

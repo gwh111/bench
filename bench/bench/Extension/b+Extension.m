@@ -85,4 +85,12 @@
     [select playAsk:askStr selectArr:selectArr block:block];
 }
 
++ (void)showInfo:(NSMutableAttributedString *)att {
+    [bInfoView showInfo:att];
+}
+
++ (void)showInfoStr:(NSString *)str {
+    [bInfoView showInfoStr:str];
+}
+
 @end

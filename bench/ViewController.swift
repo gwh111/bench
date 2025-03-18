@@ -16,8 +16,9 @@ class ViewController: UIViewController {
 //        print(b.isDebug())
 //        self.setupRoot()
         
-        test.test();
-        
+        //test.test();
+        b.httpTask()
+        b.event().dispatchEvent("", data: nil)
     }
 
 

@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Make)
 
++ (NSArray *)cutLongSentenceToList:(NSString *)content;
+
 + (NSString *)getRandomStringWithNum:(NSInteger)num;
 
 + (NSString *)subStringWithEmoji:(NSString *)emojiString limitLength:(NSInteger)limitLength;

@@ -201,6 +201,70 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     [b benchDefaultSetObject:@(rated) forKey:@"rated"];
 }
 
++ (BOOL)isUnlockWithKey:(NSString *)key {
+    return [[b benchDefaultObjectForKey:key]boolValue];
+}
+
++ (void)isUnlockSet:(BOOL)unlock withKey:(NSString *)key {
+    [b benchDefaultSetObject:@(unlock) forKey:key];
+}
+
++ (BOOL)isUnlockManyWithKey:(NSString *)key {
+    NSDictionary *dic = [b documentsPlistWithPath:@"unlockmany"];
+    return [dic[key]intValue];
+}
+
++ (void)isUnlockManySet:(BOOL)unlock withKey:(NSString *)key {
+    NSMutableDictionary *mutdic = NSMutableDictionary.new;
+    NSDictionary *dic = [b documentsPlistWithPath:@"unlockmany"];
+    [mutdic addEntriesFromDictionary:dic];
+    [mutdic b_setObject:@(unlock) forKey:key];
+    [b savePlistToSandbox:mutdic name:@"unlockmany"];
+}
+
++ (void)setEverydayCount:(int)count withKey:(NSString *)key {
+    NSMutableDictionary *mutdic = NSMutableDictionary.new;
+    NSDictionary *dic = [b documentsPlistWithPath:@"everydaycount"];
+    [mutdic addEntriesFromDictionary:dic];
+    [mutdic b_setObject:@(count) forKey:key];
+    [b savePlistToSandbox:mutdic name:@"everydaycount"];
+}
+
++ (void)addEverydayCount:(int)count withKey:(NSString *)key {
+    NSMutableDictionary *mutdic = NSMutableDictionary.new;
+    NSDictionary *dic = [b documentsPlistWithPath:@"everydaycount"];
+    [mutdic addEntriesFromDictionary:dic];
+    int now = [dic[key]intValue];
+    [mutdic b_setObject:@(now+count) forKey:key];
+    [b savePlistToSandbox:mutdic name:@"everydaycount"];
+}
+
++ (int)getEverydayCountWithKey:(NSString *)key {
+    NSDictionary *dic = [b documentsPlistWithPath:@"everydaycount"];
+    return [dic[key]intValue];
+}
+
++ (void)setNPCInfoNPCName:(NSString *)npcName key:(NSString *)key value:(id)value {
+    NSMutableDictionary *mutdic = NSMutableDictionary.new;
+    NSMutableDictionary *npcMutdic = NSMutableDictionary.new;
+    NSDictionary *dic = [b documentsPlistWithPath:@"npcinfo"];
+    NSDictionary *npcdic = dic[npcName];
+    [mutdic addEntriesFromDictionary:dic];
+    [npcMutdic addEntriesFromDictionary:npcdic];
+    [npcMutdic b_setObject:value forKey:key];
+    [mutdic b_setObject:npcMutdic forKey:npcName];
+    
+    [b savePlistToSandbox:mutdic name:@"npcinfo"];
+}
+
++ (NSDictionary *)getNPCInfoWithNPCName:(NSString *)npcName {
+    NSDictionary *dic = [b documentsPlistWithPath:@"npcinfo"];
+    if (dic[npcName]) {
+        return dic[npcName];
+    }
+    return @{};
+}
+
 + (BOOL)isCodeValided {
     return [[b benchDefaultObjectForKey:@"code"]boolValue];
 }
@@ -408,6 +472,23 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
 
 + (void)setGender:(NSString *)gender {
     [b benchDefaultSetObject:gender forKey:@"gender"];
+}
+
+//+ (void)postNotification_rate {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"rate" object:nil userInfo:nil];
+//}
+//
+//+ (void)addNotificationBlock:(NSString *)key {
+//    [[NSNotificationCenter defaultCenter] addObserver:b.shared selector:@selector(receiveNotification:) name:key object:@{@"key": key}];
+//}
+
+- (void)receiveNotification:(NSNotification *)notification {
+    // 处理接收到的通知
+    NSDictionary *userInfo = notification.userInfo;
+    // 根据 userInfo 中的信息更新 UI 或执行其他操作
+    NSString *value = userInfo[@"key"];
+    // 使用 value 进行相应的处理
+    
 }
 
 + (void)rateAsk:(NSString *)msg copyDes:(NSString *)des appId:(NSString *)appId hasReward:(BOOL)hasReward{

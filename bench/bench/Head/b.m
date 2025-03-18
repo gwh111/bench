@@ -83,6 +83,10 @@
     return bUI.shared;
 }
 
++ (bEvent *)event {
+    return bEvent.shared;
+}
+
 + (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc {
     [bUI.shared setupRootWindow:window andRootViewController:vc];
 }

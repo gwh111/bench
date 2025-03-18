@@ -89,6 +89,8 @@ static dispatch_once_t onceToken;
         
         b.ui.fixWidthAndHeight = YES;
         
+        //[self addBlurEffectView];
+        
         self.backgroundColor = RGBA(0, 0, 0, .5);
         self.frame = CGRectMake(0, 0, WIDTH(), HEIGHT());
         self.alpha = 0;
@@ -103,6 +105,13 @@ static dispatch_once_t onceToken;
         popV.frame = CGRectMake(0, HEIGHT() - h, WIDTH(), h);
         [self addSubview:popV];
         popV.backgroundColor = UIColor.blackColor;
+        
+        UIView *fadeblack = UIView.new;
+        fadeblack.width = WIDTH();
+        fadeblack.height = RH(100);
+        [self addSubview:fadeblack];
+        fadeblack.bottom = popV.top;
+        [fadeblack addFadeBlackLayerFromBottom];
         
         UIButton *close = UIButton.new;
         close.frame = CGRectMake(0, 0, WIDTH(), popV.top);

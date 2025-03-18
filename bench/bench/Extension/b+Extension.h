@@ -9,10 +9,14 @@
 #import "bTalkView.h"
 #import "bSelectV.h"
 #import "bLabelGroup.h"
+#import "bInfoView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface b (Extension)
+
++ (void)showInfo:(NSMutableAttributedString *)att;
++ (void)showInfoStr:(NSString *)str;
 
 + (bTalkView *)playCannotTapTalks:(NSArray *)talks block:(void (^)(void))block;
 

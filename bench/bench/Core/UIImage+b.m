@@ -9,13 +9,13 @@
 
 @implementation UIImage (b)
 
-+ (UIImage *)getImage:(UIImage *)image withRect:(CGRect)rect {
++ (UIImage *)b_image:(UIImage *)image withRect:(CGRect)rect {
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage],rect);
     UIImage *image1 = [UIImage imageWithCGImage:imageRef];
     return image1;
 }
 
-+ (UIImage *)getImageNamed:(NSString *)name {
++ (UIImage *)b_imageNamed:(NSString *)name {
     UIImage *image = [UIImage imageNamed:name];
     if (!image) {
         image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",name]];

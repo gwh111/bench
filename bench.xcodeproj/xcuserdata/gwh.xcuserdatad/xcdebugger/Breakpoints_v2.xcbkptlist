@@ -63,8 +63,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
-                  endingLineNumber = "251"
-                  offsetFromSymbolStart = "87">
+                  endingLineNumber = "251">
                </Location>
                <Location
                   uuid = "15295960-0654-4A38-B9D1-28DCB8CE8215 - d48936cf08213efc"
@@ -78,8 +77,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "250"
-                  endingLineNumber = "250"
-                  offsetFromSymbolStart = "82">
+                  endingLineNumber = "250">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -98,6 +96,22 @@
             endingLineNumber = "103"
             landmarkName = "sort()"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37A702A6-CBA5-4327-90BB-F789528E9E3E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bench/bench/Core/bPurchase.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-init"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

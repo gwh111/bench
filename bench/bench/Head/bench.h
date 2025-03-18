@@ -33,5 +33,6 @@
 #import "CC_Lib+UINavigationController.h"
 
 #import "b+Extension.h"
+#import "bEvent.h"
 
 // extension:plug

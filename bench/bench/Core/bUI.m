@@ -199,7 +199,7 @@ static dispatch_once_t onceToken;
     if (__safeTop > 0) {
         return __safeTop;
     }
-    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.bottom;
+    float v = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
     float v3 = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.left;
     if (v3 < v) {
         __safeTop = v3;

@@ -40,6 +40,7 @@
 		D85A3A9C297AC8C6003B5FC6 /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D85A3A9A297AC8C6003B5FC6 /* HeapSort.cpp */; };
 		D85CCC2929EBC0B500769FFA /* b+Sandbox.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CCC2829EBC0B500769FFA /* b+Sandbox.m */; };
 		D8712C292A021C91009E5C84 /* NSArray+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8712C282A021C91009E5C84 /* NSArray+b.m */; };
+		D87195952D881EAD00A77BF3 /* bEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D87195942D881EAD00A77BF3 /* bEvent.m */; };
 		D8780B5C27892C9F007B11C2 /* b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8780B5B27892C9F007B11C2 /* b.m */; };
 		D8780B9C27892F90007B11C2 /* UILabel+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8780B9B27892F90007B11C2 /* UILabel+b.m */; };
 		D878B53D298517880042D2E8 /* testVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D878B53C298517880042D2E8 /* testVector.cpp */; };
@@ -83,12 +84,14 @@
 		D89D7D39298A4AC900B51026 /* testHouseRobber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D7D38298A4AC900B51026 /* testHouseRobber.cpp */; };
 		D89D7D3B298A528600B51026 /* testBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D7D3A298A528500B51026 /* testBag.cpp */; };
 		D89D7D3D298B3ADA00B51026 /* testLIS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D7D3C298B3ADA00B51026 /* testLIS.cpp */; };
+		D89F15222D8083E800A099D6 /* bInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D89F15212D8083E800A099D6 /* bInfoView.m */; };
 		D89F9EA229F6B70E009644A6 /* test.mm in Sources */ = {isa = PBXBuildFile; fileRef = D89F9EA129F6B70E009644A6 /* test.mm */; };
 		D8A37E41288E3DFF00E0C895 /* UITapGestureRecognizer+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A37E3F288E3DFF00E0C895 /* UITapGestureRecognizer+b.m */; };
 		D8A37E44288E3EFA00E0C895 /* bMusicBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A37E42288E3EFA00E0C895 /* bMusicBox.m */; };
 		D8AE040228D2AE0B000CFC35 /* bVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AE040028D2AE0B000CFC35 /* bVideo.m */; };
 		D8C3F482295AA5AC00E3F2FF /* AskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F481295AA5AC00E3F2FF /* AskView.m */; };
 		D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F484295AA78200E3F2FF /* InfoView.m */; };
+		D8C5148B2D8643FB00E72F26 /* bButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5148A2D8643FB00E72F26 /* bButton.swift */; };
 		D8F0B69629383C1200461D3C /* b+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0B69429383C1200461D3C /* b+HTML.m */; };
 		D8F2C4BF2961B82A00D14C17 /* b+Make.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2C4BE2961B82A00D14C17 /* b+Make.m */; };
 		D8FE0CCB27B4D68D00A141D5 /* NSObject+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FE0CC927B4D68D00A141D5 /* NSObject+b.m */; };
@@ -184,6 +187,8 @@
 		D85CCC2829EBC0B500769FFA /* b+Sandbox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "b+Sandbox.m"; sourceTree = "<group>"; };
 		D8712C272A021C91009E5C84 /* NSArray+b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+b.h"; sourceTree = "<group>"; };
 		D8712C282A021C91009E5C84 /* NSArray+b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+b.m"; sourceTree = "<group>"; };
+		D87195932D881EAD00A77BF3 /* bEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bEvent.h; sourceTree = "<group>"; };
+		D87195942D881EAD00A77BF3 /* bEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bEvent.m; sourceTree = "<group>"; };
 		D8780B5B27892C9F007B11C2 /* b.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = b.m; sourceTree = "<group>"; };
 		D8780B9A27892F90007B11C2 /* UILabel+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+b.h"; sourceTree = "<group>"; };
 		D8780B9B27892F90007B11C2 /* UILabel+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+b.m"; sourceTree = "<group>"; };
@@ -247,6 +252,8 @@
 		D89D7D38298A4AC900B51026 /* testHouseRobber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testHouseRobber.cpp; sourceTree = "<group>"; };
 		D89D7D3A298A528500B51026 /* testBag.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testBag.cpp; sourceTree = "<group>"; };
 		D89D7D3C298B3ADA00B51026 /* testLIS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testLIS.cpp; sourceTree = "<group>"; };
+		D89F15202D8083E800A099D6 /* bInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bInfoView.h; sourceTree = "<group>"; };
+		D89F15212D8083E800A099D6 /* bInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bInfoView.m; sourceTree = "<group>"; };
 		D89F9EA129F6B70E009644A6 /* test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = test.mm; sourceTree = "<group>"; };
 		D8A37E3E288E3DFF00E0C895 /* UITapGestureRecognizer+b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITapGestureRecognizer+b.h"; sourceTree = "<group>"; };
 		D8A37E3F288E3DFF00E0C895 /* UITapGestureRecognizer+b.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITapGestureRecognizer+b.m"; sourceTree = "<group>"; };
@@ -258,6 +265,7 @@
 		D8C3F481295AA5AC00E3F2FF /* AskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskView.m; sourceTree = "<group>"; };
 		D8C3F483295AA78200E3F2FF /* InfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoView.h; sourceTree = "<group>"; };
 		D8C3F484295AA78200E3F2FF /* InfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoView.m; sourceTree = "<group>"; };
+		D8C5148A2D8643FB00E72F26 /* bButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bButton.swift; sourceTree = "<group>"; };
 		D8F0B69429383C1200461D3C /* b+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "b+HTML.m"; sourceTree = "<group>"; };
 		D8F0B69529383C1200461D3C /* b+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "b+HTML.h"; sourceTree = "<group>"; };
 		D8F0B69A29383D1C00461D3C /* bench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bench.h; sourceTree = "<group>"; };
@@ -352,6 +360,7 @@
 				1823DC682A569A9A00845A82 /* b+App.m */,
 				188BF8372AF88536008B57A6 /* bShared.h */,
 				188BF8382AF88536008B57A6 /* bShared.m */,
+				D8C5148A2D8643FB00E72F26 /* bButton.swift */,
 			);
 			path = Head;
 			sourceTree = "<group>";
@@ -462,6 +471,8 @@
 				D890E20627891D2B00079C0C /* bench-Bridging-Header.h */,
 				1880DC2F2A5BDF83002C31DE /* bModule.h */,
 				1880DC302A5BDF83002C31DE /* bModule.m */,
+				D87195932D881EAD00A77BF3 /* bEvent.h */,
+				D87195942D881EAD00A77BF3 /* bEvent.m */,
 				1880DC3B2A5E9AAD002C31DE /* bUIModule.h */,
 				1880DC3C2A5E9AAD002C31DE /* bUIModule.m */,
 				D81FD3DB2BD0923200C6696B /* bPurchase.h */,
@@ -548,6 +559,8 @@
 				D88BB0212D3F3B78006A916E /* bLabelGroup.m */,
 				1880DC352A5E97E5002C31DE /* bTalkView.h */,
 				1880DC362A5E97E5002C31DE /* bTalkView.m */,
+				D89F15202D8083E800A099D6 /* bInfoView.h */,
+				D89F15212D8083E800A099D6 /* bInfoView.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -723,12 +736,15 @@
 				D88BB01F2D3F3AF0006A916E /* bSelectV.m in Sources */,
 				D8A37E41288E3DFF00E0C895 /* UITapGestureRecognizer+b.m in Sources */,
 				D837339B28BAFB64002BAA73 /* bMD5.m in Sources */,
+				D8C5148B2D8643FB00E72F26 /* bButton.swift in Sources */,
 				D8FEE958278FCEB4006E3A22 /* UIViewController+b.m in Sources */,
 				D81FD3DD2BD0923200C6696B /* bPurchase.m in Sources */,
 				D890E1D527891CDB00079C0C /* ViewController.swift in Sources */,
 				1823DC662A5696CE00845A82 /* b+Share.m in Sources */,
 				D890E1D127891CDB00079C0C /* AppDelegate.swift in Sources */,
+				D87195952D881EAD00A77BF3 /* bEvent.m in Sources */,
 				D8FEE919278FBB67006E3A22 /* NSString+b.m in Sources */,
+				D89F15222D8083E800A099D6 /* bInfoView.m in Sources */,
 				D890E1D327891CDB00079C0C /* SceneDelegate.swift in Sources */,
 				D890E21827891D4D00079C0C /* UIView+b.m in Sources */,
 				D8F0B69629383C1200461D3C /* b+HTML.m in Sources */,

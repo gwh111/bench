@@ -33,6 +33,7 @@
 #import "bVideo.h"
 #import "bShared.h"
 #import "bPurchase.h"
+#import "bEvent.h"
 //#import "bHTML.h"
 
 #ifdef DEBUG
@@ -99,6 +100,8 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 + (bMusicBox *)music;
 + (bThread *)thread;
 + (bSort *)sort;
+
++ (bEvent *)event;
 
 //UI
 + (bUI *)ui;

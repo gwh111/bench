@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface b (App)
 
+//+ (void)postNotification_rate;
+
 + (NSString *)getUserName;
 + (NSString *)getNickName;
 + (NSString *)getGender;
@@ -20,6 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isRated;
 + (void)isRatedSet:(BOOL)rated;
+
++ (BOOL)isUnlockWithKey:(NSString *)key;
++ (void)isUnlockSet:(BOOL)unlock withKey:(NSString *)key;
+
++ (BOOL)isUnlockManyWithKey:(NSString *)key;
++ (void)isUnlockManySet:(BOOL)unlock withKey:(NSString *)key;
+
++ (void)setEverydayCount:(int)count withKey:(NSString *)key;
++ (void)addEverydayCount:(int)count withKey:(NSString *)key;
++ (int)getEverydayCountWithKey:(NSString *)key;
+
++ (void)setNPCInfoNPCName:(NSString *)npcName key:(NSString *)key value:(id)value;
++ (NSDictionary *)getNPCInfoWithNPCName:(NSString *)npcName;
 
 + (BOOL)isCodeValided;
 + (void)isCodeValidedSet:(BOOL)rated;
