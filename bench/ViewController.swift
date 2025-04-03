@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         //test.test();
         b.httpTask()
         b.event().dispatchEvent("", data: nil)
+        UIButton.b_backButton()
     }
 
 

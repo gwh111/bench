@@ -49,7 +49,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 
 - (void)addMenuTappedWithBlock:(bAssociatedTapMenuBlock)block;
 - (void)menuBlock:(NSString *)key;
-- (void)addBGnamed:(NSString *)imagepath mode:(UIViewContentMode)mode;
+- (void)addBGPath:(NSString *)imagepath mode:(UIViewContentMode)mode;
 
 - (nullable __kindof id)viewWithName:(NSString *)name;
 - (nullable __kindof id)viewWithBenchName:(NSString *)name;
@@ -78,8 +78,12 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (UIView *)getPopViewWithOK;
 - (UIScrollView *)getPopViewWidth:(CGFloat)width;
 
+- (void)addOpaqueBlackFull;
 - (void)addFadeBlackLayerFromTop;
 - (void)addFadeBlackLayerFromBottom;
+
+- (void)addBackVideoPath:(NSString *)path;
+- (void)removeBackVideo:(NSString *)path;
 
 @end
 

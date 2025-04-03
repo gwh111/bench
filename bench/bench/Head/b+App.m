@@ -300,6 +300,20 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     return path;
 }
 
++ (BOOL)BundleFileExistsInPath:(NSString *)fileName fileExtension:(NSString *)fileExtension {
+    // 获取文件在Bundle中的URL
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:fileName withExtension:fileExtension];
+    
+    // 如果URL为nil，说明文件不存在
+    if (!fileURL) {
+        return NO;
+    }
+    
+    // 使用NSFileManager检查文件是否存在
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    return [fileManager fileExistsAtPath:fileURL.path];
+}
+
 + (NSDictionary *)getDictionary:(NSString *)name {
     NSString *service = @"b";
     NSDictionary *data = @{};

@@ -14,7 +14,6 @@
 
 @interface bVideo ()
 
-@property (nonatomic, strong) AVPlayerViewController *playerVC;
 @property (nonatomic, weak) id timeObserve;
 @property (nonatomic, assign) BOOL muted;
 
@@ -27,6 +26,15 @@
 //self.playerVC.entersFullScreenWhenPlaybackBegins = YES;//开启这个播放的时候支持（全屏）横竖屏哦
 //self.playerVC.exitsFullScreenWhenPlaybackEnds = YES;//开启这个所有 item 播放完毕可以退出全屏
     
+}
+
++ (bVideo *)videoWithPath:(NSString *)path {
+    bVideo *video = bVideo.new;
+    NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
+    NSURL *url = [NSURL fileURLWithPath:localFilePath];
+    video.videoUrl = url;
+    [video setup];
+    return video;
 }
 
 + (bVideo *)videoWithURL:(NSURL *)url {
@@ -52,6 +60,8 @@
     _playerVC.showsPlaybackControls = YES;
     
     [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    [self addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (UIView *)displayView {
@@ -91,13 +101,25 @@
     
     if (_playerVC.readyForDisplay) {
         [_playerVC.player play];
+    } else {
+        [self checkplay];
     }
     [self addObserver];
 }
 
+- (void)checkplay {
+    [b.timer registerT:@"checkvideo" interval:0.2 block:^{
+        if (_playerVC.readyForDisplay) {
+            [_playerVC.player play];
+            [b.timer unRegisterT:@"checkvideo"];
+        } else {
+        }
+    }];
+}
+
 - (void)addObserver {
     
-    [self removeObserver];
+    //[self removeObserver];
     
 //    [_playerVC addObserver:self forKeyPath:@"readyForDisplay" options:0 context:NULL];
     WS(weakSelf)
@@ -109,7 +131,8 @@
             //播放百分比为1表示已经播放完毕
             [weakSelf.playerVC.player seekToTime:kCMTimeZero];
             if (weakSelf.playerVC.player.isMuted) {
-                [weakSelf playMutely];
+                //[weakSelf playMutely];
+                [weakSelf checkplay];
             } else {
                 [weakSelf play];
             }
@@ -130,7 +153,7 @@
 //    if (_type == CC_VideoFinishTypeRepeat) {
 //        _playerVC.showsPlaybackControls = false;
 //    }
-    [self removeObserver];
+    //[self removeObserver];
 }
 
 - (void)addToView:(id)view {

@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVKit/AVKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface bVideo : NSObject
@@ -17,9 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *coverImageUrl;
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, assign) BOOL playWhenReady;
+@property (nonatomic, strong) AVPlayerViewController *playerVC;
 
 // 必须以属性方式持有，否则会被提前释放
 + (bVideo *)videoWithURL:(NSURL *)url;
++ (bVideo *)videoWithPath:(NSString *)path;
 
 + (NSString *)convertImages:(NSArray *)images toVideoName:(NSString *)videoName;
 

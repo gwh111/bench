@@ -57,6 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)getDictionary:(NSString *)name;
 + (void)saveDictionary:(NSDictionary *)data name:(NSString *)name;
 + (NSString *)bundlePathWithName:(NSString *)name;
++ (BOOL)BundleFileExistsInPath:(NSString *)fileName fileExtension:(NSString *)fileExtension;
 
 + (id)benchDefaultObjectForKey:(NSString *)key;
 + (void)benchDefaultRemoveObjectForKey:(NSString *)key;

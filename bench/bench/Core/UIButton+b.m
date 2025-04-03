@@ -130,6 +130,20 @@
     return pk;
 }
 
++ (UIButton *)b_alphaInkButton {
+    UIButton *pk = UIButton.b_UIButton;
+    pk.size = CGSizeMake(RH(60), RH(35));
+    pk.layer.cornerRadius = RH(5);
+    pk.titleLabel.font = RF(16);
+    pk.b_normalColor = UIColor.whiteColor;
+    UIImage *image = [UIImage b_imageNamed:@"inkbtn"];
+    [pk setBackgroundImage:image forState:UIControlStateNormal];
+    pk.clipsToBounds = YES;
+    pk.layer.borderColor = UIColor.whiteColor.CGColor;
+    pk.layer.borderWidth = 1;
+    return pk;
+}
+
 + (UIButton *)b_gameInkOKButton {
     float width = RH(100);
     UIButton *pk = UIButton.b_UIButton;

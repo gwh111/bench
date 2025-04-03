@@ -8,7 +8,7 @@
 #import "UIView+b.h"
 
 #import <objc/runtime.h>
-#import "b.h"
+#import "bench.h"
 #import "UITapGestureRecognizer+b.h"
 #import "CALayer+b.h"
 //#import "CC_CoreCrash.h"
@@ -25,7 +25,7 @@
 }
 
 - (void)showToAlpha:(CGFloat)alpha {
-//    self.alpha = 0;
+    //    self.alpha = 0;
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = alpha;
     } completion:^(BOOL finished) {
@@ -93,7 +93,7 @@
     //    return view;
 }
 
-- (void)addBGnamed:(NSString *)imagepath mode:(UIViewContentMode)mode {
+- (void)addBGPath:(NSString *)imagepath mode:(UIViewContentMode)mode {
     UIImageView *deskbg = UIImageView.new;
     deskbg.width = self.width;
     deskbg.height = self.height;
@@ -446,9 +446,17 @@
     
 }
 
+- (void)addOpaqueBlackFull {
+    UIView *black = UIView.new;
+    black.width = WIDTH();
+    black.height = HEIGHT();
+    [self addSubview:black];
+    black.backgroundColor = RGBA(0, 0, 0, 0.5);
+}
+
 - (void)addFadeBlackLayerFromTop {
     CAGradientLayer *layer = CAGradientLayer.new;
-    layer.frame = CGRectMake(0, 0, self.width, self.height);
+    layer.frame = CGRectMake(0, 0, self.width, self.height+2);
     layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
     layer.locations = @[@(0),@(0.7)];
     layer.startPoint = CGPointMake(0.5, 0);
@@ -458,7 +466,7 @@
 
 - (void)addFadeBlackLayerFromBottom {
     CAGradientLayer *layer = CAGradientLayer.new;
-    layer.frame = CGRectMake(0, 0, self.width, self.height);
+    layer.frame = CGRectMake(0, 0, self.width, self.height+2);
     layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
     layer.locations = @[@(0),@(0.7)];
     layer.startPoint = CGPointMake(0.5, 1);
@@ -648,6 +656,28 @@
     displayView.centerY = HEIGHT()/2;
     [self addSubview:displayView];
     self.safeView = displayView;
+}
+
+- (void)addBackVideoPath:(NSString *)path {
+    bVideo *video = [bVideo videoWithPath:path];
+    video.displayView.size = self.size;
+    [video playMutely];
+    [self addSubview:video.displayView];
+    [b setSharedKey:path object:video];
+    video.displayView.userInteractionEnabled = NO;
+    video.playerVC.showsPlaybackControls = YES;
+//    [b delay:1 block:^{
+//        [video playMutely];
+//    }];
+    //[video.displayView show];
+}
+
+- (void)removeBackVideo:(NSString *)path {
+    bVideo *video = [b getSharedKey:path];
+    [video pause];
+    [video removeObserver];
+    [video.displayView removeFromSuperview];
+    [b removeSharedKey:path];
 }
 
 @end
