@@ -22,6 +22,9 @@
 }
 
 + (void)removeSharedKey:(NSString *)key {
+    if (!key) {
+        return;
+    }
     [bBase.shared.sharedData removeObjectForKey:key];
 }
 

@@ -78,6 +78,7 @@
     
     float w = back.width-RH(100);
     float h1 = back.height-RH(80);
+    h1 = RH(100);
     UIView *contentView = UIView.new;
     contentView.size = CGSizeMake(w, h1);
     [self addSubview:contentView];

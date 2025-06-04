@@ -6,7 +6,8 @@
 //
 
 #import "b.h"
-
+#import <sys/utsname.h>
+#include <sys/sysctl.h>
 // must private
 #import "bBase.h"
 
@@ -34,6 +35,30 @@
 
 + (NSString *)version {
     return bBase.shared.version;
+}
+
++ (NSString *)deviceType {
+    NSString *deviceModel = [[UIDevice currentDevice] model];  // 返回如"iPhone"、"iPad"等通用名称
+    NSString *localizedModel = [[UIDevice currentDevice] localizedModel];  // 返回本地化名称（如中文显示"iPhone"）
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *machine = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
+
+    size_t size = 256;
+    char *name = (char *)malloc(size);
+    sysctlbyname("hw.model", name, &size, NULL, 0);
+    NSString *hardwareModel = [NSString stringWithUTF8String:name];
+    free(name);
+    
+    NSString *res = [NSString stringWithFormat:@"%@_%@_%@",localizedModel,machine,hardwareModel];
+    NSLog(@"%@",res);
+    return res;
+}
+
++ (NSString *)deviceSystemVersion {
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];  // 返回如"16.4.1"
+    return systemVersion;
 }
 
 + (int)compareVersion:(NSString *)v1 cutVersion:(NSString *)v2 {

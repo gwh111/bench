@@ -128,6 +128,9 @@ static inline void timeCost(void (^block)(void), void (^complete)(double ms)) {
 + (NSString *)bundleStringWithPath:(NSString *)name type:(NSString *)type;
 + (NSDictionary *)bundlePlistWithPath:(NSString *)name;
 
++ (NSString *)deviceSystemVersion;
++ (NSString *)deviceType;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN

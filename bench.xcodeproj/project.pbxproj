@@ -90,8 +90,9 @@
 		D8A37E44288E3EFA00E0C895 /* bMusicBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A37E42288E3EFA00E0C895 /* bMusicBox.m */; };
 		D8AE040228D2AE0B000CFC35 /* bVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AE040028D2AE0B000CFC35 /* bVideo.m */; };
 		D8C3F482295AA5AC00E3F2FF /* AskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F481295AA5AC00E3F2FF /* AskView.m */; };
-		D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F484295AA78200E3F2FF /* InfoView.m */; };
+		D8C3F485295AA78300E3F2FF /* LandscapeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F484295AA78200E3F2FF /* LandscapeInfoView.m */; };
 		D8C5148B2D8643FB00E72F26 /* bButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5148A2D8643FB00E72F26 /* bButton.swift */; };
+		D8E123562DCDF3660026D9D8 /* bVideoQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E123552DCDF3660026D9D8 /* bVideoQueue.m */; };
 		D8F0B69629383C1200461D3C /* b+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0B69429383C1200461D3C /* b+HTML.m */; };
 		D8F2C4BF2961B82A00D14C17 /* b+Make.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2C4BE2961B82A00D14C17 /* b+Make.m */; };
 		D8FE0CCB27B4D68D00A141D5 /* NSObject+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FE0CC927B4D68D00A141D5 /* NSObject+b.m */; };
@@ -263,9 +264,11 @@
 		D8AE040128D2AE0B000CFC35 /* bVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bVideo.h; sourceTree = "<group>"; };
 		D8C3F480295AA5AC00E3F2FF /* AskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskView.h; sourceTree = "<group>"; };
 		D8C3F481295AA5AC00E3F2FF /* AskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskView.m; sourceTree = "<group>"; };
-		D8C3F483295AA78200E3F2FF /* InfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoView.h; sourceTree = "<group>"; };
-		D8C3F484295AA78200E3F2FF /* InfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoView.m; sourceTree = "<group>"; };
+		D8C3F483295AA78200E3F2FF /* LandscapeInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeInfoView.h; sourceTree = "<group>"; };
+		D8C3F484295AA78200E3F2FF /* LandscapeInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeInfoView.m; sourceTree = "<group>"; };
 		D8C5148A2D8643FB00E72F26 /* bButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bButton.swift; sourceTree = "<group>"; };
+		D8E123542DCDF3660026D9D8 /* bVideoQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bVideoQueue.h; sourceTree = "<group>"; };
+		D8E123552DCDF3660026D9D8 /* bVideoQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bVideoQueue.m; sourceTree = "<group>"; };
 		D8F0B69429383C1200461D3C /* b+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "b+HTML.m"; sourceTree = "<group>"; };
 		D8F0B69529383C1200461D3C /* b+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "b+HTML.h"; sourceTree = "<group>"; };
 		D8F0B69A29383D1C00461D3C /* bench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bench.h; sourceTree = "<group>"; };
@@ -479,6 +482,8 @@
 				D81FD3DC2BD0923200C6696B /* bPurchase.m */,
 				D8AE040128D2AE0B000CFC35 /* bVideo.h */,
 				D8AE040028D2AE0B000CFC35 /* bVideo.m */,
+				D8E123542DCDF3660026D9D8 /* bVideoQueue.h */,
+				D8E123552DCDF3660026D9D8 /* bVideoQueue.m */,
 				D83733A028BC741B002BAA73 /* bAnimationPlay.h */,
 				D837339F28BC741B002BAA73 /* bAnimationPlay.m */,
 				D8A37E43288E3EFA00E0C895 /* bMusicBox.h */,
@@ -495,8 +500,8 @@
 				D890E21427891D4D00079C0C /* bUI.m */,
 				D8C3F480295AA5AC00E3F2FF /* AskView.h */,
 				D8C3F481295AA5AC00E3F2FF /* AskView.m */,
-				D8C3F483295AA78200E3F2FF /* InfoView.h */,
-				D8C3F484295AA78200E3F2FF /* InfoView.m */,
+				D8C3F483295AA78200E3F2FF /* LandscapeInfoView.h */,
+				D8C3F484295AA78200E3F2FF /* LandscapeInfoView.m */,
 				D805C5922BA4866A00E06820 /* CC_Lib+UINavigationController.h */,
 				D805C5932BA4866A00E06820 /* CC_Lib+UINavigationController.m */,
 				D890E21127891D4D00079C0C /* UIView+b.h */,
@@ -722,8 +727,9 @@
 				D82B15232A4726A900183B43 /* b+UI.m in Sources */,
 				D89F9EA229F6B70E009644A6 /* test.mm in Sources */,
 				D805C5942BA4866A00E06820 /* CC_Lib+UINavigationController.m in Sources */,
-				D8C3F485295AA78300E3F2FF /* InfoView.m in Sources */,
+				D8C3F485295AA78300E3F2FF /* LandscapeInfoView.m in Sources */,
 				188BF8392AF88536008B57A6 /* bShared.m in Sources */,
+				D8E123562DCDF3660026D9D8 /* bVideoQueue.m in Sources */,
 				D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */,
 				18B2EFE22B00BCB4002C9A4C /* GTMBase64.m in Sources */,
 				1823DC632A56705C00845A82 /* b+Language.m in Sources */,

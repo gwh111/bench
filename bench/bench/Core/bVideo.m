@@ -31,6 +31,9 @@
 + (bVideo *)videoWithPath:(NSString *)path {
     bVideo *video = bVideo.new;
     NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
+    if (!localFilePath) {
+        return nil;
+    }
     NSURL *url = [NSURL fileURLWithPath:localFilePath];
     video.videoUrl = url;
     [video setup];
@@ -44,11 +47,121 @@
     return video;
 }
 
++ (bVideo *)videoWithPaths:(NSArray<NSString *> *)paths {
+    if (!paths || paths.count == 0) return nil;
+    
+    bVideo *video = bVideo.new;
+    video.videoPaths = paths; // 保存路径数组
+    NSMutableArray *playerItems = [NSMutableArray array];
+    
+    // 创建所有视频的 AVPlayerItem
+    for (NSString *path in paths) {
+        NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
+        if (!localFilePath) continue;
+        
+        NSURL *url = [NSURL fileURLWithPath:localFilePath];
+        AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
+        [playerItems addObject:item];
+    }
+    
+    if (playerItems.count == 0) return nil;
+    
+    // 创建队列播放器
+    video.playerVC = AVPlayerViewController.new;
+    video.playerVC.player = [AVQueuePlayer queuePlayerWithItems:playerItems];
+    video.playerVC.view.frame = CGRectMake(0, 0, 300, 300);
+    video.playerVC.player.accessibilityElementsHidden = NO;
+    video.playerVC.showsPlaybackControls = YES;
+    video.playerVC.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    video.playerVC.allowsPictureInPicturePlayback = YES;
+    
+    // 设置音频会话
+    [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    // 添加播放结束观察者
+    [[NSNotificationCenter defaultCenter] addObserver:video
+                                           selector:@selector(playerItemDidReachEnd:)
+                                               name:AVPlayerItemDidPlayToEndTimeNotification
+                                             object:nil];
+    
+    // 预加载下一个视频
+    [video preloadNextItem];
+    
+    return video;
+}
+
+- (void)playerItemDidReachEnd:(NSNotification *)notification {
+    AVQueuePlayer *queuePlayer = (AVQueuePlayer *)self.playerVC.player;
+    
+    // 获取当前播放的 item 在原始路径数组中的索引
+    NSInteger currentIndex = [queuePlayer.items indexOfObject:notification.object];
+    if (currentIndex == NSNotFound) return;
+    
+    // 计算下一个要播放的视频的索引
+    NSInteger nextIndex = (currentIndex + 1) % self.videoPaths.count;
+    
+    // 创建新的 AVPlayerItem
+    NSString *nextPath = self.videoPaths[nextIndex];
+    NSString *localFilePath = [[NSBundle mainBundle]pathForResource:nextPath ofType:nil];
+    if (!localFilePath) return;
+    
+    NSURL *url = [NSURL fileURLWithPath:localFilePath];
+    AVPlayerItem *nextItem = [AVPlayerItem playerItemWithURL:url];
+    
+    // 将新的 item 添加到队列末尾
+    [queuePlayer insertItem:nextItem afterItem:nil];
+    
+    // 预加载下一个视频
+    [self preloadNextItem];
+}
+
+- (void)preloadNextItem {
+    AVQueuePlayer *queuePlayer = (AVQueuePlayer *)self.playerVC.player;
+    if (queuePlayer.items.count > 1) {
+        AVPlayerItem *nextItem = queuePlayer.items[1];
+        [nextItem.asset loadValuesAsynchronouslyForKeys:@[@"playable"] completionHandler:^{
+            // 预加载完成
+        }];
+    }
+}
+
 - (void)setup {
     
     _playerVC = AVPlayerViewController.new;
 //    _playerVC.player = [AVPlayer playerWithURL:[NSURL URLWithString:@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4"]];
     _playerVC.player = [AVPlayer playerWithURL:_videoUrl];
+//    _playerVC.player.preventsAutomaticBackgroundingDuringVideoPlayback = YES;
+    
+    _playerVC.view.frame = CGRectMake(0, 0, 300, 300);
+    _playerVC.player.accessibilityElementsHidden = NO;
+    _playerVC.showsPlaybackControls = YES;
+    _playerVC.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    
+    _playerVC.allowsPictureInPicturePlayback = YES;
+    _playerVC.showsPlaybackControls = YES;
+    
+    [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    [self addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (AVPlayerItem *)createPlayerItemForIndex:(NSInteger)index {
+    NSArray *urls = @[
+        [NSURL URLWithString:@"http://example.com/video1.mp4"],
+        [NSURL URLWithString:@"http://example.com/video2.mp4"]
+    ];
+    NSURL *url = urls[index];
+    AVAsset *asset = [AVAsset assetWithURL:url];
+    return [AVPlayerItem playerItemWithAsset:asset];
+}
+
+- (void)setupQueue {
+    
+    _playerVC = AVPlayerViewController.new;
+//    _playerVC.player = [AVPlayer playerWithURL:[NSURL URLWithString:@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4"]];
+    AVPlayerItem *initialItem = [self createPlayerItemForIndex:_currentIndex];
+
+    _playerVC.player = [AVQueuePlayer queuePlayerWithItems:@[initialItem]];
 //    _playerVC.player.preventsAutomaticBackgroundingDuringVideoPlayback = YES;
     
     _playerVC.view.frame = CGRectMake(0, 0, 300, 300);
@@ -72,6 +185,18 @@
     _videoUrl = url;
     _playerVC.player = [AVPlayer playerWithURL:_videoUrl];
     _playerVC.player.muted = YES;
+}
+
+- (void)updatePath:(NSString *)path {
+    NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
+    if (!localFilePath) {
+        return;
+    }
+    NSURL *url = [NSURL fileURLWithPath:localFilePath];
+    _videoUrl = url;
+    _playerVC.player = [AVPlayer playerWithURL:_videoUrl];
+    _playerVC.player.muted = YES;
+    [self addObserver];
 }
 
 - (void)soundOn {
@@ -117,6 +242,10 @@
     }];
 }
 
+- (void)addFinishBlock:(void(^)(int win))block {
+    _finishBlock = block;
+}
+
 - (void)addObserver {
     
     //[self removeObserver];
@@ -125,7 +254,7 @@
     WS(weakSelf)
     _timeObserve = [_playerVC.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, NSEC_PER_SEC) queue:nil usingBlock:^(CMTime time) {
         CGFloat progress = CMTimeGetSeconds(weakSelf.playerVC.player.currentItem.currentTime) / CMTimeGetSeconds(weakSelf.playerVC.player.currentItem.duration);
-        
+        NSLog(@"%f",progress);
         if (progress == 1.0f) {
             NSLog(@"%@",weakSelf.videoUrl);
             //播放百分比为1表示已经播放完毕
@@ -137,6 +266,9 @@
                 [weakSelf play];
             }
             [weakSelf addObserver];
+            if (weakSelf.finishBlock) {
+                weakSelf.finishBlock(YES);
+            }
         }
 
     }];
@@ -203,7 +335,7 @@
     
 //    self.theVideoPath = moviePath;
     
-    //定义视频的大小320 480 倍数
+    //定义视频的大小320 480 倍数
 //    float w = image.size.width;
 //    float h = w*320/480;
 //    CGSize size = CGSizeMake(w, h);
@@ -224,11 +356,11 @@
     NSParameterAssert(videoWriter);
     
     if (error) {
-        benchLog(@"error =%@",[error localizedDescription]);
+        benchLog(@"error =%@",[error localizedDescription]);
         return nil;
     }
     
-    //mov的格式设置 编码格式 宽度 高度
+    //mov的格式设置 编码格式 宽度 高度
     NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:AVVideoCodecH264,AVVideoCodecKey,
                                      
                                      [NSNumber numberWithInt:size.width],AVVideoWidthKey,
@@ -332,21 +464,21 @@
     
     NSParameterAssert(context);
     
-    //使用CGContextDrawImage绘制图片  这里设置不正确的话 会导致视频颠倒
+    //使用CGContextDrawImage绘制图片  这里设置不正确的话  会导致视频颠倒
     
     //    当通过CGContextDrawImage绘制图片到一个context中时，如果传入的是UIImage的CGImageRef，因为UIKit和CG坐标系y轴相反，所以图片绘制将会上下颠倒
     
     CGContextDrawImage(context,CGRectMake(0,0,CGImageGetWidth(image),CGImageGetHeight(image)), image);
     
-    // 释放色彩空间
+    // 释放色彩空间
     
     CGColorSpaceRelease(rgbColorSpace);
     
-    // 释放context
+    // 释放context
     
     CGContextRelease(context);
     
-    // 解锁pixel buffer
+    // 解锁pixel  buffer
     
     CVPixelBufferUnlockBaseAddress(pxbuffer,0);
     

@@ -554,6 +554,17 @@ static NSString *BENCH_DEFAULT = @"BENCH_DEFAULT";
     }
 }
 
++ (void)addQucikChargeTotalValue:(int)value {
+    int total = [[b benchDefaultObjectForKey:@"qucikinapp"]intValue];
+    total = total+value;
+    [b benchDefaultSetObject:@(total) forKey:@"qucikinapp"];
+}
+
++ (int)getQucikChargeTotalValue {
+    int total = [[b benchDefaultObjectForKey:@"qucikinapp"]intValue];
+    return total;
+}
+
 + (int)getChargeTotalValue {
     NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
     NSMutableDictionary *mutdic = [[NSMutableDictionary alloc]initWithDictionary:buydic];

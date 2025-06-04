@@ -89,6 +89,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)openAppStore:(NSString *)appId;
 
 + (int)getChargeTotalValue;
++ (int)getQucikChargeTotalValue;
++ (void)addQucikChargeTotalValue:(int)value;
+
 + (UIColor *)colorWithStar:(int)star;
 
 + (BOOL)hasSetKey:(NSString *)key;

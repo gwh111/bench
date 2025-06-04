@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "b.h"
+#import "bVideo.h"
+#import "bVideoQueue.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -70,7 +72,7 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)addShakeTimes:(int)times block:(void(^)(void))block;
 - (void)addShakeTimes:(int)times speed:(float)speed wait:(float)wait block:(void(^)(void))block;
 
-- (void)addBlurEffectView;
+- (UIVisualEffectView *)addBlurEffectView;
 - (void)addInkVCBack:(NSString *)title backName:(NSString *)back;
 
 @property (nonatomic, retain) UIScrollView *safeView;
@@ -81,9 +83,21 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)addOpaqueBlackFull;
 - (void)addFadeBlackLayerFromTop;
 - (void)addFadeBlackLayerFromBottom;
+- (void)addFadeBlack05LayerFromBottom;
+- (void)addFadeBlackLayerFromLeft;
 
-- (void)addBackVideoPath:(NSString *)path;
+- (bVideoQueue *)getVideoQueueAddBackVideoPaths:(NSArray *)paths;
+- (bVideo *)getVideoAddBackVideoPath:(NSString *)path;
+- (bVideo *)getVideoAddBackVideoPaths:(NSArray<NSString *> *)paths;
+
+- (UIView *)addBackVideoPath:(NSString *)path;
 - (void)removeBackVideo:(NSString *)path;
+- (void)removeBackVideoImmiditaly:(NSString *)path;
+
+- (void)stopAlphaBreath;
+- (void)startAlphaBreath:(BOOL)fade speed:(float)speed;
+
+- (void)addStartBottomChinaWarning;
 
 @end
 

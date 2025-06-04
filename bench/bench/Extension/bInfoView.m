@@ -34,18 +34,49 @@
         [view dismiss];
     }];
     
-    self.backgroundColor = RGBA(0, 0, 0, 0.5);
+//    self.backgroundColor = RGBA(0, 0, 0, 0.5);
     
     UIView *popV = UIView.new;
-    popV.width = WIDTH()-RH(40);
-    popV.height = popV.width;
+    popV.width = WIDTH();
+    popV.height = RH(200);
     popV.centerX = WIDTH()/2;
     popV.centerY = HEIGHT()/2;
     [self addSubview:popV];
-    popV.backgroundColor = UIColor.blackColor;
-    popV.layer.cornerRadius = RH(10);
-    popV.layer.borderColor = UIColor.whiteColor.CGColor;
-    popV.layer.borderWidth = 1;
+//    popV.backgroundColor = RGBA(0, 0, 0, 1);
+    
+    NSString *text = _str;
+    if (_att) {
+        text = _att.string;
+    }
+    popV.height = RH(50)+RH(50)*text.length/20;
+    float max = HEIGHT()-SAFE_BOTTOM()-SAFE_TOP()-RH(100);
+    if (popV.height > max) {
+        popV.height = max;
+    }
+    popV.centerY = HEIGHT()/2;
+    
+//    {
+//        UIView *alphaview = UIView.new;
+//        alphaview.width = WIDTH();
+//        alphaview.height = popV.width;
+//        alphaview.centerX = WIDTH()/2;
+//        alphaview.bottom = popV.top;
+//        [self addSubview:alphaview];
+//        [alphaview addFadeBlackLayerFromBottom];
+//    }
+//    {
+//        UIView *alphaview = UIView.new;
+//        alphaview.width = WIDTH();
+//        alphaview.height = popV.width;
+//        alphaview.centerX = WIDTH()/2;
+//        alphaview.top = popV.bottom;
+//        [self addSubview:alphaview];
+//        [alphaview addFadeBlackLayerFromTop];
+//    }
+    
+//    popV.layer.cornerRadius = RH(10);
+//    popV.layer.borderColor = UIColor.whiteColor.CGColor;
+//    popV.layer.borderWidth = 1;
     
     UITextView *textview = UITextView.new;
     textview.width = popV.width-RH(20);

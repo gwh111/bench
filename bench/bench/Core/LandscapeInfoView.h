@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InfoView : UIView
+@interface LandscapeInfoView : UIView
 
 @property (nonatomic, retain) UITextView *askView;
 @property (nonatomic, assign) BOOL isSmall;

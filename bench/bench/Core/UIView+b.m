@@ -402,6 +402,26 @@
     }
 }
 
+- (void)stopAlphaBreath {
+    [b setSharedKey:@"stopAlphaBreath" object:@(1)];
+}
+
+- (void)startAlphaBreath:(BOOL)fade speed:(float)speed {
+    int stopAlphaBreath = [[b getSharedKey:@"stopAlphaBreath"]intValue];
+    if (stopAlphaBreath) {
+        return;
+    }
+    float fadeAlpha = 1;
+    if (fade == NO) {
+        fadeAlpha = 0.2;
+    }
+    [UIView animateWithDuration:speed animations:^{
+        self.alpha = fadeAlpha;
+        } completion:^(BOOL finished) {
+            [self startAlphaBreath:!fade speed:speed];
+        }];
+}
+
 - (void)addShakeTimes:(int)times block:(void(^)(void))block {
     times = times-1;
     if (times <= 0) {
@@ -474,11 +494,32 @@
     [self.layer addSublayer:layer];
 }
 
-- (void)addBlurEffectView {
+- (void)addFadeBlack05LayerFromBottom {
+    CAGradientLayer *layer = CAGradientLayer.new;
+    layer.frame = CGRectMake(0, 0, self.width, self.height);
+    layer.colors = @[(id)RGBA(0, 0, 0, 0.5).CGColor, (id)UIColor.clearColor.CGColor];
+    layer.locations = @[@(0),@(1)];
+    layer.startPoint = CGPointMake(0.5, 1);
+    layer.endPoint = CGPointMake(0.5, 0);
+    [self.layer addSublayer:layer];
+}
+
+- (void)addFadeBlackLayerFromLeft {
+    CAGradientLayer *layer = CAGradientLayer.new;
+    layer.frame = CGRectMake(0, 0, self.width, self.height+2);
+    layer.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
+    layer.locations = @[@(0),@(0.7)];
+    layer.startPoint = CGPointMake(0, 0.5);
+    layer.endPoint = CGPointMake(1, 0.5);
+    [self.layer addSublayer:layer];
+}
+
+- (UIVisualEffectView *)addBlurEffectView {
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *blurv = [[UIVisualEffectView alloc]initWithEffect:blur];
     blurv.frame = self.frame;
     [self addSubview:blurv];
+    return blurv;
 }
 
 - (void)addInkVCBack:(NSString *)title backName:(NSString *)back {
@@ -658,7 +699,54 @@
     self.safeView = displayView;
 }
 
-- (void)addBackVideoPath:(NSString *)path {
+//- (bVideoQueue *)getVideoQueueAddBackVideoPaths:(NSArray *)paths {
+//    NSArray *urls = @[
+//        [NSURL URLWithString:@"平民男孩.mp4"],
+//        [NSURL URLWithString:@"平民女孩.mp4"]
+//    ];
+//    bVideoQueue *videoQueue = [[bVideoQueue alloc] initWithURLs:urls];
+//    
+//    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:videoQueue.player];
+//    layer.frame = self.bounds;
+//    [self.layer addSublayer:layer];
+//    
+//    [videoQueue play];
+//    [b setSharedKey:@"path" object:videoQueue];
+//    
+//    return videoQueue;
+//}
+
+- (bVideo *)getVideoAddBackVideoPaths:(NSArray<NSString *> *)paths {
+    bVideo *video = [bVideo videoWithPaths:paths];
+    video.displayView.size = self.size;
+    [video playMutely];
+    [self addSubview:video.displayView];
+    [b setSharedKey:paths[0] object:video];
+    video.displayView.userInteractionEnabled = NO;
+    video.playerVC.showsPlaybackControls = YES;
+    video.displayView.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        video.displayView.alpha = 1;
+    }];
+    return video;
+}
+
+- (bVideo *)getVideoAddBackVideoPath:(NSString *)path {
+    bVideo *video = [bVideo videoWithPath:path];
+    video.displayView.size = self.size;
+    [video playMutely];
+    [self addSubview:video.displayView];
+    [b setSharedKey:path object:video];
+    video.displayView.userInteractionEnabled = NO;
+    video.playerVC.showsPlaybackControls = YES;
+    video.displayView.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        video.displayView.alpha = 1;
+    }];
+    return video;
+}
+
+- (UIView *)addBackVideoPath:(NSString *)path {
     bVideo *video = [bVideo videoWithPath:path];
     video.displayView.size = self.size;
     [video playMutely];
@@ -670,14 +758,45 @@
 //        [video playMutely];
 //    }];
     //[video.displayView show];
+    video.displayView.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        video.displayView.alpha = 1;
+    }];
+    return video.displayView;
 }
 
 - (void)removeBackVideo:(NSString *)path {
+    bVideo *video = [b getSharedKey:path];
+    [UIView animateWithDuration:0.5 animations:^{
+        video.displayView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [video pause];
+        [video removeObserver];
+        [video.displayView removeFromSuperview];
+        [b removeSharedKey:path];
+    }];
+}
+
+- (void)removeBackVideoImmiditaly:(NSString *)path {
     bVideo *video = [b getSharedKey:path];
     [video pause];
     [video removeObserver];
     [video.displayView removeFromSuperview];
     [b removeSharedKey:path];
+}
+
+- (void)addStartBottomChinaWarning {
+    UILabel *label = UILabel.new;
+    [self addSubview:label];
+    label.size = CGSizeMake(WIDTH()-RH(40), RH(60));
+    label.left = RH(20);
+    label.bottom = HEIGHT()-SAFE_BOTTOM();
+    label.numberOfLines = 2;
+    label.font = RF(12);
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = UIColor.lightGrayColor;
+    label.text = @"抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。";
+    label.adjustsFontSizeToFitWidth = YES;
 }
 
 @end

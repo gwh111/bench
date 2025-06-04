@@ -5,13 +5,13 @@
 //  Created by gwh on 2022/7/22.
 //
 
-#import "InfoView.h"
+#import "LandscapeInfoView.h"
 #import "b.h"
 
-@implementation InfoView
+@implementation LandscapeInfoView
 
 + (void)playSmallInfo:(id)content block:(void(^)(BOOL ok))block {
-    InfoView *v = InfoView.new;
+    LandscapeInfoView *v = LandscapeInfoView.new;
     v.isSmall = YES;
     [v initUI];
     [v addInfo:content block:block];
@@ -19,7 +19,7 @@
 }
 
 + (void)playInfo:(id)content block:(void(^)(BOOL ok))block {
-    InfoView *v = InfoView.new;
+    LandscapeInfoView *v = LandscapeInfoView.new;
     [v initUI];
     [v addInfo:content block:block];
     [b.ui.currentUIViewController.view addSubview:v];
@@ -43,7 +43,7 @@
 //    contentView.layer.borderColor = UIColor.whiteColor.CGColor;
 //    contentView.layer.borderWidth = RH(2);
     
-    float w = HEIGHT()+RH(170);
+//    float w = HEIGHT()+RH(170);
     
     UIScrollView *contentView = self.getPopView;
     

@@ -18,10 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, assign) BOOL playWhenReady;
 @property (nonatomic, strong) AVPlayerViewController *playerVC;
+@property (nonatomic, strong) AVQueuePlayer *queuePlayer;
+@property (nonatomic, assign) int currentIndex;
+@property (nonatomic, strong) NSArray<NSString *> *videoPaths;
+
+@property (nonatomic, strong) void(^finishBlock)(int);
+
+- (void)addFinishBlock:(void(^)(int win))block;
 
 // 必须以属性方式持有，否则会被提前释放
 + (bVideo *)videoWithURL:(NSURL *)url;
 + (bVideo *)videoWithPath:(NSString *)path;
++ (bVideo *)videoWithPaths:(NSArray<NSString *> *)paths;
 
 + (NSString *)convertImages:(NSArray *)images toVideoName:(NSString *)videoName;
 
@@ -34,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 更新视频地址
 - (void)updateURL:(NSURL *)url;
+- (void)updatePath:(NSString *)path;
 
 // 播放
 - (void)play;

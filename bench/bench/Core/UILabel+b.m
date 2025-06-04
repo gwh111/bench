@@ -39,7 +39,7 @@
     UILabel *ui = UILabel.new;
     ui.size = CGSizeMake(WIDTH()-RH(20), RH(35));
     ui.left = RH(10);
-    ui.font = RF(14);
+    ui.font = RF(16);
     ui.numberOfLines = 0;
     ui.textColor = UIColor.whiteColor;
     return ui;

@@ -22,7 +22,7 @@
 #import "bUIModule.h"
 
 #import "AskView.h"
-#import "InfoView.h"
+#import "LandscapeInfoView.h"
 
 #import "NSArray+b.h"
 #import "NSString+b.h"
@@ -34,5 +34,7 @@
 
 #import "b+Extension.h"
 #import "bEvent.h"
+
+//#import "bVideoQueue.h"
 
 // extension:plug

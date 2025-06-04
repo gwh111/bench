@@ -13,6 +13,7 @@
 @implementation b (Check)
 
 + (BOOL)isDebug {
+    //return NO;
 #if DEBUG
     return YES;
 #endif
