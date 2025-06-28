@@ -47,6 +47,31 @@
     return video;
 }
 
+- (void)updateVideoWithPaths:(NSArray<NSString *> *)paths {
+    _videoPaths = paths;
+    
+    NSMutableArray *playerItems = [NSMutableArray array];
+    
+    // 创建所有视频的 AVPlayerItem
+    for (NSString *path in paths) {
+        NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
+        if (!localFilePath) continue;
+        
+        NSURL *url = [NSURL fileURLWithPath:localFilePath];
+        AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
+        [playerItems addObject:item];
+    }
+    
+    if (playerItems.count == 0) return;
+    
+    self.playerVC.player = [AVQueuePlayer queuePlayerWithItems:playerItems];
+
+    // 预加载下一个视频
+    [self preloadNextItem];
+    
+    [self playMutely];
+}
+
 + (bVideo *)videoWithPaths:(NSArray<NSString *> *)paths {
     if (!paths || paths.count == 0) return nil;
     
@@ -188,6 +213,7 @@
 }
 
 - (void)updatePath:(NSString *)path {
+    [self pause];
     NSString *localFilePath = [[NSBundle mainBundle]pathForResource:path ofType:nil];
     if (!localFilePath) {
         return;

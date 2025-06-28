@@ -84,7 +84,6 @@
     [self addSubview:contentView];
 //    contentView.backgroundColor = UIColor.blackColor;
 //    contentView.layer.cornerRadius = RH(5);
-    contentView.center = back.center;
 //    contentView.layer.borderColor = UIColor.whiteColor.CGColor;
 //    contentView.layer.borderWidth = RH(2);
     
@@ -115,6 +114,9 @@
 //        contentView.size = CGSizeMake(w, w*0.618+(c-60)*2.8);
 //        contentView.center = CGPointMake(WIDTH()/2, HEIGHT()/2);
 //    }
+    contentView.centerX = WIDTH()/2;
+    contentView.centerY = HEIGHT()/2;
+//    contentView.backgroundColor = UIColor.yellowColor;
     
     UITextView *askView = UITextView.new;
     askView.editable = NO;
@@ -143,6 +145,7 @@
     {
         UIButton *pk = UIButton.b_gameInkButton;
         [self addSubview:pk];
+        pk.width = contentView.width/2;
 //        pk.size = CGSizeMake(contentView.width/2, RH(40));
         pk.top = contentView.bottom+RH(10);
         pk.left = contentView.left;
@@ -163,6 +166,7 @@
     {
         UIButton *pk = UIButton.b_gameInkButton;
         [self addSubview:pk];
+        pk.width = contentView.width/2;
 //        pk.size = CGSizeMake(contentView.width/2, RH(40));
         pk.right = contentView.right;
         pk.top = contentView.bottom+RH(10);

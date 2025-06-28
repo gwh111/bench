@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
 @interface UIViewController (b)
 
 @property (nonatomic, retain) UIScrollView *displayView;
+@property (nonatomic, retain) UIView *phoneView;
 
 - (void)setupRootWindow:(UIWindow *)window andRootViewController:(UIViewController *)vc;
 

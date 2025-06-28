@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "b.h"
 #import "bVideo.h"
-#import "bVideoQueue.h"
+//#import "bVideoQueue.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -86,7 +86,6 @@ typedef void (^bAssociatedTapMenuBlock)(NSString *key);
 - (void)addFadeBlack05LayerFromBottom;
 - (void)addFadeBlackLayerFromLeft;
 
-- (bVideoQueue *)getVideoQueueAddBackVideoPaths:(NSArray *)paths;
 - (bVideo *)getVideoAddBackVideoPath:(NSString *)path;
 - (bVideo *)getVideoAddBackVideoPaths:(NSArray<NSString *> *)paths;
 

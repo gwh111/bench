@@ -139,8 +139,8 @@
     UIImage *image = [UIImage b_imageNamed:@"inkbtn"];
     [pk setBackgroundImage:image forState:UIControlStateNormal];
     pk.clipsToBounds = YES;
-    pk.layer.borderColor = UIColor.whiteColor.CGColor;
-    pk.layer.borderWidth = 1;
+    pk.layer.borderColor = RGBA(255, 255, 255, 0.5).CGColor;
+    pk.layer.borderWidth = 0.2;
     return pk;
 }
 
@@ -289,8 +289,14 @@
 }
 
 - (void)addTappedButtonOnceWithBlock:(void (^)(UIButton *button))block {
+    UIColor *color = self.backgroundColor;
     [self addTappedOnceWithBlock:^(UIView *v) {
-        block((UIButton *)v);
+        UIButton *btn = (UIButton *)v;
+        block(btn);
+        [btn setBackgroundColor:UIColor.whiteColor];
+        [b delay:0.3 block:^{
+            [btn setBackgroundColor:color];
+        }];
     }];
 }
 

@@ -6,7 +6,7 @@
 //
 
 #import "bUI.h"
-#import "b.h"
+#import "bench.h"
 
 @interface bUI () <UIApplicationDelegate>
 
@@ -75,6 +75,10 @@ static dispatch_once_t onceToken;
     [button setTitleColor:highlightTitleColor forState:UIControlStateNormal];
 }
 
+- (UIFont *)relativePhoneFont:(float)fontSize {
+    return [UIFont fontWithName:_defaultFontName size:fontSize];;
+}
+
 - (UIFont *)relativeFont:(float)fontSize {
     return [self relativeFont:_defaultFontName fontSize:fontSize];
 }
@@ -94,6 +98,12 @@ static dispatch_once_t onceToken;
         if (self.width > self.height) {
             rate = [self height]/_uiDemoWidth;
         }
+        if (rate < 0.8) {
+            rate = 0.8;
+        }
+        if (rate > 1.2) {
+            rate = 1.2;
+        }
         if (fontSize <= 10) {
             fontSize = fontSize * rate;
             return [UIFont fontWithName:fontName size:fontSize];
@@ -106,11 +116,22 @@ static dispatch_once_t onceToken;
     return [UIFont systemFontOfSize:fontSize];
 }
 
+- (float)relativePhoneWithPercent:(float)percent {
+    return self.phoneWidth*percent;
+}
+
 - (float)relativeHeight:(float)height {
     if (self.width > self.height) {
         return (int)(height * [self height]/_uiDemoWidth);
     }
-    return (int)(height * [self width]/_uiDemoWidth);
+    float rate = [self width]/_uiDemoWidth;
+    if (rate < 0.8) {
+        rate = 0.8;
+    }
+    if (rate > 1.2) {
+        rate = 1.2;
+    }
+    return (int)(height * rate);
 }
 
 - (float)statusBarHeight {
@@ -154,12 +175,25 @@ static dispatch_once_t onceToken;
     return h;
 }
 
+- (float)phoneWidth {
+    float w = HEIGHT()*1179/2556;
+    return w;
+}
+
 - (float)width {
     float h = [UIScreen mainScreen].bounds.size.height;
     float w = [UIScreen mainScreen].bounds.size.width;
     if (_fixWidthAndHeight) {
         return w;
     }
+    
+    if (_closePad) {
+        float per = h/w;
+        if (per < 2) {
+            return 375.0;
+        }
+    }
+    
     if (h > w) {
         return w;
     }
@@ -175,9 +209,18 @@ static dispatch_once_t onceToken;
         return h;
     }
     float w = [UIScreen mainScreen].bounds.size.width;
+    
+    if (_closePad) {
+        float per = h/w;
+        if (per < 2) {
+            return 667.0;
+        }
+    }
+    
     if (h < w) {
         return w;
     }
+//    NSLog(@"hhh=%f",h);
     return h;
 }
 

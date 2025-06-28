@@ -43,6 +43,7 @@
 typedef void (^finishBlock)(NSString *result);
 
 @property (nonatomic, strong) finishBlock fBlock;
+@property (nonatomic, strong) finishBlock questionBlock;
 @property (nonatomic, retain) NSString *spNumber;
 @property (nonatomic, retain) NSString *spName;
 
@@ -99,6 +100,9 @@ static dispatch_once_t onceToken;
         } completion:^(BOOL finished) {
             
         }];
+        
+        [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
         
         float h = RH(250);
         popV = UIView.new;
@@ -167,6 +171,10 @@ static dispatch_once_t onceToken;
     }];
 }
 
+- (void)addQuestionBlock:(void(^)(NSString *))questionBlock {
+    _questionBlock = questionBlock;
+}
+
 - (void)presentWithIds:(NSArray *)bidlist names:(NSArray *)names dess:(NSArray *)dess block:(void(^)(NSString *result))finishBlock {
     purchaseIndex = 1;
     
@@ -222,11 +230,18 @@ static dispatch_once_t onceToken;
         label.size = CGSizeMake(WIDTH()/2-RH(60), RH(40));
         label.left = RH(10);
         label.top = RH(180);
-        label.font = RF(12);
+        label.font = RF(16);
         label.textColor = UIColor.grayColor;
         label.backgroundColor = UIColor.clearColor;
-        label.text = @"充值遇到问题可到首页提交问题反馈。";
+        label.text = @"充值遇到问题？";
         label.numberOfLines = 2;
+        [label addTappedOnceWithBlock:^(UIView * _Nonnull view) {
+            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+            [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+            if (_questionBlock) {
+                _questionBlock(@"");
+            }
+        }];
     }
     
     
@@ -299,11 +314,18 @@ static dispatch_once_t onceToken;
         label.size = CGSizeMake(WIDTH()/2-RH(60), RH(40));
         label.left = RH(10);
         label.top = RH(180);
-        label.font = RF(12);
+        label.font = RF(16);
         label.textColor = UIColor.grayColor;
         label.backgroundColor = UIColor.clearColor;
-        label.text = @"充值遇到问题可到首页提交问题反馈。";
+        label.text = @"充值遇到问题？";
         label.numberOfLines = 2;
+        [label addTappedOnceWithBlock:^(UIView * _Nonnull view) {
+            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+            [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+            if (_questionBlock) {
+                _questionBlock(@"");
+            }
+        }];
     }
     
     
@@ -557,12 +579,12 @@ static dispatch_once_t onceToken;
                 }];
                 
                 NSString *key = self->kInAppPurchaseProUpgradeProductId;
-                NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
-                NSMutableDictionary *mutdic = [[NSMutableDictionary alloc]initWithDictionary:buydic];
-                int v = [mutdic[key]intValue];
-                v++;
-                [mutdic b_setObject:@(v) forKey:key];
-                [b benchDefaultSetObject:mutdic forKey:@"inapp"];
+//                NSDictionary *buydic = [b benchDefaultObjectForKey:@"inapp"];
+//                NSMutableDictionary *mutdic = [[NSMutableDictionary alloc]initWithDictionary:buydic];
+//                int v = [mutdic[key]intValue];
+//                v++;
+//                [mutdic b_setObject:@(v) forKey:key];
+//                [b benchDefaultSetObject:mutdic forKey:@"inapp"];
                 
                 if (self->_fBlock) {
                     self->_fBlock(self->kInAppPurchaseProUpgradeProductId);

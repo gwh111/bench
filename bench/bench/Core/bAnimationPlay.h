@@ -12,5 +12,6 @@
 
 + (void)playAtView:(UIView *)view aniPath:(NSString *)path fromIndex:(int)index frame:(CGRect)frame reverse:(int)reverse;
 + (void)playAtView:(UIView *)view aniPath:(NSString *)path fromIndex:(int)index alpha:(float)alpha reverse:(int)reverse;
++ (void)playAtView2:(UIView *)view aniPath:(NSString *)path fromIndex:(int)index alpha:(float)alpha reverse:(int)reverse;
 
 @end

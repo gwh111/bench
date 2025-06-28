@@ -10,6 +10,8 @@
 #import "bSelectV.h"
 #import "bLabelGroup.h"
 #import "bInfoView.h"
+#import "bRoundProgressView.h"
+#import "bSquareProgressView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

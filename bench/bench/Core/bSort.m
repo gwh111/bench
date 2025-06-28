@@ -24,7 +24,11 @@ static dispatch_once_t onceToken;
     if (index >= depthArr.count) {
         return value;
     }
-    value = value[depthArr[index]];
+    NSString *key = depthArr[index];
+    if (value[key] == nil) {
+        NSLog(@"%@ %@ is empty",value[@"name"],key);
+    }
+    value = value[key];
     index++;
     return [self getDepthStr:value depthArr:depthArr index:index];
 }

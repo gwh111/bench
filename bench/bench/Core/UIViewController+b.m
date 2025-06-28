@@ -13,6 +13,28 @@
 @implementation UIViewController (b)
 
 // MARK: - Associated -
+- (UIView *)phoneView {
+    UIView *phoneView = objc_getAssociatedObject(self, @selector(phoneView));
+    if (phoneView.height <= 0) {
+        [self setupPhoneView];
+        phoneView = objc_getAssociatedObject(self, @selector(phoneView));
+    }
+    return phoneView;
+}
+
+- (void)setPhoneView:(UIView *)phoneView {
+    objc_setAssociatedObject(self, @selector(phoneView), phoneView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setupPhoneView {
+    float w = HEIGHT()*1179/2556;
+    UIView *phoneView = UIView.new;
+    phoneView.size = CGSizeMake(w, b.ui.safeHeight);
+    phoneView.top = b.ui.safeTop;
+    [self.view addSubview:phoneView];
+    self.phoneView = phoneView;
+}
+
 - (UIScrollView *)displayView {
     UIScrollView *displayView = objc_getAssociatedObject(self, @selector(displayView));
     if (displayView.height <= 0) {

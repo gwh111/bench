@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (bVideo *)videoWithURL:(NSURL *)url;
 + (bVideo *)videoWithPath:(NSString *)path;
 + (bVideo *)videoWithPaths:(NSArray<NSString *> *)paths;
+- (void)updateVideoWithPaths:(NSArray<NSString *> *)paths;
 
 + (NSString *)convertImages:(NSArray *)images toVideoName:(NSString *)videoName;
 

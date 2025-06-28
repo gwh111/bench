@@ -92,7 +92,7 @@
 		D8C3F482295AA5AC00E3F2FF /* AskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F481295AA5AC00E3F2FF /* AskView.m */; };
 		D8C3F485295AA78300E3F2FF /* LandscapeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C3F484295AA78200E3F2FF /* LandscapeInfoView.m */; };
 		D8C5148B2D8643FB00E72F26 /* bButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5148A2D8643FB00E72F26 /* bButton.swift */; };
-		D8E123562DCDF3660026D9D8 /* bVideoQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E123552DCDF3660026D9D8 /* bVideoQueue.m */; };
+		D8E9E2032E0E8B11007B441D /* bInkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E9E2022E0E8B11007B441D /* bInkButton.m */; };
 		D8F0B69629383C1200461D3C /* b+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0B69429383C1200461D3C /* b+HTML.m */; };
 		D8F2C4BF2961B82A00D14C17 /* b+Make.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2C4BE2961B82A00D14C17 /* b+Make.m */; };
 		D8FE0CCB27B4D68D00A141D5 /* NSObject+b.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FE0CC927B4D68D00A141D5 /* NSObject+b.m */; };
@@ -267,8 +267,8 @@
 		D8C3F483295AA78200E3F2FF /* LandscapeInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeInfoView.h; sourceTree = "<group>"; };
 		D8C3F484295AA78200E3F2FF /* LandscapeInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeInfoView.m; sourceTree = "<group>"; };
 		D8C5148A2D8643FB00E72F26 /* bButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bButton.swift; sourceTree = "<group>"; };
-		D8E123542DCDF3660026D9D8 /* bVideoQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bVideoQueue.h; sourceTree = "<group>"; };
-		D8E123552DCDF3660026D9D8 /* bVideoQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bVideoQueue.m; sourceTree = "<group>"; };
+		D8E9E2012E0E8B11007B441D /* bInkButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bInkButton.h; sourceTree = "<group>"; };
+		D8E9E2022E0E8B11007B441D /* bInkButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bInkButton.m; sourceTree = "<group>"; };
 		D8F0B69429383C1200461D3C /* b+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "b+HTML.m"; sourceTree = "<group>"; };
 		D8F0B69529383C1200461D3C /* b+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "b+HTML.h"; sourceTree = "<group>"; };
 		D8F0B69A29383D1C00461D3C /* bench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bench.h; sourceTree = "<group>"; };
@@ -482,8 +482,6 @@
 				D81FD3DC2BD0923200C6696B /* bPurchase.m */,
 				D8AE040128D2AE0B000CFC35 /* bVideo.h */,
 				D8AE040028D2AE0B000CFC35 /* bVideo.m */,
-				D8E123542DCDF3660026D9D8 /* bVideoQueue.h */,
-				D8E123552DCDF3660026D9D8 /* bVideoQueue.m */,
 				D83733A028BC741B002BAA73 /* bAnimationPlay.h */,
 				D837339F28BC741B002BAA73 /* bAnimationPlay.m */,
 				D8A37E43288E3EFA00E0C895 /* bMusicBox.h */,
@@ -562,6 +560,8 @@
 				D88BB01E2D3F3AF0006A916E /* bSelectV.m */,
 				D88BB0232D3F3B86006A916E /* bLabelGroup.h */,
 				D88BB0212D3F3B78006A916E /* bLabelGroup.m */,
+				D8E9E2012E0E8B11007B441D /* bInkButton.h */,
+				D8E9E2022E0E8B11007B441D /* bInkButton.m */,
 				1880DC352A5E97E5002C31DE /* bTalkView.h */,
 				1880DC362A5E97E5002C31DE /* bTalkView.m */,
 				D89F15202D8083E800A099D6 /* bInfoView.h */,
@@ -729,7 +729,6 @@
 				D805C5942BA4866A00E06820 /* CC_Lib+UINavigationController.m in Sources */,
 				D8C3F485295AA78300E3F2FF /* LandscapeInfoView.m in Sources */,
 				188BF8392AF88536008B57A6 /* bShared.m in Sources */,
-				D8E123562DCDF3660026D9D8 /* bVideoQueue.m in Sources */,
 				D829E80D27B35EC900D7C968 /* UIColor+b.m in Sources */,
 				18B2EFE22B00BCB4002C9A4C /* GTMBase64.m in Sources */,
 				1823DC632A56705C00845A82 /* b+Language.m in Sources */,
@@ -741,6 +740,7 @@
 				D8FE0CF827B5462600A141D5 /* bDatabaseTool.m in Sources */,
 				D88BB01F2D3F3AF0006A916E /* bSelectV.m in Sources */,
 				D8A37E41288E3DFF00E0C895 /* UITapGestureRecognizer+b.m in Sources */,
+				D8E9E2032E0E8B11007B441D /* bInkButton.m in Sources */,
 				D837339B28BAFB64002BAA73 /* bMD5.m in Sources */,
 				D8C5148B2D8643FB00E72F26 /* bButton.swift in Sources */,
 				D8FEE958278FCEB4006E3A22 /* UIViewController+b.m in Sources */,

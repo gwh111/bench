@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #define RH(f) [bUI.shared relativeHeight:f]
+#define PWP(f) f * [bUI.shared phoneWidth] //宽度的几倍 PHONE_WIDTH_PERCENT
 #define PW(f) f * WIDTH() //宽度的几倍
 #define PH(f) f * HEIGHT() //高度的几倍
 #define RF(f) [bUI.shared relativeFont:f]
@@ -48,6 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) float heightRate;
 @property (nonatomic, assign) bool fixWidthAndHeight;
+@property (nonatomic, assign) bool closePad;
 
 + (instancetype)shared;
 
@@ -58,8 +60,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (float)relativeHeight:(float)height;
 
+- (UIFont *)relativePhoneFont:(float)fontSize;
 - (UIFont *)relativeFont:(float)fontSize;
 - (UIFont *)relativeFont:(NSString * _Nullable)fontName fontSize:(float)fontSize;
+
+- (float)phoneWidth;
+- (float)relativePhoneWithPercent:(float)percent;
 
 - (BOOL)isPhoneX;
 - (void)makeHeightRate:(float)rate;

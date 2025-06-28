@@ -462,6 +462,10 @@
     }];
 }
 
+- (void)dodge {
+    
+}
+
 - (void)shake:(int)time {
     
 }

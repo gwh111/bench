@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)b_appendAttStr:(NSString *)appendStr color:(UIColor *)color;
 - (void)b_appendAttStr:(NSString *)appendStr color:(UIColor *)color font:(UIFont *)font;
 - (void)b_getReplaceAttText:(NSString *)replaceStr toAtt:(NSMutableAttributedString *)toAtt;
+- (void)b_appendAttStr:(NSString *)appendStr color:(UIColor *)color font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing;
 
 @end
 
